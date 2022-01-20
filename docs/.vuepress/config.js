@@ -62,7 +62,7 @@ module.exports = config({
     hostname: "https://blog.yzketx.online/",
 
     docsDir: "docs",  // 文档目录
-    docsBranch: "master",
+    docsBranch: "v2",
 
     repo: "https://github.com/ET-yzk/ET-yzk.github.io",
     repoDisplay: false,

@@ -34,17 +34,14 @@ footer: At four o'clock isn the morning, I saw Begonia flowers awake.
 
 <script>
 export default {
-  beforeMount() {
-          fetch('https://v1.hitokoto.cn/?c=d&c=e&c=i&c=j&c=k')
-          .then(response => response.json())
-          .then(data => {
-            const hitokoto = document.getElementById('hitokoto_text')
-            hitokoto.href = 'https://hitokoto.cn/?uuid=' + data.uuid
-            hitokoto.innerText = '🍃「 ' + data.hitokoto + '」'
-          })
-          .catch(console.error);
-  },
   mounted() {
+    axios.get('https://v1.hitokoto.cn/?c=d&c=e&c=i&c=j&c=k')
+      .then(({ data }) => {
+        const hitokoto = document.getElementById('hitokoto_text')
+        hitokoto.href = 'https://hitokoto.cn/?uuid=' + data.uuid
+        hitokoto.innerText = '🍃「 ' + data.hitokoto + '」'
+    })
+    .catch(console.error)
   },
 }
 </script>

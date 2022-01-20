@@ -24,10 +24,10 @@ module.exports = config({
       "script",
       { src: "https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js" },
     ],
-    // [
-    //   "script",
-    //   { src: "https://unpkg.com/axios/dist/axios.min.js" },
-    // ],
+    [
+      "script",
+      { src: "https://unpkg.com/axios/dist/axios.min.js" },
+    ],
     // 官方已内置该 icon 库，也可在styles中引入，并将 themeConfig.iconPrefix 设置为 'fas fa-'
     [
       "script",

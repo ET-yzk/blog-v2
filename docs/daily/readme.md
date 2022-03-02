@@ -123,3 +123,8 @@ star: ture
 ### [线程安全](Thread-safety.md)
 
 > 2022.02.13
+
+### [认识python中的inf和nan](python_inf_nan.md)
+
+> 2022.03.02
+

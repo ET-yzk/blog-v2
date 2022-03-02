@@ -82,11 +82,11 @@ private int size;
 public int getSize() { return size; }
 ```
 
-让用户一开始就使用getSize，以便有朝一日修改getSize实现时，不破坏向后兼容性。这种public int getSize() { return size; }的惯用手法，就是Java Bean。
+让用户一开始就使用`getSize`，以便有朝一日修改`getSize`实现时，不破坏向后兼容性。这种`public int getSize() { return size; }`的惯用手法，就是 **Java Bean**。
 
 现在是2014年，C#、Scala等比Java新的面向对象语言自身就提供了语言特性来实现这些常用需求，所以根本不需要Java Bean这样繁琐的约定。
 
-比如，假如有个Scala版的ScalaIntList：
+比如，假如有个Scala版的`ScalaIntList`：
 
 ```scala
 // 编译成 scala-int-list_1.0.jar

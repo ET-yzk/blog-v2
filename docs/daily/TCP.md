@@ -10,8 +10,9 @@ tag:
 
 # TCP 握手
 
-链接：[https://www.nowcoder.com/questionTerminal/ec843c8a27c84a7693865f55a71a7e8c](https://www.nowcoder.com/questionTerminal/ec843c8a27c84a7693865f55a71a7e8c)
-来源：牛客网
+> 链接：[https://www.nowcoder.com/questionTerminal/ec843c8a27c84a7693865f55a71a7e8c](https://www.nowcoder.com/questionTerminal/ec843c8a27c84a7693865f55a71a7e8c)
+>
+> 来源：牛客网
 
 
 **三次握手的最主要目的是保证连接是双工的，可靠更多的是通过重传机制来保证的。**  

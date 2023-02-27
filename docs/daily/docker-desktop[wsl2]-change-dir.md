@@ -1,7 +1,7 @@
 ---
 icon: b fa-simplybuilt
 category: 天天笔记
-time: 2022-02-08
+date: 2022-02-08
 sidebar: auto
 tag:
   - Tools

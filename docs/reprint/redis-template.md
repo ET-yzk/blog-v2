@@ -1,7 +1,7 @@
 ---
 icon: b fa-simplybuilt
 category: 转载整理
-time: 2022-01-13
+date: 2022-01-13
 sidebar: auto
 tag:
   - Redis
@@ -49,8 +49,8 @@ Type Parameters:
 - **K**
 
   the Redis key type against which the template works (usually a String)
-  模板中的Redis key的类型（通常为String）如：RedisTemplate<String, Object>
-  注意：**如果没特殊情况，切勿定义成RedisTemplate<Object, Object>**，否则根据里氏替换原则，使用的时候会造成类型错误 。
+  模板中的Redis key的类型（通常为String）如：RedisTemplate\<String, Object\>
+  注意：**如果没特殊情况，切勿定义成RedisTemplate\<Object, Object\>**，否则根据里氏替换原则，使用的时候会造成类型错误 。
 
 - **V**
 
@@ -162,7 +162,7 @@ public interface ValueOperations<K,V>;
     true
 ```
 
-- multiSet void multiSet(Map<? extends K, ? extends V> m);
+- multiSet void multiSet(Map\<? extends K, ? extends V\> m);
   为多个键分别设置它们的值
 
 ```java
@@ -181,7 +181,7 @@ public interface ValueOperations<K,V>;
     [multi1, multi2, multi3]
 ```
 
-- multiSetIfAbsent Boolean multiSetIfAbsent(Map<? extends K, ? extends V> m);
+- multiSetIfAbsent Boolean multiSetIfAbsent(Map\<? extends K, ? extends V\> m);
   为多个键分别设置它们的值，如果存在则返回false，不存在返回true
 
 ```java
@@ -222,7 +222,7 @@ public interface ValueOperations<K,V>;
     test
 ```
 
-- multiGet List<V> multiGet(Collection<K> keys);
+- multiGet List\<V\> multiGet(Collection\<K\> keys);
   为多个键分别取出它们的值
 
 ```java
@@ -354,13 +354,13 @@ RedisTemplate<String, Object> template = new RedisTemplate<String, Object>();
         template.setHashValueSerializer(jackson2JsonRedisSerializer);
 ```
 
-**public interface ListOperations<K,V>**
+**public interface ListOperations\<K,V\>**
 
 Redis列表是简单的字符串列表，按照插入顺序排序。你可以添加一个元素导列表的头部（左边）或者尾部（右边）
 
 ListOperations专门操作list列表：
 
-- List<V> range(K key, long start, long end);
+- List\<V\> range(K key, long start, long end);
   返回存储在键中的列表的指定元素。偏移开始和停止是基于零的索引，其中0是列表的第一个元素（列表的头部），1是下一个元素
 
 ```java
@@ -420,7 +420,7 @@ ListOperations专门操作list列表：
 [3, 2, 1]
 ```
 
-- Long leftPushAll(K key, Collection<V> values);
+- Long leftPushAll(K key, Collection\<V\> values);
   批量把一个集合插入到列表中
 
 ```java
@@ -489,7 +489,7 @@ ListOperations专门操作list列表：
     [1, 2, 3]
 ```
 
-- Long rightPushAll(K key, Collection<V> values);
+- Long rightPushAll(K key, Collection\<V\> values);
 
 ```java
 使用：
@@ -647,7 +647,7 @@ ListOperations专门操作list列表：
 
 Redis的散列可以让用户将多个键值对存储到一个Redis键里面。
 
-**public interface HashOperations<H,HK,HV>**
+**public interface HashOperations\<H,HK,HV\>**
 
 HashOperations提供一系列方法操作hash：
 
@@ -698,7 +698,7 @@ HashOperations提供一系列方法操作hash：
     26
 ```
 
-- List<HV> multiGet(H key, Collection<HK> hashKeys);
+- List\<HV\> multiGet(H key, Collection\<HK\> hashKeys);
   从哈希中获取给定hashKey的值
 
 ```java
@@ -735,7 +735,7 @@ HashOperations提供一系列方法操作hash：
     28.1
 ```
 
-- Set<HK> keys(H key);
+- Set\<HK\> keys(H key);
   获取key所对应的散列表的key
 
 ```java
@@ -757,7 +757,7 @@ HashOperations提供一系列方法操作hash：
     3
 ```
 
-- void putAll(H key, Map<? extends HK, ? extends HV> m);
+- void putAll(H key, Map\<? extends HK, ? extends HV\> m);
   使用m中提供的多个散列字段设置到key对应的散列表中
 
 ```java
@@ -797,7 +797,7 @@ HashOperations提供一系列方法操作hash：
     true
 ```
 
-- List<HV> values(H key);
+- List\<HV\> values(H key);
   获取整个哈希存储的值根据密钥
 
 ```java
@@ -807,7 +807,7 @@ HashOperations提供一系列方法操作hash：
     [tom, 26, 6]
 ```
 
-- Map<HK, HV> entries(H key);
+- Map\<HK, HV\> entries(H key);
   获取整个哈希存储根据密钥
 
 ```java
@@ -817,7 +817,7 @@ HashOperations提供一系列方法操作hash：
     {age=26, class=6, name=tom}
 ```
 
-- Cursor<Map.Entry<HK, HV>> scan(H key, ScanOptions options);
+- Cursor\<Map.Entry\<HK, HV\>\> scan(H key, ScanOptions options);
   使用Cursor在key的hash中迭代，相当于迭代器。
 
 ```java
@@ -839,7 +839,7 @@ Redis的Set是string类型的无序集合。集合成员是唯一的，这就意
 
 Redis 中 集合是通过哈希表实现的，所以添加，删除，查找的复杂度都是O(1)。
 
-**public interface SetOperations<K,V>**
+**public interface SetOperations\<K,V\>**
 
 SetOperations提供了对无序集合的一系列操作：
 
@@ -913,7 +913,7 @@ SetOperations提供了对无序集合的一系列操作：
     false
 ```
 
-- Set<V> intersect(K key, K otherKey);
+- Set\<V\> intersect(K key, K otherKey);
   key对应的无序集合与otherKey对应的无序集合求交集
 
 ```java
@@ -927,7 +927,7 @@ SetOperations提供了对无序集合的一系列操作：
     [aaa]
 ```
 
-- Set<V> intersect(K key, Collection<K> otherKeys);
+- Set\<V\> intersect(K key, Collection\<K\> otherKeys);
   key对应的无序集合与多个otherKey对应的无序集合求交集
 
 ```java
@@ -962,7 +962,7 @@ SetOperations提供了对无序集合的一系列操作：
     [aaa, ccc]
 ```
 
-- Long intersectAndStore(K key, Collection<K> otherKeys, K destKey);
+- Long intersectAndStore(K key, Collection\<K\> otherKeys, K destKey);
   key对应的无序集合与多个otherKey对应的无序集合求交集存储到destKey无序集合中
 
 ```java
@@ -983,7 +983,7 @@ SetOperations提供了对无序集合的一系列操作：
     [aaa, ccc]
 ```
 
-- Set<V> union(K key, K otherKey);
+- Set\<V\> union(K key, K otherKey);
   key无序集合与otherKey无序集合的并集
 
 ```java
@@ -997,7 +997,7 @@ SetOperations提供了对无序集合的一系列操作：
     [ccc, aaa, ddd, bbb]
 ```
 
-- Set<V> union(K key, Collection<K> otherKeys);
+- Set\<V\> union(K key, Collection\<K\> otherKeys);
   key无序集合与多个otherKey无序集合的并集
 
 ```java
@@ -1032,7 +1032,7 @@ SetOperations提供了对无序集合的一系列操作：
     unionAndStoreTest1:[ccc, aaa, ddd, bbb]
 ```
 
-- Long unionAndStore(K key, Collection<K> otherKeys, K destKey);
+- Long unionAndStore(K key, Collection\<K\> otherKeys, K destKey);
   key无序集合与多个otherkey无序集合的并集存储到destKey无序集合中
 
 ```java
@@ -1053,7 +1053,7 @@ SetOperations提供了对无序集合的一系列操作：
     unionAndStoreTest2:[ddd, xxx, bbb, aaa, ccc]
 ```
 
-- Set<V> difference(K key, K otherKey);
+- Set\<V\> difference(K key, K otherKey);
   key无序集合与otherKey无序集合的差集
 
 ```java
@@ -1067,7 +1067,7 @@ SetOperations提供了对无序集合的一系列操作：
     [bbb, ddd]
 ```
 
-- Set<V> difference(K key, Collection<K> otherKeys);
+- Set\<V\> difference(K key, Collection\<K\> otherKeys);
   key无序集合与多个otherKey无序集合的差集
 
 ```java
@@ -1102,7 +1102,7 @@ SetOperations提供了对无序集合的一系列操作：
     differenceAndStore1:[bbb, ddd]
 ```
 
-- Long differenceAndStore(K key, Collection<K> otherKeys, K destKey);
+- Long differenceAndStore(K key, Collection\<K\> otherKeys, K destKey);
   key无序集合与多个otherkey无序集合的差集存储到destKey无序集合中
 
 ```java
@@ -1123,7 +1123,7 @@ SetOperations提供了对无序集合的一系列操作：
     differenceAndStore2:[bbb, ddd]
 ```
 
-- Set<V> members(K key);
+- Set\<V\> members(K key);
   返回集合中的所有成员
 
 ```java
@@ -1151,7 +1151,7 @@ SetOperations提供了对无序集合的一系列操作：
     setTestrandomMember:ddd
 ```
 
-- Set<V> distinctRandomMembers(K key, long count);
+- Set\<V\> distinctRandomMembers(K key, long count);
   获取多个key无序集合中的元素（去重），count表示个数
 
 ```java
@@ -1161,7 +1161,7 @@ SetOperations提供了对无序集合的一系列操作：
     randomMembers:[aaa, bbb, ddd, ccc]
 ```
 
-- List<V> randomMembers(K key, long count);
+- List\<V\> randomMembers(K key, long count);
   获取多个key无序集合中的元素，count表示个数
 
 ```java
@@ -1171,7 +1171,7 @@ SetOperations提供了对无序集合的一系列操作：
     randomMembers:[ccc, ddd, ddd, ddd, aaa]
 ```
 
-- Cursor<V> scan(K key, ScanOptions options);
+- Cursor\<V\> scan(K key, ScanOptions options);
   遍历set
 
 ```java
@@ -1209,7 +1209,7 @@ ZSetOperations提供了一系列方法对有序集合进行操作：
     true
 ```
 
-- Long add(K key, Set<TypedTuple<V>> tuples);
+- Long add(K key, Set<TypedTuple\<V\>> tuples);
   新增一个有序集合
 
 ```java
@@ -1274,7 +1274,7 @@ ZSetOperations提供了一系列方法对有序集合进行操作：
     4 //递减之后排到第五位去了
 ```
 
-- Set<V> range(K key, long start, long end);
+- Set\<V\> range(K key, long start, long end);
   通过索引区间返回有序集合成指定区间内的成员，其中有序集成员按分数值递增(从小到大)顺序排列
 
 ```java
@@ -1284,7 +1284,7 @@ ZSetOperations提供了一系列方法对有序集合进行操作：
     [zset-2, zset-1, zset-3, zset-4, zset-5]
 ```
 
-- Set<TypedTuple<V>> rangeWithScores(K key, long start, long end);
+- Set<TypedTuple\<V\>> rangeWithScores(K key, long start, long end);
   通过索引区间返回有序集合成指定区间内的成员对象，其中有序集成员按分数值递增(从小到大)顺序排列
 
 ```java
@@ -1304,7 +1304,7 @@ ZSetOperations提供了一系列方法对有序集合进行操作：
     value:zset-5score:9.6
 ```
 
-- Set<V> rangeByScore(K key, double min, double max);
+- Set\<V\> rangeByScore(K key, double min, double max);
   通过分数返回有序集合指定区间内的成员，其中有序集成员按分数值递增(从小到大)顺序排列
 
 ```java
@@ -1314,7 +1314,7 @@ ZSetOperations提供了一系列方法对有序集合进行操作：
     [zset-2, zset-1, zset-3]
 ```
 
-- Set<TypedTuple<V>> rangeByScoreWithScores(K key, double min, double max);
+- Set\<TypedTuple\<V\>\> rangeByScoreWithScores(K key, double min, double max);
   通过分数返回有序集合指定区间内的成员对象，其中有序集成员按分数值递增(从小到大)顺序排列
 
 ```java
@@ -1332,7 +1332,7 @@ ZSetOperations提供了一系列方法对有序集合进行操作：
     value:zset-3score:2.3
 ```
 
-- Set<V> rangeByScore(K key, double min, double max, long offset, long count);
+- Set\<V\> rangeByScore(K key, double min, double max, long offset, long count);
   通过分数返回有序集合指定区间内的成员，并在索引范围内，其中有序集成员按分数值递增(从小到大)顺序排列
 
 ```java
@@ -1344,7 +1344,7 @@ ZSetOperations提供了一系列方法对有序集合进行操作：
     [zset-1, zset-3]
 ```
 
-- Set<TypedTuple<V>> rangeByScoreWithScores(K key, double min, double max, long offset, long count);
+- Set\<TypedTuple\<V\>\> rangeByScoreWithScores(K key, double min, double max, long offset, long count);
   通过分数返回有序集合指定区间内的成员对象，并在索引范围内，其中有序集成员按分数值递增(从小到大)顺序排列
 
 ```java
@@ -1361,7 +1361,7 @@ ZSetOperations提供了一系列方法对有序集合进行操作：
     value:zset-3score:2.3
 ```
 
-- Set<V> reverseRange(K key, long start, long end);
+- Set\<V\> reverseRange(K key, long start, long end);
   通过索引区间返回有序集合成指定区间内的成员，其中有序集成员按分数值递减(从大到小)顺序排列
 
 ```java
@@ -1371,7 +1371,7 @@ ZSetOperations提供了一系列方法对有序集合进行操作：
     [zset-5, zset-4, zset-3, zset-1, zset-2]
 ```
 
-- Set<TypedTuple<V>> reverseRangeWithScores(K key, long start, long end);
+- Set\<TypedTuple\<V\>\> reverseRangeWithScores(K key, long start, long end);
   通过索引区间返回有序集合成指定区间内的成员对象，其中有序集成员按分数值递减(从大到小)顺序排列
 
 ```java
@@ -1391,28 +1391,28 @@ ZSetOperations提供了一系列方法对有序集合进行操作：
     value:zset-2score:1.2
 ```
 
-- Set<V> reverseRangeByScore(K key, double min, double max);
+- Set\<V\> reverseRangeByScore(K key, double min, double max);
 
 ```java
 使用：
     与 rangeByScore 调用方法一样，其中有序集成员按分数值递减(从大到小)顺序排列
 ```
 
-- Set<TypedTuple<V>> reverseRangeByScoreWithScores(K key, double min, double max);
+- Set\<TypedTuple\<V\>\> reverseRangeByScoreWithScores(K key, double min, double max);
 
 ```java
 使用：
     与 rangeByScoreWithScores 调用方法一样，其中有序集成员按分数值递减(从大到小)顺序排列
 ```
 
-- Set<V> reverseRangeByScore(K key, double min, double max, long offset, long count);
+- Set\<V\> reverseRangeByScore(K key, double min, double max, long offset, long count);
 
 ```java
 使用：
     与 rangeByScore 调用方法一样，其中有序集成员按分数值递减(从大到小)顺序排列
 ```
 
-- Set<TypedTuple<V>> reverseRangeByScoreWithScores(K key, double min, double max, long offset, long count);
+- Set\<TypedTuple\<V\>\> reverseRangeByScoreWithScores(K key, double min, double max, long offset, long count);
 
 ```java
 使用：
@@ -1525,7 +1525,7 @@ ZSetOperations提供了一系列方法对有序集合进行操作：
     value:zset-4score:12.0
 ```
 
-- Long unionAndStore(K key, Collection<K> otherKeys, K destKey);
+- Long unionAndStore(K key, Collection\<K\> otherKeys, K destKey);
   计算给定的多个有序集的并集，并存储在新的 destKey中
 
 ```java
@@ -1587,7 +1587,7 @@ ZSetOperations提供了一系列方法对有序集合进行操作：
     value:zset-4score:12.0
 ```
 
-- Long intersectAndStore(K key, Collection<K> otherKeys, K destKey);
+- Long intersectAndStore(K key, Collection\<K\> otherKeys, K destKey);
   计算给定的一个或多个有序集的交集并将结果集存储在新的有序集合 key 中
 
 ```java
@@ -1611,7 +1611,7 @@ ZSetOperations提供了一系列方法对有序集合进行操作：
     value:zset-4score:18.0
 ```
 
-- Cursor<TypedTuple<V>> scan(K key, ScanOptions options);
+- Cursor\<TypedTuple\<V\>\> scan(K key, ScanOptions options);
   遍历zset
 
 ```java

@@ -1,7 +1,7 @@
 ---
 icon: b fa-simplybuilt
 category: 天天笔记
-time: 2021-10-25
+date: 2021-10-25
 sidebar: auto
 tag:
   - Lang

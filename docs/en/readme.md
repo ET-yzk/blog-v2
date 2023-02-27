@@ -9,7 +9,7 @@ heroText: zkye
 tagline: Hello World 😶‍🌫️
 heroFullScreen: true
 
-action:
+actions:
   - text: Personal Intro 🍀
     type: default
     link: /en/intro/

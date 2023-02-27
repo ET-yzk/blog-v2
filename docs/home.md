@@ -1,11 +1,11 @@
 ---
 home: true
 icon: s fa-at
-title: 项目主页
+title: Coming soon...
 heroImage: /logo.png
 heroText: 项目名称
 tagline: 你可以在这里放置或是整个项目的描述。
-action:
+actions:
   - text: 使用指南 💡
     link: /guide/
     type: primary
@@ -66,7 +66,7 @@ features:
     details: 包括博客主页、图标支持、路径导航、页脚支持、全屏按钮、返回顶部按钮等
     link: https://vuepress-theme-hope.github.io/zh/guide/feature/
 
-copyrightText: false
+copyright: false
 footer: MIT Licensed | Copyright © 2019-present 
 ---
 

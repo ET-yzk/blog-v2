@@ -1,7 +1,7 @@
 ---
 icon: b fa-simplybuilt
 category: 踩坑指南
-time: 2021-11-12
+date: 2021-11-12
 sidebar: auto
 tag:
   - Android

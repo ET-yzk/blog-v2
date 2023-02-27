@@ -1,7 +1,7 @@
 ---
 icon: b fa-simplybuilt
 category: 转载整理
-time: 2021-12-10
+date: 2021-12-10
 sidebar: auto
 tag:
   - Redis
@@ -129,7 +129,7 @@ public class TestThread {
 
 可能有的小伙伴不太理解什么是[计算密集型任务](https://www.zhihu.com/search?q=计算密集型任务&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A269526476})，什么是I/O密集型任务？
 
-计算密集型任务的特点是要进行大量的计算，消耗CPU资源，比如计算[圆周率](https://www.zhihu.com/search?q=圆周率&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A269526476})、对视频进行高清解码等等，全靠CPU的运算能力。这种计算[密集型任务](https://www.zhihu.com/search?q=密集型任务&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A269526476})虽然也可以用多任务完成，但是任务越多，花在任务切换的时间就越多，CPU执行任务的效率就越低，所以，要最高效地利用CPU，计算密集型任务同时进行的数量应当等于CPU的核心数。
+计算密集型任务的特点是要进行大量的计算，消耗CPU资源，比如计算[圆周率](https://www.zhihu.com/search?q=圆周率&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A269526476})、对视频进行高清解码等等，全靠CPU的运算能力。这种计算[密集型任务](https://www.zhihu.com/search?q=密集型任务&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A269526476})虽然也可以用多任务完成，但是任务越多，花在任务切换的时间就越多，CPU执行任务的效率就越低，所以，要最高效地利用CPU，`计算密集型任务同时进行的数量应当等于CPU的核心数`。
 
 计算密集型任务由于主要消耗CPU资源，因此，代码运行效率至关重要。Python这样的脚本语言运行效率很低，完全不适合计算密集型任务。对于计算密集型任务，最好用C语言编写。
 

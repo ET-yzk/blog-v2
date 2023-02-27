@@ -1,7 +1,7 @@
 ---
 icon: b fa-simplybuilt
 category: 天天笔记
-time: 2022-01-22
+date: 2022-01-22
 sidebar: auto
 tag:
   - OS

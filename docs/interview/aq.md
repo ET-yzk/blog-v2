@@ -1,7 +1,7 @@
 ---
 icon: b fa-simplybuilt
 category: 面试瞎想
-time: 2022-01-13
+date: 2022-01-13
 sidebar: auto
 tag:
   - Interview

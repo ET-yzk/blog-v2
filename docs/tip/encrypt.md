@@ -1,6 +1,6 @@
 ---
 icon: s fa-lock
-password: 1234
+# password: ""  v2须直接在 config.js 配置
 category: 使用指南
 tag:
   - 使用指南

@@ -3,7 +3,7 @@ title: 转载整理
 icon: 🔭
 category: 转载整理
 sidebar: auto
-star: ture
+star: true
 ---
 
 ## 目录

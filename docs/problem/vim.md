@@ -1,7 +1,7 @@
 ---
 icon: b fa-simplybuilt
 category: 踩坑指南
-time: 2021-10-30
+date: 2021-10-30
 sidebar: auto
 tag:
   - Vim

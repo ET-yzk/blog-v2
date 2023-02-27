@@ -1,7 +1,7 @@
 ---
 icon: b fa-simplybuilt
 category: 天天笔记
-time: 2021-11-23
+date: 2021-11-23
 sidebar: auto
 tag:
   - Algorithm

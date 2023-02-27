@@ -10,7 +10,7 @@ sidebar: auto
 - 原名：[《Designing Data-Intensive Applications》](http://shop.oreilly.com/product/0636920032175.do)
 - 译者：[冯若航](https://vonng.com) （[@Vonng](https://vonng.com/en/)）
 - 校订： [@yingang](https://github.com/yingang)
-- 繁体：[繁體中文版本](zh-tw/README.md) by  [@afunTW](https://github.com/afunTW)
+- 繁体：繁體中文版本 by  [@afunTW](https://github.com/afunTW)
 
 
 > 使用 [Typora](https://www.typora.io)、[Gitbook](https://vonng.gitbooks.io/ddia-cn/content/)，[Github Pages](https://vonng.github.io/ddia)以获取最佳阅读体验。

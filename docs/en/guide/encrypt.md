@@ -1,6 +1,6 @@
 ---
 icon: lock
-password: 1234
+# password: ""  v2须直接在 config.js 配置
 category: Guide
 tag:
   - 使用指南

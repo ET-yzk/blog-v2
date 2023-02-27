@@ -1,7 +1,7 @@
 ---
 icon: b fa-simplybuilt
 category: 天天笔记
-time: 2020-01-15
+date: 2020-01-15
 sidebar: auto
 tag:
   - Ubuntu
@@ -20,5 +20,19 @@ crontab -e
 crontab -l
 # 以root权限在 /etc/crontab 下修改，格式: * * * * * 用户名 command
 vim /etc/crontab
+```
+
+## 默认开启或关闭图形化桌面
+
+```bash
+# 关闭用户图形界面，使用tty登录。
+
+sudo systemctl set-default multi-user.target
+sudo reboot
+
+# 开启用户图形界面。
+
+sudo systemctl set-default graphical.target
+sudo reboot
 ```
 

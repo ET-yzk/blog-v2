@@ -1,13 +1,15 @@
 ---
 icon: b fa-simplybuilt
 category: 未知分类
-time: 2022-01-13
+date: 2022-01-13
 sidebar: auto
 tag:
   - API
 ---
 
 # Other API
+
+## 一言
 
 <a helf="https://v1.hitokoto.cn/?encode=text">一言</a>
 
@@ -72,3 +74,7 @@ export default {
   },
 }
 </script>
+## IP
+
+![IP签名](https://tool.lu/netcard/)
+

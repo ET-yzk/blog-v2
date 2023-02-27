@@ -3,7 +3,7 @@ title: 踩坑指南
 icon: 📡
 category: 踩坑指南
 sidebar: auto
-star: ture
+star: true
 ---
 
 ## 目录

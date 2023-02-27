@@ -1,7 +1,7 @@
 ---
 icon: b fa-simplybuilt
 category: 课程复习
-time: 2021-12-31
+date: 2021-12-31
 sidebar: auto
 tag:
   - 计网
@@ -266,3 +266,8 @@ ICMP用于检查标识是否出问题，无法纠错。
 ## HTTPS
 
 ![https握手过程](https://gitee.com/yzketx/image-markdown/raw/master/img/202112151537104.png)
+
+### 状态码
+
+`429` Too Many Requests
+

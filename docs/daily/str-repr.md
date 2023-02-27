@@ -1,7 +1,7 @@
 ---
 icon: b fa-simplybuilt
 category: 天天笔记
-time: 2021-11-01
+date: 2021-11-01
 sidebar: auto
 tag:
   - Python

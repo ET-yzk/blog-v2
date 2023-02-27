@@ -1,7 +1,7 @@
 ---
 icon: b fa-simplybuilt
 category: 天天笔记
-time: 2021-01-13
+date: 2021-01-13
 sidebar: auto
 tag:
   - Redis

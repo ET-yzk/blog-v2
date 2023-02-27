@@ -5,7 +5,7 @@ title: Project home
 heroImage: /logo.png
 heroText: Project name
 tagline: You can place the description of the project here.
-action:
+actions:
   - text: How to Use 💡
     link: /guide/
     type: primary
@@ -66,7 +66,7 @@ features:
     details: Including icon support, path navigation, footer support, fullscreen button, blog homepage, etc.
     link: https://vuepress-theme-hope.github.io/guide/feature/
 
-copyrightText: false
+copyright: false
 footer: MIT Licensed | Copyright © 2019-present Mr. Hope
 ---
 

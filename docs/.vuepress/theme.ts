@@ -29,7 +29,7 @@ export default hopeTheme({
       navbar: zhNavbarConfig,
       sidebar: zhSidebarConfig,
 
-      footer: "At four o'clock isn the morning, I saw Begonia flowers awake.",
+      footer: "At four o'clock in the morning, I saw Begonia flowers awake. ❀",
       copyright: 'Copyright © 2021-present zkye | <a href="./LICENSE">MIT License</a>',
 
       blog: {

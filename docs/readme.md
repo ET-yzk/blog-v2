@@ -3,6 +3,7 @@ home: true
 layout: BlogHome
 icon: s fa-home
 title: 主页
+tagline: 凌晨 4 点，见海棠花未眠 🌸
 heroImage: /logo.png
 bgImage: /bg2.png
 heroText: ET-yzk

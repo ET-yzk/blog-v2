@@ -8,7 +8,7 @@ export default hopeTheme({
   logoDark: "/logo-darkmode.png",
 
   author: {
-    name: "Zkye",
+    name: "zkye",
     url: "https://blog.yzketx.online/"
   },
 
@@ -30,12 +30,12 @@ export default hopeTheme({
       sidebar: zhSidebarConfig,
 
       footer: "At four o'clock isn the morning, I saw Begonia flowers awake.",
-      copyright: 'Copyright © 2021-present zkye | <a href="https://blog.yzketx.online/LICENSE">MIT License</a>',
+      copyright: 'Copyright © 2021-present zkye | <a href="./LICENSE">MIT License</a>',
 
       blog: {
         intro: "/intro/",
         sidebarDisplay: "mobile",
-        description: "🥧 π",
+        description: "π",
         roundAvatar: true,
         medias: {
           // Zhihu: "https://zhihu.com",
@@ -44,7 +44,7 @@ export default hopeTheme({
           Github: "https://github.com/ET-yzk",
           // Gmail: "mailto:yzketxte@gmail.com",
         },
-        articlePerPage: 6,
+        articlePerPage: 10,
       },
 
     },
@@ -54,12 +54,12 @@ export default hopeTheme({
 
       footer:
         'Theme by <a href="https://theme-hope.vuejs.press">vuepress-theme-hope</a>',
-      copyright: 'Copyright © 2021-present zkye | <a href="https://blog.yzketx.online/LICENSE">MIT License</a>',
+      copyright: 'Copyright © 2021-present zkye | <a href="../LICENSE">MIT License</a>',
 
       blog: {
         intro: "/en/intro/",
         sidebarDisplay: "mobile",
-        description: "🥧 π",
+        description: "π",
         roundAvatar: true,
         medias: {
           // Zhihu: "https://zhihu.com",
@@ -68,13 +68,14 @@ export default hopeTheme({
           Github: "https://github.com/ET-yzk",
           Gmail: "mailto:yzketxte@gmail.com",
         },
-        articlePerPage: 6,
+        // articlePerPage: 6,
       },
     },
   },
 
+  // iconAssets: "fontawesome",
   iconPrefix: "fa",
-  // editLinks: false,
+  // editLinks: false,  // 是否显示编辑此页面
 
   // v2 弃用
   // 一种高级搜索插件
@@ -193,10 +194,10 @@ export default hopeTheme({
 
   encrypt: {
     config: {
-      "/tip/encrypt.md": "yzketx",
-      "/interview/me.md": "yzketx",
-      "/guide/encrypt.md": "yzketx",
-      "/book/操作系统练习.md": "czxtlx",
+      "/interview/me": "yzkyzk",
+      "/en/guide/encrypt": "yzk123",
+      "/tip/encrypt": "yzk123",
+      "/course/操作系统练习": "czxtlx",
     }
   }
 });

@@ -2,10 +2,13 @@
 title: 转载整理
 icon: 🔭
 category: 转载整理
-sidebar: auto
 star: true
+index: false
 ---
 
+<AutoCatalog />
+
+::: details deprecated
 ## 目录
 
 ### [Vue 跨平台性能优化十法](Vue-improve10.md)
@@ -21,4 +24,4 @@ star: true
 ### [如何使用RedisTemplate访问Redis数据结构](redis-template.md)
 
 > 2022.01.13
-
+:::

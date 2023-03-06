@@ -2,7 +2,7 @@
 icon: b fa-simplybuilt
 category: 天天笔记
 date: 2020-01-15
-sidebar: auto
+
 tag:
   - Ubuntu
 ---

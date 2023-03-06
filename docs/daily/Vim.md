@@ -2,7 +2,7 @@
 icon: b fa-simplybuilt
 category: 天天笔记
 date: 2021-10-20
-sidebar: auto
+
 tag:
   - Vim
 ---

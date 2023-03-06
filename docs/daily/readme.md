@@ -2,8 +2,13 @@
 title: 天天笔记
 icon: 📔
 category: 天天笔记
-star: ture
+star: true
+index: false
 ---
+
+<AutoCatalog />
+
+::: details deprecated
 ## 目录
 
 ### [Ubuntu](Ubuntu.md)
@@ -70,7 +75,7 @@ star: ture
 
 > 2021.11.19
 
-### [动态规划简单理解](./daily/dp.md)
+### [动态规划简单理解](dp.md)
 
 > 2021.11.23
 
@@ -84,7 +89,7 @@ star: ture
 
 > 2021.12.02
 
-### [BitMap](./daily/bitmap.md)
+### [BitMap](bitmap.md)
 
 > 2021.12.04
 
@@ -116,7 +121,7 @@ star: ture
 
 >2022.01.22
 
-### [Docker - Docker Desktop(WSL2) 修改镜像等文件存储位置](docker-desktop[wsl2]-change-dir.md)
+### [Docker - Docker Desktop(WSL2) 修改镜像等文件存储位置](docker-desktop-wsl2-change-dir.md)
 
 > 2022.02.08
 
@@ -128,3 +133,7 @@ star: ture
 
 > 2022.03.02
 
+### [algolia 搜索](algolia.md)
+
+> 2022.
+:::

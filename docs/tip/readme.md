@@ -1,8 +1,12 @@
 ---
 icon: s fa-lightbulb
 category: 使用指南
+index: false
 ---
 
+<AutoCatalog />
+
+::: details deprecated
 # 主要功能与配置演示
 
 - [页面展示](page.md)
@@ -12,4 +16,4 @@ category: 使用指南
 - [禁用展示](disable.md)
 
 - [加密展示](encrypt.md)
-
+:::

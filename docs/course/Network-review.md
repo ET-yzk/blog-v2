@@ -2,7 +2,7 @@
 icon: b fa-simplybuilt
 category: 课程复习
 date: 2021-12-31
-sidebar: auto
+
 tag:
   - 计网
 ---

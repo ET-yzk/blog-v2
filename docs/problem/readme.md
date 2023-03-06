@@ -2,10 +2,13 @@
 title: 踩坑指南
 icon: 📡
 category: 踩坑指南
-sidebar: auto
 star: true
+index: false
 ---
 
+<AutoCatalog />
+
+::: details deprecated
 ## 目录
 
 ###  [Conda - Downloaded bytes did not match Content-Length](Conda-Downloaded-bytes-did-not-match-Content-Length.md)
@@ -39,3 +42,4 @@ star: true
 ###  [Android Studio: Could not install Gradle distribution](Android Studio.md#Could not install Gradle distribution)
 
 > 2021.11.12
+:::

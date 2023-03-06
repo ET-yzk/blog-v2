@@ -1,6 +1,6 @@
 ---
 icon: s fa-laugh
-title: Markdown Emoji
+title: Markdown Emoji v1 汇总
 category: 使用指南
 tag:
   - Markdown

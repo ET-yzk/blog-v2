@@ -1,7 +1,6 @@
 ---
 article: false
 author: Martin Kleppmann 原著 && 冯若航 译著
-sidebar: auto
 ---
 
 # 第三章：存储与检索

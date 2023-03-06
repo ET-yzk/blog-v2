@@ -2,10 +2,13 @@
 title: 未知分类
 icon: 👻
 category: 未知分类
-sidebar: auto
-star: ture
+star: true
+index: false
 ---
 
+<AutoCatalog />
+
+::: details deprecated
 ## 目录
 
 ### [GithubPage Init](github-page.md)
@@ -19,4 +22,4 @@ star: ture
 ### [otherAPI](otherAPI.md)
 
 > 2022.01.13
-
+:::

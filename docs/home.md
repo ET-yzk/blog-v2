@@ -67,7 +67,8 @@ features:
     link: https://vuepress-theme-hope.github.io/zh/guide/feature/
 
 copyright: false
-footer: MIT Licensed | Copyright © 2019-present 
+footer: MIT Licensed | Copyright © 2019-present
+index: false
 ---
 
 <i class="fas fa-meteor"></i> 这是普通主页的案例。你可以在这里放置你的主体内容。

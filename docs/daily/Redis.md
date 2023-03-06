@@ -2,7 +2,7 @@
 icon: b fa-simplybuilt
 category: 天天笔记
 date: 2021-01-13
-sidebar: auto
+
 tag:
   - Redis
   - Interview

@@ -2,7 +2,7 @@
 icon: b fa-simplybuilt
 category: 课程笔记
 date: 2022-02-21
-sidebar: auto
+
 tag:
   - 操作系统
 ---

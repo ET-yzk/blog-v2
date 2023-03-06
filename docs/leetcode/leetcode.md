@@ -2,12 +2,12 @@
 icon: b fa-simplybuilt
 category: 算法
 date: 2022-01-01
-sidebar: auto
+
 tag:
   - Algorithm
 ---
 
-# LeetCode
+# LeetCode 笔记
 
 [TOC]
 
@@ -20,7 +20,7 @@ nums = [int(i) for i in input().split(' ')]
 for i in range(len(nums) - 1):
     if nums[i] > 0:
         nums[i + 1] += nums[i]
-        
+
 print(max(nums))
 ```
 

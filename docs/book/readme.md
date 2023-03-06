@@ -2,8 +2,8 @@
 title: 开源书籍
 icon: 📖
 category: 开源书籍
-sidebar: auto
-star: ture
+star: true
+index: false
 ---
 
 ## 书名

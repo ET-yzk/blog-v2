@@ -2,7 +2,7 @@
 icon: b fa-simplybuilt
 category: 踩坑指南
 date: 2021-10-13
-sidebar: auto
+
 tag:
   - Conda
 ---

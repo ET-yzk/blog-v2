@@ -1,7 +1,6 @@
 ---
 article: false
 author: Martin Kleppmann 原著 && 冯若航 译著
-sidebar: auto
 ---
 
 # 第一章：可靠性，可伸缩性，可维护性

@@ -1,27 +1,33 @@
 ---
 home: true
-icon: home
+layout: BlogHome
+icon: s fa-home
 title: 主页
 heroImage: /logo.png
-bgImage: https://gitee.com/yzketx/image-markdown/raw/master/img/bg.svg
+bgImage: /bg2.png
 heroText: ET-yzk
 heroFullScreen: true
 projects:
-  - name: iSTEP Backend 🥤
+  - name: iSTEP BE 🥤
     icon: project
     desc: Coding platform backend.
     link: https://github.com/Guqj/OJBackend
 
   - name: iSTEP 🍻
-    icon: link.png
+    icon: friend
     desc: A coding platform.
     link: http://istep.yzketx.online
 
-  - name: The craft of selfteaching
-    icon: /book.png
-    desc: 🧭 One has no future if one couldn't teach themself.
+  - name: The craft of selfteaching 🧭
+    icon: book
     link: https://blog.yzketx.online/iSTEP.github.io/The-craft-of-selfteaching/
 
+  - name: My Roast 🫥
+    icon: s fa-user-astronaut
+    desc: Something about daily...
+    link: ../roast/
+
+index: false
 footer: '<a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备2020044365号-2</a>'
 # copyright: MIT LICENSE | zkye
 ---

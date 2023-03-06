@@ -1,6 +1,6 @@
 ---
 title: 自定义布局
-icon: layout
+icon: s fa-layer-group
 ---
 
 您可以使用带有 Markdown 支持的插槽来自定义页面布局。

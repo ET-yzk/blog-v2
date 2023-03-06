@@ -1,7 +1,6 @@
 ---
 article: false
 author: Martin Kleppmann 原著 && 冯若航 译著
-sidebar: auto
 ---
 
 # 第二章：数据模型与查询语言

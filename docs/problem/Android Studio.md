@@ -2,7 +2,7 @@
 icon: b fa-simplybuilt
 category: 踩坑指南
 date: 2021-11-12
-sidebar: auto
+
 tag:
   - Android
   - Tools

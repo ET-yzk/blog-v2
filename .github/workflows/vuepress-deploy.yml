@@ -11,10 +11,10 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 18
-        cache: npm
+        cache: yarn
 
     - name: 安装依赖
-      run: npm ci
+      run: yarn install --frozen-lockfile
 
     - name: vuepress-deploy
       uses: jenkey2011/vuepress-deploy@master
@@ -22,6 +22,6 @@ jobs:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         TARGET_REPO: ET-yzk/ET-yzk.github.io
         TARGET_BRANCH: v2
-        BUILD_SCRIPT: npm install && npm run docs:build
+        BUILD_SCRIPT: yarn && yarn run docs:build
         BUILD_DIR: docs/.vuepress/dist
         CNAME: https://blog.yzketx.online

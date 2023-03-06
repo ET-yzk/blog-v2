@@ -2,7 +2,7 @@
 icon: b fa-simplybuilt
 category: 课程复习
 date: 2022-02-22
-sidebar: auto
+
 tag:
   - 数据库
 ---

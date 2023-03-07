@@ -30,7 +30,7 @@ tag:
 2. 开始执行make_youtiao()这个函数
 3. make_youtiao()执行完后，控制转回到调用函数中
 
-![1](https://gitee.com/yzketx/image-markdown/raw/master/img/202110251857028.jpg)
+![1](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202110251857028.jpg)
 
 如果世界上所有的函数都像make_youtiao()这么简单，那么程序员大概率就要失业了，还好程序的世界是复杂的，这样程序员才有了存在的价值。
 
@@ -62,7 +62,7 @@ tag:
 
 回到我们的主题，这里一种更好的方式是**调用make_youtiao()这个函数后不再等待这个函数执行完成**，而是直接返回继续后续流程，这样A小组的程序就可以和make_youtiao()这个函数同时进行了，就像这样：
 
-![2](https://gitee.com/yzketx/image-markdown/raw/master/img/202110251911744.jpg)
+![2](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202110251911744.jpg)
 
 在这种情况下，回调(callback)就必须出场了。
 
@@ -79,7 +79,7 @@ sell();
 
 可以看到这是最简单的写法，意思很简单，制作好油条后卖出去。
 
-![3](https://gitee.com/yzketx/image-markdown/raw/master/img/202110251911066.jpg)
+![3](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202110251911066.jpg)
 
 我们已经知道了由于make_youtiao(10000)这个函数10分钟才能返回，你不想一直死盯着屏幕10分钟等待结果，那么一种更好的方法是让make_youtiao()这个函数知道制作完油条后该干什么，即，更好的调用make_youtiao的方式是这样的：“制作10000个油条，**炸好后卖出去**”，因此调用make_youtiao就变出这样了：
 
@@ -93,7 +93,7 @@ make_youtiao(10000, sell);
 
 
 
-![4](https://gitee.com/yzketx/image-markdown/raw/master/img/202110251912197.jpg)
+![4](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202110251912197.jpg)
 
 
 
@@ -151,7 +151,7 @@ handle(res);
 
 这就是函数的同步调用，只有request()函数返回拿到结果后，才能调用handle函数进行处理，request函数返回前我们必须**等待**，这就是同步调用，其控制流是这样的：
 
-![5](https://gitee.com/yzketx/image-markdown/raw/master/img/202110251913923.jpg)
+![5](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202110251913923.jpg)
 
 但是如果我们想更加高效的话，那么就需要异步调用了，我们不去直接调用handle函数，而是作为参数传递给request：
 
@@ -163,7 +163,7 @@ request(handle);
 
 这就是异步调用，其控制流是这样的：
 
-![6](https://gitee.com/yzketx/image-markdown/raw/master/img/202110251913273.jpg)
+![6](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202110251913273.jpg)
 
 从编程思维上看，异步调用和同步有很大的差别，如果我们把处理流程当做一个任务来的话，那么同步下整个任务都是我们来实现的，但是异步情况下任务的处理流程被分为了两部分：
 
@@ -192,7 +192,7 @@ request(handle);
 
 但回调函数不是这样的，虽然函数编写方是我们自己，但是函数调用方不是我们，而是我们引用的其它模块，也就是第三方库，我们调用第三方库中的函数，并把回调函数传递给第三方库，第三方库中的函数调用我们编写的回调函数，如图所示：
 
-![7](https://gitee.com/yzketx/image-markdown/raw/master/img/202110251913384.jpg)
+![7](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202110251913384.jpg)
 
 而之所以需要给第三方库指定回调函数，是因为第三方库的编写者并不清楚在某些特定节点，比如我们举的例子油条制作完成、接收到网络数据、文件读取完成等之后该做什么，这些只有库的使用方才知道，因此第三方库的编写者无法针对具体的实现来写代码，而只能对外提供一个回调函数，库的使用方来实现该函数，第三方库在特定的节点调用该回调函数就可以了。
 
@@ -210,7 +210,7 @@ request(handle);
 
 当我们调用某个函数A并以参数的形式传入回调函数后，在A返回之前回调函数会被执行，也就是说我们的主程序会等待回调函数执行完成，这就是所谓的同步回调。
 
-![8](https://gitee.com/yzketx/image-markdown/raw/master/img/202110251914580.jpg)
+![8](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202110251914580.jpg)
 
 有同步回调就有异步回调。
 

@@ -39,11 +39,11 @@ tag:
 
 正常的调用和返回：
 
-![img](https://gitee.com/yzketx/image-markdown/raw/master/img/202112021954211.jpeg)
+![img](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202112021954211.jpeg)
 
 Hook的调用和返回：
 
-![img](https://gitee.com/yzketx/image-markdown/raw/master/img/202112021954154.jpeg)
+![img](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202112021954154.jpeg)
 
 ## Hook的过程
 

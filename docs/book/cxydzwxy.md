@@ -16,12 +16,12 @@ icon: s fa-book-atlas
 
 举例来说，如何打造极客文化。这个问题的中心很明确，接下来可以按照空间顺序进行分解。
 
-![img](https://gitee.com/yzketx/image-markdown/raw/master/img/202201221145045.jpeg)
+![img](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202201221145045.jpeg)
 
 
 确定完要做的事情，还可以按照时间顺序对如何落地进行分解。
 
-![img](https://gitee.com/yzketx/image-markdown/raw/master/img/202201221145130.jpeg)
+![img](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202201221145130.jpeg)
 
 ## 二、原理性思维：找到知识背后的原理
 

@@ -23,7 +23,7 @@ tag:
 
 > CPU、内存与I/O设备间的操作速率相差甚远，因此存在2中I/O结构
 
-![img](https://gitee.com/yzketx/image-markdown/raw/master/img/202203011048058.png)
+![img](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202203011048058.png)
 
 ### 两种I/O结构
 
@@ -39,7 +39,7 @@ tag:
   - 设备状态表包含了每个I/O设备的一个条目，用来指示该设备的类型、 地址和状态（不工作、空闲或繁忙）
   - OS通过查询I/O设备表来判断设备的状态，并修改该条目，以反映出现中断
 
-  ![image-20220301100257102](https://gitee.com/yzketx/image-markdown/raw/master/img/202203011003197.png)
+  ![image-20220301100257102](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202203011003197.png)
 
 ### 外部接口的IO操作模式
 
@@ -89,7 +89,7 @@ tag:
 
 特权指令的主要特征在于是否影响其它用户。
 
-![image-20220301113037767](https://gitee.com/yzketx/image-markdown/raw/master/img/202203011130496.png)
+![image-20220301113037767](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202203011130496.png)
 
 用户态切换内核态通过 `trap` 实现：
 
@@ -201,7 +201,7 @@ exec函数一旦调用成功即执行新的程序，不返回。只有失败才�
 - 回收子进程残留资源
 - 获取子进程结束状态（退出原因）
 
-![wait()](https://gitee.com/yzketx/image-markdown/raw/master/img/202204121803114.png)
+![wait()](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202204121803114.png)
 
 ### getpid()函数
 
@@ -233,7 +233,7 @@ CPU调度的基本单位是是线程。
 >
 > 低级调度 (内存 --> CPU)：进程调度
 
-![进程调度](https://gitee.com/yzketx/image-markdown/raw/master/img/202204291635116.png)
+![进程调度](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202204291635116.png)
 
 - **作业调度**：作业调度一般是将一个作业从外存调入内存，为其分配内存、外设等资源，使其能够竞争处理机资源。对每个作业来说，每个作业一般只调入一次、调出一次。
 - **内存调度**：内存调度是为了**提高内存利用率**和**系统吞吐量**，一般会将暂时无法运行的进程挂起，当具备运行条件且内存有空闲时，会将这些进程调回，挂在就绪队列上等待调度。
@@ -255,7 +255,7 @@ CPU调度的基本单位是是线程。
 
 > 暂时调到外存等待的进程状态为挂起态。挂起态其实又可以进一步细分为就绪挂起、阻塞挂起两种状态，于是，五状态模型现在变成了七状态模型。
 
-![进程的挂起态与七状态模型](https://gitee.com/yzketx/image-markdown/raw/master/img/202204291637189.png)
+![进程的挂起态与七状态模型](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202204291637189.png)
 
 ## **调度基本准则**
 
@@ -263,7 +263,7 @@ CPU调度的基本单位是是线程。
 - 系统吞吐量：表示单位时间内完成的作业数量，当作业都是短作业时，系统吞吐量会比较大。
 - ==周转时间==：是作业从提交到完成的时间，包括作业等待、在就绪队列排队、运行、IO操作的时间总和。
 - 平均周转时间：是多个作业的周转时间的平均值。
-- 带权周转时间：![image-20220429164957168](https://gitee.com/yzketx/image-markdown/raw/master/img/202204291649226.png)
+- 带权周转时间：![image-20220429164957168](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202204291649226.png)
 - 平均带权周转时间：是多个带权周转时间的平均值。
 - ==等待时间==：进程等待处理机的时间之和。
 - ==响应时间==：从用户提交到首次响应所花费的时间。
@@ -297,7 +297,7 @@ CPU调度的基本单位是是线程。
 
 高响应比优先调度算法适用于作业调度，是短作业优先调度算法和先来先服务算法的折中。我们先来看一下什么是响应比吧。
 
-![image-20220429164932130](https://gitee.com/yzketx/image-markdown/raw/master/img/202204291649189.png)
+![image-20220429164932130](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202204291649189.png)
 
 高响应比优先调度算法具有以下特点：
 
@@ -315,7 +315,7 @@ CPU调度的基本单位是是线程。
 
 多级反馈队列调度算法是这些调度算法中最复杂的，也是整合了前面一些调度算法而形成的算法，我们来看一下它的工作过程。
 
-![img](https://gitee.com/yzketx/image-markdown/raw/master/img/202204291646633.jpeg)
+![img](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202204291646633.jpeg)
 
 多级反馈队列调度算法工作过程有以下这些特点：
 
@@ -387,7 +387,7 @@ int main(int argc,char **argv)
 // 8个
 ```
 
-![img](https://gitee.com/yzketx/image-markdown/raw/master/img/202203221059205.png)
+![img](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202203221059205.png)
 
 解答：有8个’-’是因为printf(“-”);语句有buffer；在fork的时候，缓存被复制到了子进程空间，所以，就多了两个。下图阴影双边框的两个子进程复制了父进程缓冲区的‘-‘
 
@@ -503,7 +503,7 @@ EINVAL
 
 #### 先到先服务（FCFS）
 
-![image-20220329105948330](https://gitee.com/yzketx/image-markdown/raw/master/img/202203291059593.png)
+![image-20220329105948330](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202203291059593.png)
 
 #### 最短作业优先调度（SJF）
 
@@ -516,11 +516,11 @@ EINVAL
 
 SJF是最佳的：对于给定的一组进程，SJF算法的平均等待时间最小。
 
-![image-20220329110347946](https://gitee.com/yzketx/image-markdown/raw/master/img/202203291103230.png)
+![image-20220329110347946](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202203291103230.png)
 
 > ⬆️注意Arrival Time，只有进程在当前时间 arrival 后，才会加入比较
 
-![image-20220329110625877](https://gitee.com/yzketx/image-markdown/raw/master/img/202203291106098.png)
+![image-20220329110625877](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202203291106098.png)
 
 #### 时间片轮转（RR）
 
@@ -556,9 +556,9 @@ SJF是最佳的：对于给定的一组进程，SJF算法的平均等待时间�
 - 另一种 可能是在队列之间划分时间片。每个队列都有一定的CPU时间， 这可用于调度队列内的不同进程
   - 20％给后台，80％给前台
 
-<img src="https://gitee.com/yzketx/image-markdown/raw/master/img/202204121007266.png" alt="image-20220412100702097" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/202204121007266.png" alt="image-20220412100702097" style="zoom:50%;" />
 
-<img src="https://gitee.com/yzketx/image-markdown/raw/master/img/202204121008967.png" alt="image-20220412100834856" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/202204121008967.png" alt="image-20220412100834856" style="zoom:50%;" />
 
 ## 进程同步
 
@@ -580,7 +580,7 @@ SJF是最佳的：对于给定的一组进程，SJF算法的平均等待时间�
 
 - 算法一
 
-  <img src="https://gitee.com/yzketx/image-markdown/raw/master/img/202204121103028.png" alt="image-20220412110334283" style="zoom:50%;" />
+  <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/202204121103028.png" alt="image-20220412110334283" style="zoom:50%;" />
 
 > 该算法无法实现互斥，在`while (flag); flag = true`处，进程仍可能冲突
 
@@ -683,7 +683,7 @@ CPU生成的地址分成以下两部分【在CPU内部存在首址寄存器和�
 >
 > 两次内存访问问题可以用特别的快速查找硬件缓冲（称为关联内存 或翻译后备缓冲器）来解决
 
-![image-20220507103426801](https://gitee.com/yzketx/image-markdown/raw/master/img/202205071034961.png)
+![image-20220507103426801](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202205071034961.png)
 
  地址映射：物理地址=页架首址+页内地址=页架号*2i + 页内地址
 
@@ -817,7 +817,7 @@ CPU生成的地址分成以下两部分【在CPU内部存在首址寄存器和�
 
 拼接 `块号` 和 `页内偏移`，得到物理地址
 
-![image-20220514171937364](https://gitee.com/yzketx/image-markdown/raw/master/img/%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2)
+![image-20220514171937364](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202205071034961.png)
 
 **加入TLB**
 
@@ -831,7 +831,7 @@ CPU生成的地址分成以下两部分【在CPU内部存在首址寄存器和�
 
 2. 拼接块号和页内偏移，得到物理地址
 
-![在这里插入图片描述](https://gitee.com/yzketx/image-markdown/raw/master/img/TLB)
+![在这里插入图片描述](https://raw.githubusercontent.com/ET-yzk/picgo/blog/TLB)
 
 #### 硬件
 
@@ -885,7 +885,7 @@ Linux内核，使用的是多级页表，即存在多次转换，这增加了空
 
 ​	对某些独占设备可以通过共享设备改造为共享设备【假脱机技术：在多道批处理系统中，专门利用一道程序（SPOOLing程序）来完成对设备的I/O操作。】
 
-![image-20220531101552388](https://gitee.com/yzketx/image-markdown/raw/master/img/202205311015621.png)
+![image-20220531101552388](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202205311015621.png)
 
 共享设备：
 

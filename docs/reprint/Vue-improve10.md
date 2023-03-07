@@ -266,25 +266,25 @@ export default {
 
 在基于 Vue 的一个 big table benchmark 里，可以看到在渲染一个一个 1000 x 10 的表格的时候，开启 Object.freeze()前后重新渲染的对比。
 
-<img src="https://gitee.com/yzketx/image-markdown/raw/master/img/2021-10-08-1.png" alt="image" style="zoom: 67%;" />
+<img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/2021-10-08-1.png" alt="image" style="zoom: 67%;" />
 
 **开启优化之前：**
 
-<img src="https://gitee.com/yzketx/image-markdown/raw/master/img/2021-10-08-2.png" alt="image" style="zoom: 50%;" />
+<img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/2021-10-08-2.png" alt="image" style="zoom: 50%;" />
 
 **开启优化之后：**
 
-<img src="https://gitee.com/yzketx/image-markdown/raw/master/img/2021-10-08-3.png" alt="image" style="zoom: 50%;" />
+<img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/2021-10-08-3.png" alt="image" style="zoom: 50%;" />
 
 在这个例子里,使用了 Object.freeze()比不使用快了 4 倍，为什么 Object.freeze()的性能会更好？
 
 **不使用 Object.freeze()的 CPU 开销**
 
-<img src="https://gitee.com/yzketx/image-markdown/raw/master/img/2021-10-08-4.png" alt="image" style="zoom:67%;" />
+<img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/2021-10-08-4.png" alt="image" style="zoom:67%;" />
 
 **使用 Object.freeze()的 CPU 开销**
 
-<img src="https://gitee.com/yzketx/image-markdown/raw/master/img/2021-10-08-5.png" alt="image" style="zoom:67%;" />
+<img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/2021-10-08-5.png" alt="image" style="zoom:67%;" />
 
 对比可以看出，使用了 Object.freeze()之后，减少了 observer 的开销。
 
@@ -292,7 +292,7 @@ export default {
 
 data 中的数据都会增加 getter 和 setter，又会收集 watcher，这样还占内存。不需要响应式的数据我们可以定义在实例上。
 
-<img src="https://gitee.com/yzketx/image-markdown/raw/master/img/2021-10-08-6.png" alt="image" style="zoom:67%;" />
+<img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/2021-10-08-6.png" alt="image" style="zoom:67%;" />
 
 ### 8. v-for元素绑定事件代理
 
@@ -339,7 +339,7 @@ data 中的数据都会增加 getter 和 setter，又会收集 watcher，这样�
 </div>
 ```
 
-<img src="https://gitee.com/yzketx/image-markdown/raw/master/img/2021-10-08-7.png" alt="image" style="zoom:67%;" />
+<img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/2021-10-08-7.png" alt="image" style="zoom:67%;" />
 
 可以看到使用事件代理无论是监听器数量和内存占用率都比前两者要少，同时对比 3 个图中监听器的数量并没有发现 vue 会自动做事件代理，但是一般给 v-for 绑定事件时，都会让节点指向同一个事件处理程序（第二种情况可以运行，但是 eslint 会警告），一定程度上比每生成一个节点都绑定一个不同的事件处理程序性能好，但是监听器的数量仍不会变，所以使用事件代理会更好一点。
 
@@ -367,7 +367,7 @@ meths(e) {
 
 函数式组件：
 
-![图片](https://gitee.com/yzketx/image-markdown/raw/master/img/2021-10-08-8.png)
+![图片](https://raw.githubusercontent.com/ET-yzk/picgo/blog/2021-10-08-8.png)
 
 ### 10. provide 和 inject 组件通信
 
@@ -379,11 +379,11 @@ provide：是一个对象，或者是一个返回对象的函数。里面呢就�
 
 inject：一个字符串数组，或者是一个对象。属性值可以是一个对象，包含 from 和 default 默认值，from 是在可用的注入内容中搜索用的 key (字符串或 Symbol)，意思就是祖父多层 **provide** 提供了很多数据， **from** 属性指定取哪一个 **key** default 指定默认值。
 
-<img src="https://gitee.com/yzketx/image-markdown/raw/master/img/2021-10-08-9.png" alt="image" style="zoom: 80%;" />
+<img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/2021-10-08-9.png" alt="image" style="zoom: 80%;" />
 
-<img src="https://gitee.com/yzketx/image-markdown/raw/master/img/2021-10-08-10.png" alt="image" style="zoom:67%;" />
+<img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/2021-10-08-10.png" alt="image" style="zoom:67%;" />
 
-<img src="https://gitee.com/yzketx/image-markdown/raw/master/img/2021-10-08-11.png" alt="image" style="zoom: 80%;" />
+<img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/2021-10-08-11.png" alt="image" style="zoom: 80%;" />
 
 从上面这个例子可以看出，只要在父组件中调用了，那么在这个父组件生效的生命周期内，所有的子组件都可以调用 inject 来注入父组件中的值。
 

@@ -13,7 +13,7 @@ tag:
 
 下图展示了实例的生命周期。我们不需要立马弄明白所有的东西，不过随着不断学习和使用，它的参考价值会越来越高。
 
-![lifecycle](https://gitee.com/yzketx/image-markdown/raw/master/img/202201221208294.svg)
+![lifecycle](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202201221208294.svg)
 
 ## lifecycle-hooks
 

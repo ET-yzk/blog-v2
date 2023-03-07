@@ -34,11 +34,11 @@ tag:
 
 在 Windows Powershell 中通过 vim 编辑文件，输入中文后保存，再 cat 输出时乱码，如下：
 
-<img src="https://gitee.com/yzketx/image-markdown/raw/master/img/202110301629336.png" alt="image-20211030162917305" style="zoom: 67%;" />
+<img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/202110301629336.png" alt="image-20211030162917305" style="zoom: 67%;" />
 
-<img src="https://gitee.com/yzketx/image-markdown/raw/master/img/202110301629779.png" alt="image-20211030162933751" style="zoom:67%;" />
+<img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/202110301629779.png" alt="image-20211030162933751" style="zoom:67%;" />
 
-<img src="https://gitee.com/yzketx/image-markdown/raw/master/img/202110301628299.png" alt="image-20211030162837202" style="zoom:67%;" />
+<img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/202110301628299.png" alt="image-20211030162837202" style="zoom:67%;" />
 
 ### 解决 2
 
@@ -54,5 +54,5 @@ tag:
 
     > 或者使用 Sublime Text 等工具将旧文件重新编码为 utf-8 格式
     >
-    > <img src="https://gitee.com/yzketx/image-markdown/raw/master/img/202110301650337.png" alt="image-20211030165034250" style="zoom: 25%;" />
+    > <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/202110301650337.png" alt="image-20211030165034250" style="zoom: 25%;" />
 

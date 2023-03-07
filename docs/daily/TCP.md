@@ -96,7 +96,7 @@ MSL 与 TTL 的区别： MSL 的单位是时间，而 TTL 是经过路由跳数�
 
 假设 TIME-WAIT 没有等待时间或时间过短，被延迟的数据包抵达后会发生什么呢？
 
-![img](https://gitee.com/yzketx/image-markdown/raw/master/img/202112091645763.jpeg)
+![img](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202112091645763.jpeg)
 
 > yzk：这里第4次  FIN 应当是 0
 

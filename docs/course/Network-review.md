@@ -265,7 +265,7 @@ ICMP用于检查标识是否出问题，无法纠错。
 
 ## HTTPS
 
-![https握手过程](https://gitee.com/yzketx/image-markdown/raw/master/img/202112151537104.png)
+![https握手过程](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202112151537104.png)
 
 ### 状态码
 

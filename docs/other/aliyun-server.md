@@ -13,7 +13,7 @@ tag:
 
 应用程序安装信息：
 
-![image-20211014212132625](https://gitee.com/yzketx/image-markdown/raw/master/img/202110142121753.png)
+![image-20211014212132625](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202110142121753.png)
 
 ```bash
 # 停止 Apache Web Service

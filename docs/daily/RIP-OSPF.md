@@ -9,7 +9,6 @@ tag:
 
 # 如何形象说明路由协议RIP和OSPF？
 
-> [![车小胖](https://gitee.com/yzketx/image-markdown/raw/master/img/202111170026250.jpeg)](https://www.zhihu.com/people/chexiaopang)
 > [车小胖](https://www.zhihu.com/people/chexiaopang) 计算机网络话题下的优秀答主
 
 **RIP**

@@ -11,8 +11,6 @@ tag:
 
 ## 如何理解动态规划？
 
-> [![牛岱](https://gitee.com/yzketx/image-markdown/raw/master/img/202111230906370.jpeg)](https://www.zhihu.com/people/niu-dai-68-44)
->
 > [牛岱](https://www.zhihu.com/people/niu-dai-68-44) 字节跳动 Web Infra Engineer
 
 我觉得大部分高赞答案把简单的概念搞复杂了。
@@ -53,7 +51,7 @@ tag:
 
 
 
-![img](https://gitee.com/yzketx/image-markdown/raw/master/img/202111230906552.jpeg)
+![img](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202111230906552.jpeg)
 
 
 

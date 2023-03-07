@@ -31,13 +31,13 @@ Bit-map的基本思想就是用一个bit位来标记某个元素对应的Value�
 
 这样我们可以很容易表示{1,2,4,6}这几个数：
 
-![img](https://gitee.com/yzketx/image-markdown/raw/master/img/874963-20190930154945790-1681218156.png)
+![img](https://raw.githubusercontent.com/ET-yzk/picgo/blog/874963-20190930154945790-1681218156.png)
 
 计算机内存分配的最小单位是字节，也就是8位，那如果要表示{12,13,15}怎么办呢？
 
 当然是在另一个8位上表示了：
 
-![img](https://gitee.com/yzketx/image-markdown/raw/master/img/874963-20190930161508728-1545815203.png)
+![img](https://raw.githubusercontent.com/ET-yzk/picgo/blog/874963-20190930161508728-1545815203.png)
 
 这样的话，好像变成一个二维数组了
 
@@ -61,11 +61,11 @@ tmp[2]：可以表示64~95
 
 首先，5/32=0，5%32=5，也是说它应该在tmp[0]的第5个位置，那我们把1向左移动5位，然后按位或
 
-![img](https://gitee.com/yzketx/image-markdown/raw/master/img/874963-20190930170044824-1061422457.png)
+![img](https://raw.githubusercontent.com/ET-yzk/picgo/blog/874963-20190930170044824-1061422457.png)
 
 换成二进制就是
 
-![img](https://gitee.com/yzketx/image-markdown/raw/master/img/874963-20190930174515759-289489948.png)
+![img](https://raw.githubusercontent.com/ET-yzk/picgo/blog/874963-20190930174515759-289489948.png)
 
 这就相当于 86 | 32 = 118
 
@@ -87,7 +87,7 @@ b[0] = b[0] | (1<<5)
 
 还是上面的例子，假设我们要6移除，该怎么做呢？
 
-![img](https://gitee.com/yzketx/image-markdown/raw/master/img/874963-20191013123453790-20308625.png)
+![img](https://raw.githubusercontent.com/ET-yzk/picgo/blog/874963-20191013123453790-20308625.png)
 
 从图上看，只需将该数所在的位置为0即可
 

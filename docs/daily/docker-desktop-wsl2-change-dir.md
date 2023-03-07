@@ -33,7 +33,7 @@ vhdx文件最大支持256G，超出这个大小将会出错。参见：[官方�
 
 使用命令`wsl --list --v` 可进行查看:
 
-![image-20220208195248995](https://gitee.com/yzketx/image-markdown/raw/master/img/202202081952108.png)
+![image-20220208195248995](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202202081952108.png)
 
 ## 解决步骤
 ### 1. 删除所有容器

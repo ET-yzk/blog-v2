@@ -169,7 +169,7 @@ tag:
 
     `对象的 HTML DOM 树`
 
-    ![DOM HTML 树](https://gitee.com/yzketx/image-markdown/raw/master/img/202111292257614.gif)
+    ![DOM HTML 树](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202111292257614.gif)
 
     通过这个对象模型，JavaScript 获得创建动态 HTML 的所有力量：
 

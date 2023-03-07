@@ -90,11 +90,11 @@ int main(void) { // 2
 
 我们可以把「应用程序、运行时库和 OS」三者间的关系大致按这样来理解：
 
-![img](https://gitee.com/yzketx/image-markdown/raw/master/img/202201221137775.jpeg)
+![img](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202201221137775.jpeg)
 
 注意运行时库并不只是标准库，你就算不显式 include 任何标准库，也有一些额外的代码会被编译器插入到最后的可执行文件里。比如上面提到的 main 函数，它在真正执行前就需要大量来自运行时库的辅助，一图胜千言（具体细节推荐参考 [Linux x86 Program Start Up](http://dbp-consulting.com/tutorials/debugging/linuxProgramStartup.html)）：
 
-![v2-ac9b094dbe8f231765e32a0c79e204ef_720w](https://gitee.com/yzketx/image-markdown/raw/master/img/202201221139946.jpg)
+![v2-ac9b094dbe8f231765e32a0c79e204ef_720w](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202201221139946.jpg)
 
 除了加载和退出这些程序必备的地方以外，运行时库还可以起到类似前端社区 polyfill 的作用，在程序执行过程中被隐式而「按需」地调用。例如 gcc 的 [libgcc](https://gcc.gnu.org/onlinedocs/gccint/Libgcc.html) 和 clang 的 [compiler-rt](https://compiler-rt.llvm.org/)（后者还被移植成了 Rust 的 [compiler-builtins](https://github.com/rust-lang/compiler-builtins) ），这些库都是特定于编译器的，我们一般比较少听到，但其实也很好理解。
 

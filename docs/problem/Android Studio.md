@@ -14,7 +14,7 @@ tag:
 
 > Could not install Gradle distribution from 'https://services.gradle.org/distributions/gradle-x.x.x-all.zip'.
 
-![image-20211112094956838](https://gitee.com/yzketx/image-markdown/raw/master/img/202111121001862.png)
+![image-20211112094956838](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202111121001862.png)
 
 ### 解决
 

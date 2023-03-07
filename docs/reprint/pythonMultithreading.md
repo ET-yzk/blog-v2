@@ -60,7 +60,7 @@ if __name__ == '__main__':
 
 我的电脑是4核，所以我开了4个线程，看一下CPU资源占有率：
 
-![img](https://gitee.com/yzketx/image-markdown/raw/master/img/202111302220235.jpeg)
+![img](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202111302220235.jpeg)
 
 我们发现CPU利用率并没有占满，大致相当于单核水平。
 
@@ -90,7 +90,7 @@ if __name__ == '__main__':
         pass
 ```
 
-![img](https://gitee.com/yzketx/image-markdown/raw/master/img/202111302220169.jpeg)
+![img](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202111302220169.jpeg)
 
 结果直接飙到了100%，说明进程是可以利用多核的！
 
@@ -121,7 +121,7 @@ public class TestThread {
 
 
 
-![img](https://gitee.com/yzketx/image-markdown/raw/master/img/202111302220346.jpeg)
+![img](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202111302220346.jpeg)
 
 由此可见，Java中的多线程是可以利用多核的，这是真正的多线程！而Python中的多线程只能利用单核，这是假的多线程！
 

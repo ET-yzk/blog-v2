@@ -49,16 +49,16 @@ C:\Users\用户名\AppData\Roaming\Microsoft\InputMethod\Chs;
 
 1、**关闭后台云计算**
 
-<img src="https://gitee.com/yzketx/image-markdown/raw/master/img/202110131646805.png" alt="image-20211013164604373" style="zoom:80%;" />
+<img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/202110131646805.png" alt="image-20211013164604373" style="zoom:80%;" />
 
 2、**减少专业词典个数**
 
-<img src="https://gitee.com/yzketx/image-markdown/raw/master/img/202110131650557.png" alt="image-20211013165009324" style="zoom:80%;" />
+<img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/202110131650557.png" alt="image-20211013165009324" style="zoom:80%;" />
 
 3、**设置进程亲和性**，绑定ChsIME.exe 至固定cpu，避免在内核之间频繁切换
 
-<img src="https://gitee.com/yzketx/image-markdown/raw/master/img/202110112036087.jpeg" alt="img" style="zoom: 67%;" />
+<img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/202110112036087.jpeg" alt="img" style="zoom: 67%;" />
 
 4、**设置进程优先级**
 
-<img src="https://gitee.com/yzketx/image-markdown/raw/master/img/202110112035720.jpeg" alt="img" style="zoom:67%;" />
+<img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/202110112035720.jpeg" alt="img" style="zoom:67%;" />

@@ -95,7 +95,7 @@ print(list(arr2))
 >>> a = test()
 ```
 
-![image-20211120195923071](https://gitee.com/yzketx/image-markdown/raw/master/img/202111201959152.png)
+![image-20211120195923071](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202111201959152.png)
 
 示例：
 
@@ -160,4 +160,4 @@ for i in cd:
         cd.send(3)
 ```
 
-![image-20211120202013539](https://gitee.com/yzketx/image-markdown/raw/master/img/202111202020607.png)
+![image-20211120202013539](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202111202020607.png)

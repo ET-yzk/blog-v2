@@ -3,9 +3,9 @@ home: true
 layout: BlogHome
 icon: s fa-home
 title: 主页
-tagline: 凌晨 4 点，见海棠花未眠 🌸
+tagline: 凌晨四点，见海棠花未眠 🌸
 heroImage: /logo.png
-bgImage: /bg2.png
+bgImage: /bg2.jpg
 heroText: ET-yzk
 heroFullScreen: true
 projects:
@@ -26,7 +26,7 @@ projects:
   - name: My Roast 🫥
     icon: s fa-user-astronaut
     desc: Something about daily...
-    link: ../roast/
+    link: https://blog.yzketx.online/roast/
 
 index: false
 footer: '<a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备2020044365号-2</a>'

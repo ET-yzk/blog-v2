@@ -198,6 +198,8 @@ export default hopeTheme({
       "/en/guide/encrypt": "yzk123",
       "/tip/encrypt": "yzk123",
       "/course/操作系统练习": "czxtlx",
+      "/roast/diary": "yzkroast",
+      "/roast/todo-list": "yzktodo",
     }
   }
 });

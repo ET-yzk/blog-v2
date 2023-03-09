@@ -4,6 +4,7 @@ icon: s fa-face-smile
 dir:
   order: 3
 article: false
+index: false
 ---
 
 <AutoCatalog />

@@ -826,7 +826,7 @@ Markdown 支持在下面这些符号前面加上反斜线来帮助插入普通�
 
 Example: `:smile:` :smile:
 
-你可以在 [Emoji 列表](./emoji/README.md) 找到所有可用的 Emoji。
+你可以在 [Emoji 列表](./emoji/readme.md) 找到所有可用的 Emoji。
 
 ## Markdown 效果演示
 

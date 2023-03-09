@@ -2,7 +2,7 @@
 title: 《假装是待办》
 icon: 🪴
 category: 小吐槽
-index: falseh
+index: false
 sidebar: heading
 ---
 

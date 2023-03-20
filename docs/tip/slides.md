@@ -118,11 +118,11 @@ const a = 1;
 
 在你启用 `math` 插件后，你也可以使用 TEX 格式使用数学公式。
 
-$$
+$$ {latex}
 J(\theta_0,\theta_1) = \sum_{i=0}
 $$
 
---
+---
 
 <!-- .slide: data-auto-animate -->
 

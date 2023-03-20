@@ -97,11 +97,24 @@ export default hopeTheme({
     },
 
     comment: {
+      // 基于三方服务及服务器，普通用户友好
       provider: "Waline",
       dark: 'auto',
       requiredMeta: ['nick'],
       serverURL: "https://comment.yzketx.online/",
       emoji: ['//unpkg.com/@waline/emojis@1.1.0/bilibili', '//unpkg.com/@waline/emojis@1.1.0/tw-emoji']
+
+      // 基于 Github Discussion，须 Github 账号
+      // provider: "Giscus",
+      // repo: "ET-yzk/ET-yzk.github.io",
+      // repoId: "MDEwOlJlcG9zaXRvcnkzOTE1NTQxMTA=",
+      // category: "Announcements",
+      // categoryId: "DIC_kwDOF1akPs4CUwTu",
+      // mapping: "pathname",
+      // strict: true,
+      // lazyLoading: true,
+      // reactionsEnabled: true,
+      // inputPosition: "top",
     },
 
     feed: {

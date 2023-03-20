@@ -21,11 +21,22 @@ projects:
 
   - name: The craft of selfteaching 🧭
     icon: book
+    desc: Selfteaching...
     link: https://blog.yzketx.online/iSTEP.github.io/The-craft-of-selfteaching/
 
   - name: My Roast 🫥
     icon: s fa-user-astronaut
-    desc: Something about daily...
+    desc: Something about daily life...
+    link: https://blog.yzketx.online/roast/
+
+  - name: Coming soon 🌞
+    icon: s fa-user-astronaut
+    desc: balabala...
+    link: https://blog.yzketx.online/roast/
+
+  - name: Coming soon 🌞
+    icon: s fa-user-astronaut
+    desc: kafkafka...
     link: https://blog.yzketx.online/roast/
 
 index: false

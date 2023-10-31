@@ -8,7 +8,7 @@ export default hopeTheme({
   logoDark: "/logo-darkmode.png",
 
   author: {
-    name: "zkye",
+    name: "yzk",
     url: "https://blog.yzketx.online/"
   },
 
@@ -35,7 +35,7 @@ export default hopeTheme({
       blog: {
         intro: "/intro/",
         sidebarDisplay: "mobile",
-        description: "π",
+        description: "near zero",
         roundAvatar: true,
         medias: {
           // Zhihu: "https://zhihu.com",

@@ -6,7 +6,7 @@ title: 主页
 tagline: 凌晨四点，见海棠花未眠 🌸
 heroImage: /logo.png
 bgImage: /bg2.jpg
-heroText: ET-yzk
+heroText: Kfkfka
 heroFullScreen: true
 projects:
   - name: iSTEP BE 🥤
@@ -29,10 +29,10 @@ projects:
     desc: Something about daily life...
     link: https://blog.yzketx.online/roast/
 
-  - name: Coming soon 🌞
+  - name: PaprikaYi 🌶️
     icon: s fa-user-astronaut
-    desc: balabala...
-    link: https://blog.yzketx.online/roast/
+    desc: gagagaga...
+    link: https://blog.yzketx.online/paprikaYi.github.io
 
   - name: Coming soon 🌞
     icon: s fa-user-astronaut

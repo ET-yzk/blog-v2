@@ -837,14 +837,15 @@ VuePress 支持重定向到干净链接。如果一个链接 `/foo` 找不到，
 - 示例:
 
 <picture>
-  <source srcset="/bg1.png" media="(max-width: 719px)">
+  <source srcset="/assets/images/bg1.png" media="(max-width: 719px)">
   <img class="line-numbers-mobile-snap" alt="Image">
 </picture>
 
 <picture>
-  <source srcset="/bg2.png" media="(max-width: 719px)">
+  <source srcset="/assets/images/bg2.png" media="(max-width: 719px)">
   <img class="line-numbers-mobile-snap" alt="Image">
 </picture>
+
 
 <style>
   @media screen and (min-width:  719px) {
@@ -868,12 +869,12 @@ VuePress 支持重定向到干净链接。如果一个链接 `/foo` 找不到，
 
 ```vue
 <picture>
-  <source srcset="/bg1.png" media="(min-width: 719px)">
+  <source srcset="/assets/images/bg1.png" media="(min-width: 719px)">
   <img class="line-numbers-desktop-snap" alt="Image">
 </picture>
 
 <picture>
-  <source srcset="/bg2.png" media="(max-width: 719px)">
+  <source srcset="/assets/images/bg2.png" media="(max-width: 719px)">
   <img class="line-numbers-mobile-snap" alt="Image">
 </picture>
 

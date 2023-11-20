@@ -1,27 +1,71 @@
 name: Build and Deploy
-on: [push]
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
 jobs:
-  build-and-deploy:
+  deploy-gh-pages:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@master
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          # if need Git sub-moudle，light under line
+          # submodules: true
 
-    - name: 设置 Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
-        cache: yarn
+      - name: install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          run_install: true
+          version: 8
 
-    - name: 安装依赖
-      run: yarn install --frozen-lockfile
+      - name: setting Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: pnpm
 
-    - name: vuepress-deploy
-      uses: jenkey2011/vuepress-deploy@master
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        TARGET_REPO: ET-yzk/ET-yzk.github.io
-        TARGET_BRANCH: v2
-        BUILD_SCRIPT: yarn && yarn run docs:build
-        BUILD_DIR: docs/.vuepress/dist
-        CNAME: https://blog.yzketx.online
+      - name: build docs
+        env:
+          NODE_OPTIONS: --max_old_space_size=8192
+        run: |-
+          pnpm run docs:build
+          > docs/.vuepress/dist/.nojekyll
+
+      - name: deploy docs
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          # 这是文档部署到的分支名称
+          branch: v2
+          folder: docs/.vuepress/dist
+
+  # build-and-deploy:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@master
+
+  #     - name: 设置 Node.js
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 18
+  #         cache: yarn
+
+  #     - name: 安装依赖
+  #       run: yarn install --frozen-lockfile
+
+  #     - name: vuepress-deploy
+  #       uses: jenkey2011/vuepress-deploy@master
+  #       env:
+  #         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+  #         TARGET_REPO: ET-yzk/ET-yzk.github.io
+  #         TARGET_BRANCH: v2
+  #         BUILD_SCRIPT: yarn && yarn run docs:build
+  #         BUILD_DIR: docs/.vuepress/dist
+  #         CNAME: https://blog.yzketx.online

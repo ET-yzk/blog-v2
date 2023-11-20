@@ -4,7 +4,7 @@ home: true
 icon: s fa-home
 title: Blog Home
 heroImage: /logo.png
-bgImage: /bg1.png
+bgImage: /assets/images/bg1.png
 heroText: zkye
 tagline: Hello World 😶‍🌫️
 heroFullScreen: true

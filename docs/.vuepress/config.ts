@@ -1,4 +1,4 @@
-import { defineUserConfig } from "@vuepress/cli";
+import { defineUserConfig } from "vuepress";
 import { searchProPlugin } from "vuepress-plugin-search-pro";
 
 import theme from "./theme.js";
@@ -53,8 +53,8 @@ export default defineUserConfig({
     },
     "/en/": {
       lang: "en-US",
-      title: "I'm Zkye",
-      description: "Zkye personal blog",
+      title: "I'm kfkfka zkye",
+      description: "Kfkfka personal blog",
     },
   },
 
@@ -76,5 +76,6 @@ export default defineUserConfig({
         },
       ],
     }),
+    
   ],
 });

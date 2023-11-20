@@ -11,6 +11,9 @@ export const zhSidebarConfig = sidebar({
     "/problem/": "structure",
     "/reprint/": "structure",
     "/tip/": "structure",
+    "/read-paper/": "structure",
+    "/trance/": "structure",
+    "/paprikayi/": "structure",
 
     "/book/": [
         {

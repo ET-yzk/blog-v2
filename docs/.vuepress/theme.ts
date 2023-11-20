@@ -1,4 +1,4 @@
-import { hopeTheme } from "vuepress-theme-hope/perf";
+import { hopeTheme } from "vuepress-theme-hope";
 
 import { enNavbarConfig, zhNavbarConfig } from "./navbar/index.js";
 import { enSidebarConfig, zhSidebarConfig } from "./sidebar/index.js";
@@ -8,7 +8,7 @@ export default hopeTheme({
   logoDark: "/logo-darkmode.png",
 
   author: {
-    name: "yzk",
+    name: "kfkfka zkye",
     url: "https://blog.yzketx.online/"
   },
 
@@ -45,6 +45,7 @@ export default hopeTheme({
           // Gmail: "mailto:yzketxte@gmail.com",
         },
         articlePerPage: 10,
+        // articleInfo: ["Author", "Original", "Date", "PageView", "Category", "Tag", "ReadingTime"],
       },
 
     },
@@ -54,7 +55,7 @@ export default hopeTheme({
 
       footer:
         'Theme by <a href="https://theme-hope.vuejs.press">vuepress-theme-hope</a>',
-      copyright: 'Copyright © 2021-present zkye | <a href="/LICENSE">MIT License</a>',
+      copyright: 'Copyright © 2021-PRESRENT zkye | <a href="/LICENSE">MIT License</a>',
 
       blog: {
         intro: "/en/intro/",
@@ -66,26 +67,15 @@ export default hopeTheme({
           // Baidu: "https://baidu.com",
           // Email: "mailto:yzket@foxmail.com",
           Github: "https://github.com/ET-yzk",
-          Gmail: "mailto:yzketxte@gmail.com",
+          Gmail: "mailto:yzketx@gmail.com",
         },
         // articlePerPage: 6,
       },
     },
   },
 
-  // iconAssets: "fontawesome",
   iconPrefix: "fa",
   // editLinks: false,  // 是否显示编辑此页面
-
-  // v2 弃用
-  // 一种高级搜索插件
-  // 不同于开箱即用的 内置搜索，Algolia 搜索需要你在使用之前将你的网站提交给它们用于创建索引。
-  // algolia: {
-  //   appId: "4581G8F341",
-  //   apiKey: "8d2f9fac3ce61ff2dc69c0fb7f4d5c90",
-  //   indexName: "vuepress",
-  // },
-  // algoliaType: "full",
 
   displayFooter: true,
 
@@ -102,7 +92,7 @@ export default hopeTheme({
       dark: 'auto',
       requiredMeta: ['nick'],
       serverURL: "https://comment.yzketx.online/",
-      emoji: ['//unpkg.com/@waline/emojis@1.1.0/bilibili', '//unpkg.com/@waline/emojis@1.1.0/tw-emoji']
+      emoji: ['//unpkg.com/@waline/emojis@1.2.0/alus', '//unpkg.com/@waline/emojis@1.2.0/bilibili', '//unpkg.com/@waline/emojis@1.2.0/tw-emoji']
 
       // 基于 Github Discussion，须 Github 账号
       // provider: "Giscus",
@@ -122,97 +112,64 @@ export default hopeTheme({
       rss: true,
     },
 
+    components: {
+      // 你想使用的组件
+      components: [
+        "Badge",
+        "BiliBili",
+        "PDF",
+        "Share",
+      ],
+    },
+
     mdEnhance: {
       tabs: true,
       align: true,
       codetabs: true,
-      demo: true,
-      flowchart: true,
+      // demo: true,
+      // flowchart: true,
       footnote: true,
+      // 启用 figure
+      figure: true,
+      // 启用图片懒加载
       // imgLazyload: true,
+      // 启用图片标记
       imgMark: true,
+      // 启用图片大小
+      imgSize: true,
       katex: true,
+      tasklist: true,
+      include: true,
+      attrs: true,
       mermaid: true,
-      presentation: true,
       sub: true,
       sup: true,
       vPre: true,
+      mark: true,
+      component: true,
+      container: true,
     },
 
     copyright: true,
-
-    // pwa: {
-    //   themeColor: "4bbda8",
-    //   favicon: "/favicon.ico",
-    //   maxSize: 3072,
-    //   cachePic: true,
-    //   apple: {
-    //     icon: "/assets/icon/apple-icon-152.png",
-    //     statusBarColor: "black",
-    //   },
-    //   msTile: {
-    //     image: "/assets/icon/ms-icon-144.png",
-    //     color: "#ffffff",
-    //   },
-    //   manifest: {
-    //     icons: [
-    //       {
-    //         src: "/assets/icon/chrome-mask-512.png",
-    //         sizes: "512x512",
-    //         purpose: "maskable",
-    //         type: "image/png",
-    //       },
-    //       {
-    //         src: "/assets/icon/chrome-mask-192.png",
-    //         sizes: "192x192",
-    //         purpose: "maskable",
-    //         type: "image/png",
-    //       },
-    //       {
-    //         src: "/assets/icon/chrome-512.png",
-    //         sizes: "512x512",
-    //         type: "image/png",
-    //       },
-    //       {
-    //         src: "/assets/icon/chrome-192.png",
-    //         sizes: "192x192",
-    //         type: "image/png",
-    //       },
-    //     ],
-    //     // shortcuts: [
-    //     //   {
-    //     //     name: "Guide",
-    //     //     short_name: "Guide",
-    //     //     url: "/guide/",
-    //     //     icons: [
-    //     //       {
-    //     //         src: "/assets/icon/guide-maskable.png",
-    //     //         sizes: "192x192",
-    //     //         purpose: "maskable",
-    //     //         type: "image/png",
-    //     //       },
-    //     //       {
-    //     //         src: "/assets/icon/guide-monochrome.png",
-    //     //         sizes: "192x192",
-    //     //         purpose: "monochrome",
-    //     //         type: "image/png",
-    //     //       },
-    //     //     ],
-    //     //   },
-    //     // ],
-    //   },
-    // },
-
   },
 
   encrypt: {
+    admin: "yzkext",
     config: {
       "/interview/me": "yzkyzk",
-      "/en/guide/encrypt": "yzk123",
-      "/tip/encrypt": "yzk123",
+      "/en/guide/encrypt": "yzken",
+      "/tip/encrypt": "yzktip",
       "/course/操作系统练习": "czxtlx",
+      "/paprikayi/": "paprika",
       "/roast/diary": "yzkroast",
       "/roast/todo-list": "yzktodo",
     }
   }
-});
+},
+{
+  check: true,
+  compact:true,
+  custom :false,
+  debug: false
+}
+);

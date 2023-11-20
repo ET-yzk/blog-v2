@@ -5,7 +5,7 @@ icon: s fa-home
 title: 主页
 tagline: 凌晨四点，见海棠花未眠 🌸
 heroImage: /logo.png
-bgImage: /bg2.jpg
+bgImage: /assets/images/bg2.jpg
 heroText: Kfkfka
 heroFullScreen: true
 projects:
@@ -32,7 +32,7 @@ projects:
   - name: PaprikaYi 🌶️
     icon: s fa-user-astronaut
     desc: gagagaga...
-    link: https://blog.yzketx.online/paprikaYi.github.io
+    link: https://blog.yzketx.online/paprikayi
 
   - name: Coming soon 🌞
     icon: s fa-user-astronaut

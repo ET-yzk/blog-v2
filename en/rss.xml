@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="https://blog.yzketx.online/en/rss.xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <atom:link href="https://blog.yzketx.online/en/rss.xml" rel="self" type="application/rss+xml"/>
+    <title>I&amp;apos;m kfkfka zkye</title>
+    <link>https://blog.yzketx.online/en/</link>
+    <description>Kfkfka personal blog</description>
+    <language>en-US</language>
+    <pubDate>Mon, 20 Nov 2023 16:05:05 GMT</pubDate>
+    <lastBuildDate>Mon, 20 Nov 2023 16:05:05 GMT</lastBuildDate>
+    <generator>vuepress-plugin-feed2</generator>
+    <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+    <copyright>Copyright © 2021-PRESRENT zkye | &amp;lt;a href=&amp;quot;/LICENSE&amp;quot;&amp;gt;MIT License&amp;lt;/a&amp;gt;</copyright>
+    <category>Guide</category>
+    <item>
+      <title>Component disabled</title>
+      <link>https://blog.yzketx.online/en/guide/disable.html</link>
+      <guid>https://blog.yzketx.online/en/guide/disable.html</guid>
+      <source url="https://blog.yzketx.online/en/rss.xml">Component disabled</source>
+      <description>You can disable some functions on the page by setting the Frontmatter of the page.</description>
+      <category>Guide</category>
+      <pubDate>Thu, 20 Jan 2022 05:34:49 GMT</pubDate>
+      <content:encoded><![CDATA[<p>You can disable some functions on the page by setting the Frontmatter of the page.</p>
+<!-- more -->
+<p>These should be disabled on this page:</p>
+<ul>
+<li>Navbar</li>
+<li>Sidebar</li>
+<li>Breadcrumb</li>
+<li>Page information</li>
+<li>Contributors</li>
+<li>Edit link</li>
+<li>Update time</li>
+<li>Prev/Next link</li>
+<li>Comment</li>
+<li>Footer</li>
+<li>Back to top button</li>
+</ul>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Markdown Enhance</title>
+      <link>https://blog.yzketx.online/en/guide/markdown.html</link>
+      <guid>https://blog.yzketx.online/en/guide/markdown.html</guid>
+      <source url="https://blog.yzketx.online/en/rss.xml">Markdown Enhance</source>
+      <description>vuepress-theme-hope enables more syntax in Markdown via the built-in md-enhance plugin.</description>
+      <category>Guide</category>
+      <pubDate>Thu, 20 Jan 2022 05:34:49 GMT</pubDate>
+      <content:encoded><![CDATA[<p><code>vuepress-theme-hope</code> enables more syntax in Markdown via the built-in <a href="https://vuepress-theme-hope.github.io/md-enhance" target="_blank" rel="noopener noreferrer">md-enhance</a> plugin.</p>
+<!-- more -->
+<h2> Enable all</h2>
+<p>You can set <code>themeconfig.mdEnhance.enableAll</code> to enable all features of the <a href="https://vuepress-theme-hope.github.io/md-enhance" target="_blank" rel="noopener noreferrer">md-enhance</a> plugin.</p>
+<div class="language-javascript" data-ext="js"><div class="highlight-lines"><br><br><div class="highlight-line">&nbsp;</div><div class="highlight-line">&nbsp;</div><div class="highlight-line">&nbsp;</div><br><br></div></div><h2> New Feature</h2>
+<h3> Superscript and Subscript</h3>
+<p>19<sup>th</sup> H<sub>2</sub>O</p>
+<details class="hint-container details"><summary>Code</summary>
+<div class="language-markdown" data-ext="md"></div></details>
+<ul>
+<li><a href="https://vuepress-theme-hope.github.io/guide/markdown/sup-sub/" target="_blank" rel="noopener noreferrer">View Detail</a></li>
+</ul>
+<h3> Align</h3>
+<div style="text-align:center">
+<p>I am center</p>
+</div>
+<div style="text-align:right">
+<p>I am right align</p>
+</div>
+<details class="hint-container details"><summary>Code</summary>
+<div class="language-markdown line-numbers-mode" data-ext="md"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
+<ul>
+<li><a href="https://vuepress-theme-hope.github.io/guide/markdown/align/" target="_blank" rel="noopener noreferrer">View Detail</a></li>
+</ul>
+<h3> Footnote</h3>
+<p>This text has footnote<sup class="footnote-ref"><a href="#footnote1">[1]</a><a class="footnote-anchor" id="footnote-ref1"></a></sup><a class="footnote-anchor" id="footnote-ref1">.</a></p><a class="footnote-anchor" id="footnote-ref1">
+<details class="hint-container details"><summary>Code</summary>
+<div class="language-markdown" data-ext="md"></div></details>
+</a><ul><a class="footnote-anchor" id="footnote-ref1">
+</a><li><a class="footnote-anchor" id="footnote-ref1"></a><a href="https://vuepress-theme-hope.github.io/guide/markdown/footnote/" target="_blank" rel="noopener noreferrer">View Detail</a></li>
+</ul>
+<h3> Mark</h3>
+<p>You can mark <mark>important words</mark> .</p>
+<details class="hint-container details"><summary>Code</summary>
+<div class="language-markdown" data-ext="md"></div></details>
+<ul>
+<li><a href="https://vuepress-theme-hope.github.io/guide/markdown/mark/" target="_blank" rel="noopener noreferrer">View Detail</a></li>
+</ul>
+<h3> Tasklist</h3>
+<ul class="task-list-container">
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" id="task-item-0" checked="checked" disabled="disabled"><label class="task-list-item-label" for="task-item-0"> Plan A</label></li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" id="task-item-1" disabled="disabled"><label class="task-list-item-label" for="task-item-1"> Plan B</label></li>
+</ul>
+<details class="hint-container details"><summary>Code</summary>
+<div class="language-markdown" data-ext="md"></div></details>
+<ul>
+<li><a href="https://vuepress-theme-hope.github.io/guide/markdown/tasklist/" target="_blank" rel="noopener noreferrer">View Detail</a></li>
+</ul>
+<h3> Flowchart</h3>
+<div class="language-flow" data-ext="flow"></div><details class="hint-container details"><summary>Code</summary>
+<div class="language-markdown" data-ext="md"></div></details>
+<ul>
+<li><a href="https://vuepress-theme-hope.github.io/guide/markdown/flowchart/" target="_blank" rel="noopener noreferrer">View Detail</a></li>
+</ul>
+<h2> Mermaid</h2>
+<details class="hint-container details"><summary>Code</summary>
+<div class="language-markdown" data-ext="md"></div></details>
+<ul>
+<li><a href="https://vuepress-theme-hope.github.io/guide/markdown/mermaid/" target="_blank" rel="noopener noreferrer">View Detail</a></li>
+</ul>
+<h3> Tex</h3>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mfrac><msup><mi mathvariant="normal">∂</mi><mi>r</mi></msup><mrow><mi mathvariant="normal">∂</mi><msup><mi>ω</mi><mi>r</mi></msup></mrow></mfrac><mrow><mo fence="true">(</mo><mfrac><msup><mi>y</mi><mi>ω</mi></msup><mi>ω</mi></mfrac><mo fence="true">)</mo></mrow><mo>=</mo><mrow><mo fence="true">(</mo><mfrac><msup><mi>y</mi><mi>ω</mi></msup><mi>ω</mi></mfrac><mo fence="true">)</mo></mrow><mrow><mo fence="true">{</mo><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>y</mi><msup><mo stretchy="false">)</mo><mi>r</mi></msup><mo>+</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>r</mi></munderover><mfrac><mrow><mo stretchy="false">(</mo><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mi>i</mi></msup><mi>r</mi><mo>⋯</mo><mo stretchy="false">(</mo><mi>r</mi><mo>−</mo><mi>i</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>y</mi><msup><mo stretchy="false">)</mo><mrow><mi>r</mi><mo>−</mo><mi>i</mi></mrow></msup></mrow><msup><mi>ω</mi><mi>i</mi></msup></mfrac><mo fence="true">}</mo></mrow></mrow><annotation encoding="application/x-tex">
+\frac {\partial^r} {\partial \omega^r} \left(\frac {y^{\omega}} {\omega}\right)
+= \left(\frac {y^{\omega}} {\omega}\right) \left\{(\log y)^r + \sum_{i=1}^r \frac {(-1)^i r \cdots (r-i+1) (\log y)^{r-i}} {\omega^i} \right\}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.4em;vertical-align:-0.95em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord" style="margin-right:0.05556em;">∂</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">ω</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5904em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord" style="margin-right:0.05556em;">∂</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3414em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">ω</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">ω</span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:3.0277em;vertical-align:-1.2777em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3414em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">ω</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">ω</span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7144em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6514em;"><span style="top:-1.8723em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2777em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.5017em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">ω</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7507em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mopen">(</span><span class="mord">−</span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8247em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8247em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mbin mtight">−</span><span class="mord mathnormal mtight">i</span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size4">}</span></span></span></span></span></span></span></p>
+<details class="hint-container details"><summary>Code</summary>
+<div class="language-markdown" data-ext="md"></div></details>
+<ul>
+<li><a href="https://vuepress-theme-hope.github.io/guide/markdown/tex/" target="_blank" rel="noopener noreferrer">View Detail</a></li>
+</ul>
+<h3> Demo</h3>
+<p>::: demo A normal demo</p>
+<div class="language-html" data-ext="html"></div><div class="language-javascript" data-ext="js"></div><div class="language-css" data-ext="css"></div><p>:::</p>
+<details class="hint-container details"><summary>Code</summary>
+<div class="language-markdown line-numbers-mode" data-ext="md"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
+<p>::: demo [react] A react demo</p>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-css" data-ext="css"></div><p>:::</p>
+<details class="hint-container details"><summary>Code</summary>
+<div class="language-markdown line-numbers-mode" data-ext="md"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
+<p>::: demo [vue] A vue demo</p>
+<div class="language-vue line-numbers-mode" data-ext="vue"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>:::</p>
+<details class="hint-container details"><summary>Code</summary>
+<div class="language-markdown line-numbers-mode" data-ext="md"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
+<p>::: demo A normal demo</p>
+<div class="language-markdown" data-ext="md"></div><div class="language-typescript" data-ext="ts"></div><div class="language-scss" data-ext="scss"></div><p>:::</p>
+<details class="hint-container details"><summary>Code</summary>
+<div class="language-markdown line-numbers-mode" data-ext="md"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
+<ul>
+<li><a href="https://vuepress-theme-hope.github.io/guide/markdown/demo/" target="_blank" rel="noopener noreferrer">View Detail</a></li>
+</ul>
+<h3> Presentation</h3>
+<p>@slidestart</p>
+<h2> Slide 1</h2>
+<p>A paragraph with some text and a <a href="https://mrhope.site" target="_blank" rel="noopener noreferrer">link</a></p>
+<hr>
+<h2> Slide 2</h2>
+<ul>
+<li>Item 1</li>
+<li>Item 2</li>
+</ul>
+<hr>
+<h2> Slide 3.1</h2>
+<div class="language-javascript" data-ext="js"></div><p>--</p>
+<h2> Slide 3.2</h2>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>J</mi><mo stretchy="false">(</mo><msub><mi>θ</mi><mn>0</mn></msub><mo separator="true">,</mo><msub><mi>θ</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mo>=</mo><munder><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow></munder></mrow><annotation encoding="application/x-tex">
+J(\theta_0,\theta_1) = \sum_{i=0}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.09618em;">J</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.3277em;vertical-align:-1.2777em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.05em;"><span style="top:-1.8723em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">0</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2777em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>@slideend</p>
+<details class="hint-container details"><summary>Code</summary>
+<div class="language-markdown line-numbers-mode" data-ext="md"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
+<ul>
+<li><a href="https://vuepress-theme-hope.github.io/guide/markdown/presentation/" target="_blank" rel="noopener noreferrer">View Detail</a></li>
+</ul>
+<h2> Other Syntax</h2>
+<div class="hint-container info">
+<p class="hint-container-title">custom title</p>
+<p>A custom information container</p>
+</div>
+<div class="hint-container tip">
+<p class="hint-container-title">custom title</p>
+<p>A custom tip container</p>
+</div>
+<div class="hint-container warning">
+<p class="hint-container-title">custom title</p>
+<p>A custom warning container</p>
+</div>
+<div class="hint-container danger">
+<p class="hint-container-title">custom Title</p>
+<p>A custom danger container</p>
+</div>
+<details class="hint-container details"><summary>custom title</summary>
+<p>A custom details container</p>
+</details>
+<details class="hint-container details"><summary>Code</summary>
+<div class="language-markdown line-numbers-mode" data-ext="md"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></details>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="footnote1" class="footnote-item"><p>This is footnote content <a href="#footnote-ref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>page config</title>
+      <link>https://blog.yzketx.online/en/guide/page.html</link>
+      <guid>https://blog.yzketx.online/en/guide/page.html</guid>
+      <source url="https://blog.yzketx.online/en/rss.xml">page config</source>
+      <description>Page information</description>
+      <category>Guide</category>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[<h2> Page information</h2>
+<p>You can set page information in Markdown’s Frontmatter.</p>
+<ul>
+<li>
+<p>The author is set to Ms.Hope.</p>
+</li>
+<li>
+<p>The writing time should be January 1, 2020</p>
+</li>
+<li>
+<p>Category is "Guide"</p>
+</li>
+<li>
+<p>Tags are "Page Config" and "Guide"</p>
+</li>
+</ul>
+<h2> Page content</h2>
+<p>You are free to write your Markdown here.</p>
+<div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<ul>
+<li>
+<p>Please use the relative link <code>./</code> for pictures in the Markdown folder.</p>
+</li>
+<li>
+<p>For pictures in <code>.vuepress/public</code> folder, please use absolute link <code>/</code> for reference</p>
+</li>
+</ul>
+</div>
+<p>The theme contains a custom badge:</p>
+<blockquote>
+<p>A dark blue badge text badge at the end of line. </p>
+</blockquote>
+<h2> Page structure</h2>
+<p>This page should contain:</p>
+<ul>
+<li>Back to top button</li>
+<li>Route navigation</li>
+<li>Comments</li>
+<li>Footer</li>
+</ul>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Guides</title>
+      <link>https://blog.yzketx.online/en/guide/</link>
+      <guid>https://blog.yzketx.online/en/guide/</guid>
+      <source url="https://blog.yzketx.online/en/rss.xml">Guides</source>
+      <description>Guides Page Config Markdown Enhance Function Disable Encryption Demo</description>
+      <category>Guide</category>
+      <pubDate>Thu, 20 Jan 2022 05:34:49 GMT</pubDate>
+      <content:encoded><![CDATA[<h1> Guides</h1>
+<ul>
+<li>
+<p><a href="/en/guide/page.html" target="blank">Page Config</a></p>
+</li>
+<li>
+<p><a href="/en/guide/markdown.html" target="blank">Markdown Enhance</a></p>
+</li>
+<li>
+<p><a href="/en/guide/disable.html" target="blank">Function Disable</a></p>
+</li>
+<li>
+<p><a href="/en/guide/encrypt.html" target="blank">Encryption Demo</a></p>
+</li>
+</ul>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

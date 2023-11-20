@@ -1,0 +1,1 @@
+import{_ as o}from"./plugin-vue_export-helper-x3n3nnut.js";import{o as t,c as n,a as e}from"./app-HHaGRXeI.js";const c={},l=e("blockquote",null,[e("p",null,"🎗️ English content will be released soon…")],-1),s=[l];function _(r,a){return t(),n("div",null,s)}const f=o(c,[["render",_],["__file","index.html.vue"]]);export{f as default};

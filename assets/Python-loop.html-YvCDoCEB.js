@@ -1,0 +1,6 @@
+import{_ as n}from"./plugin-vue_export-helper-x3n3nnut.js";import{o as a,c as s,f as p}from"./app-HHaGRXeI.js";const t={},o=p(`<h1 id="python中循环代码优化" tabindex="-1"><a class="header-anchor" href="#python中循环代码优化" aria-hidden="true">#</a> Python中循环代码优化</h1><p>编写循环时，遵循下面三个原则可以大大提高运行效率，避免不需要的低效计算：</p><p>1、尽量减少循环内部不必要的计算</p><p>2、嵌套循环中，尽量减少内层循环的计算，尽可能的将计算往外层提</p><p>3、局部变量查询较快，尽量使用局部变量。</p><p>其他优化手段：</p><p>1、连接多个字符串时，使用join()而不使用+（因为+会产生新的字符串对象）</p><p>2、列表进行元素插入和删除，尽量在列表尾部操作</p><p>3、充分运用 pandas、numpy、scipy 等库及其数据结构</p><p>4、对于计算问题，<em>动态编译</em></p><div class="language-python" data-ext="py"><pre class="language-python"><code><span class="token keyword">from</span> numba <span class="token keyword">import</span> jit
+
+<span class="token decorator annotation punctuation">@jit</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+</code></pre></div>`,11),e=[o];function c(i,r){return a(),s("div",null,e)}const u=n(t,[["render",c],["__file","Python-loop.html.vue"]]);export{u as default};

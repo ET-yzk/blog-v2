@@ -1,0 +1,13 @@
+import{_ as a}from"./plugin-vue_export-helper-x3n3nnut.js";import{o as s,c as n,f as e}from"./app-HHaGRXeI.js";const p={},c=e(`<h1 id="类内部定义自身" tabindex="-1"><a class="header-anchor" href="#类内部定义自身" aria-hidden="true">#</a> 类内部定义自身</h1><h2 id="cpp" tabindex="-1"><a class="header-anchor" href="#cpp" aria-hidden="true">#</a> CPP</h2><blockquote><p>为什么C++类定义中，数据成员不能被指定为自身类型，但可以是指向自身类型的指针或引用？</p></blockquote><p>在介绍这个问题前，我们先简要说一下类定义和声明的区别。</p><p><strong>类声明</strong></p><div class="language-cpp" data-ext="cpp"><pre class="language-cpp"><code><span class="token keyword">class</span> <span class="token class-name">Screen</span>；   <span class="token comment">//Screen类的声明</span>
+</code></pre></div><p><strong>类定义</strong></p><div class="language-cpp" data-ext="cpp"><pre class="language-cpp"><code><span class="token keyword">class</span> <span class="token class-name">Screen</span><span class="token punctuation">{</span>    <span class="token comment">//Screen类的定义</span>
+    <span class="token comment">//etc...</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>       
+</code></pre></div><p>当用实例化一个类的对象时，编译器会根据类的定义来分配相应的存储空间。也就是说，在创建对象前，一定要有完整的类定义，这样编译器才能正确的计算所需空间。</p><p>那么我们来看如下代码：</p><div class="language-cpp" data-ext="cpp"><pre class="language-cpp"><code><span class="token keyword">class</span> <span class="token class-name">Screen</span><span class="token punctuation">{</span>
+    Screen sc<span class="token punctuation">;</span>    <span class="token comment">//error, &#39;sc&#39; uses undefined class &#39;Screen&#39;</span>
+    <span class="token comment">//etc...</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>上述代码中，由于Screen还没有定义结束，在内部定义一个Screen类型的对象时，编译器无法知道应该为sc分配多少空间，因此会报注释中的错误。</p><p>我们再看下面一段代码：</p><div class="language-cpp" data-ext="cpp"><pre class="language-cpp"><code><span class="token keyword">class</span> <span class="token class-name">Screen</span><span class="token punctuation">{</span>
+    Screen <span class="token operator">*</span>sc1<span class="token punctuation">;</span>   <span class="token comment">//ok</span>
+    Screen <span class="token operator">&amp;</span>sc2<span class="token punctuation">;</span>   <span class="token comment">//ok</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>在类定义时，已指向自身类型的指针或引用作为数据成员则没有问题。按照前面的介绍就很好理解了，由于指针和引用所占存储空间大小与类型无关，所以编译器可以计算分配空间，所以正确。</p><h2 id="java" tabindex="-1"><a class="header-anchor" href="#java" aria-hidden="true">#</a> Java</h2>`,16),t=[c];function o(l,r){return s(),n("div",null,t)}const u=a(p,[["render",o],["__file","Class-defines-itself-internally.html.vue"]]);export{u as default};

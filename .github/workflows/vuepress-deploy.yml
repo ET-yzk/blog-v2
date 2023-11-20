@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Build and Deploy:to other custom branch
 
 on:
   push:
@@ -51,27 +51,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
-      - name: install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          run_install: true
-          version: 8
-
-      - name: set Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-          cache: pnpm
-
-      - name: add dependencies
-        run: pnpm install
-
-      - name: vuepress-deploy
+      - name: Build and Deploy
         uses: jenkey2011/vuepress-deploy@master
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           TARGET_REPO: ET-yzk/ET-yzk.github.io
           TARGET_BRANCH: v2
-          BUILD_SCRIPT: pnpm run docs:build
+          BUILD_SCRIPT: corepack enable && corepack prepare pnpm@latest --activate && pnpm && pnpm run docs:build
           BUILD_DIR: docs/.vuepress/dist
           CNAME: https://blog.yzketx.online
+          COMMIT_MESSAGE:  Auto deploy by the Vuepress-deploy

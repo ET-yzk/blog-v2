@@ -57,7 +57,7 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           TARGET_REPO: ET-yzk/ET-yzk.github.io
           TARGET_BRANCH: v2
-          BUILD_SCRIPT: corepack enable && corepack prepare pnpm@latest --activate && pnpm && pnpm run docs:build
+          BUILD_SCRIPT: corepack enable && corepack prepare pnpm@latest --activate && pnpm install && pnpm run docs:build
           BUILD_DIR: docs/.vuepress/dist
           CNAME: https://blog.yzketx.online
           COMMIT_MESSAGE:  Auto deploy by the Vuepress-deploy

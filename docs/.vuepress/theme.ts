@@ -30,7 +30,7 @@ export default hopeTheme({
       sidebar: zhSidebarConfig,
 
       footer: "At four o'clock in the morning, I saw Begonia flowers awake. ❀",
-      copyright: 'Copyright © 2021-present zkye | <a href="/LICENSE">MIT License</a>',
+      copyright: 'Copyright © 2021-PRESENT zkye | <a href="/LICENSE">MIT License</a>',
 
       blog: {
         intro: "/intro/",
@@ -55,7 +55,7 @@ export default hopeTheme({
 
       footer:
         'Theme by <a href="https://theme-hope.vuejs.press">vuepress-theme-hope</a>',
-      copyright: 'Copyright © 2021-PRESRENT zkye | <a href="/LICENSE">MIT License</a>',
+      copyright: 'Copyright © 2021-PRESRENT kfkfka | <a href="/LICENSE">MIT License</a>',
 
       blog: {
         intro: "/en/intro/",

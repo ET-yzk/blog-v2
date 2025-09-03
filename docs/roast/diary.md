@@ -3,7 +3,7 @@ title: 《真的是日记》
 icon: 🌸
 category: 小吐槽
 index: false
-sidebar: heading
+sidebar: false
 ---
 
 ### `一些特别的符号` 🔎 🔍

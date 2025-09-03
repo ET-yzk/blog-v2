@@ -1,7 +1,7 @@
 import { hopeTheme } from "vuepress-theme-hope";
 
-import { enNavbarConfig, zhNavbarConfig } from "./navbar/index.js";
-import { enSidebarConfig, zhSidebarConfig } from "./sidebar/index.js";
+import { enNavbarConfig, zhNavbarConfig } from "./navbar";
+import { enSidebarConfig, zhSidebarConfig } from "./sidebar";
 
 export default hopeTheme({
   logo: "/logo.png",
@@ -34,9 +34,7 @@ export default hopeTheme({
 
       blog: {
         intro: "/intro/",
-        sidebarDisplay: "mobile",
         description: "near zero",
-        roundAvatar: true,
         medias: {
           // Zhihu: "https://zhihu.com",
           // Baidu: "https://baidu.com",
@@ -59,9 +57,7 @@ export default hopeTheme({
 
       blog: {
         intro: "/en/intro/",
-        sidebarDisplay: "mobile",
         description: "π",
-        roundAvatar: true,
         medias: {
           // Zhihu: "https://zhihu.com",
           // Baidu: "https://baidu.com",
@@ -74,25 +70,60 @@ export default hopeTheme({
     },
   },
 
-  iconPrefix: "fa",
+  // iconPrefix: "fa", // 已弃用，移动到 plugins.icon.prefix
   // editLinks: false,  // 是否显示编辑此页面
 
   displayFooter: true,
 
   copyright: 'Copyright © 2021-present zkye | <a href="https://blog.yzketx.online/LICENSE">MIT License</a>',
 
+  markdown: {
+    tabs: true,
+    align: true,
+    codeTabs: true,
+    footnote: true,
+    figure: true,
+    imgMark: true,
+    imgSize: true,
+    math: true,
+    tasklist: true,
+    include: true,
+    attrs: true,
+    mermaid: true,
+    sub: true,
+    sup: true,
+    vPre: true,
+    mark: true,
+    component: true,
+    preview: true,
+    flowchart: true,
+    demo: true,
+  },
+
   plugins: {
+    icon: {
+      prefix: "fa",
+    },
+
     blog: {
       excerptLength: 24,
     },
 
+    // 搜索 https://theme-hope.vuejs.press/zh/guide/feature/search.html#使用-vuepress-plugin-slimsearch
+    slimsearch: true,
+
     comment: {
       // 基于三方服务及服务器，普通用户友好
       provider: "Waline",
+      serverURL: "https://comment.yzketx.online/",
+      // Waline 3.x 新配置格式
       dark: 'auto',
       requiredMeta: ['nick'],
-      serverURL: "https://comment.yzketx.online/",
-      emoji: ['//unpkg.com/@waline/emojis@1.2.0/alus', '//unpkg.com/@waline/emojis@1.2.0/bilibili', '//unpkg.com/@waline/emojis@1.2.0/tw-emoji']
+      emoji: [
+        '//unpkg.com/@waline/emojis@1.2.0/alus',
+        '//unpkg.com/@waline/emojis@1.2.0/bilibili',
+        '//unpkg.com/@waline/emojis@1.2.0/tw-emoji'
+      ]
 
       // 基于 Github Discussion，须 Github 账号
       // provider: "Giscus",
@@ -120,34 +151,6 @@ export default hopeTheme({
         "PDF",
         "Share",
       ],
-    },
-
-    mdEnhance: {
-      tabs: true,
-      align: true,
-      codetabs: true,
-      // demo: true,
-      // flowchart: true,
-      footnote: true,
-      // 启用 figure
-      figure: true,
-      // 启用图片懒加载
-      // imgLazyload: true,
-      // 启用图片标记
-      imgMark: true,
-      // 启用图片大小
-      imgSize: true,
-      katex: true,
-      tasklist: true,
-      include: true,
-      attrs: true,
-      mermaid: true,
-      sub: true,
-      sup: true,
-      vPre: true,
-      mark: true,
-      component: true,
-      container: true,
     },
 
     copyright: true,

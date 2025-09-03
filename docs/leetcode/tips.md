@@ -71,7 +71,21 @@ tag:
 
 17. HashMap用于解决匹配问题，如两数之和等
 
-18. 
+18. 快慢指针实现中间节点的获取 [234.回文链表](https://leetcode.cn/problems/palindrome-linked-list/description/)
+
+    ```java
+    ListNode slow = head;
+    ListNode fast = head;
+    // 快慢指针找到中间节点
+    while (fast != null && fast.next != null) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    if (fast != null) {
+      // 说明存在奇数中间节点
+      // 相关处理逻辑，如跳过等
+    }
+    ```
 
 ## 常用函数
 

@@ -1,7 +1,7 @@
 ---
 title: 幻灯片页
 icon: s fa-sliders
-layout: Slide
+
 ---
 
 <!-- markdownlint-disable MD024 MD033 -->

@@ -4,6 +4,9 @@ import { sidebar } from "vuepress-theme-hope";
 export const zhSidebarConfig = sidebar({
     "/course/": "structure",
     "/daily/": "structure",
+    "/java/": "structure",
+    "/llm/": "structure",
+    "/mysql/": "structure",
     "/interview/": "structure",
     "/knowledge_base/": "structure",
     "/leetcode/": "structure",
@@ -14,6 +17,8 @@ export const zhSidebarConfig = sidebar({
     "/read-paper/": "structure",
     "/trance/": "structure",
     "/paprikayi/": "structure",
+    "/kama-DesignPattern-main/": "structure",
+    "/paper/": "structure",
 
     "/book/": [
         {

@@ -1,6 +1,6 @@
 ---
 home: true
-layout: BlogHome
+layout: Blog
 icon: s fa-home
 title: 主页
 tagline: 凌晨四点，见海棠花未眠 🌸
@@ -37,7 +37,7 @@ projects:
   - name: Coming soon 🌞
     icon: s fa-user-astronaut
     desc: kafkafka...
-    link: https://blog.yzketx.online/roast/
+    link: https://blog.yzketx.online/web_game/
 
 index: false
 footer: '<a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备2020044365号-2</a>'

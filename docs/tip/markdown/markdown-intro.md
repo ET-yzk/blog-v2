@@ -59,7 +59,7 @@ This is another regular paragraph.
 
 <  &
 
-在 HTML 文件中，有两个字元需要特殊处理: `<` 和 `&` 。 `<` 符号用于起始标签，`&` 符号则用于标记 HTML 实体，如果你只是想要使用这些符号，你必须要使用实体的形式，像是 `&lt;` 和 `&amp;`。
+在 HTML 文件中，有两个字元需要特殊处理: `<` 和 `&` 。 `<` 符号用于起始标签，`&` 符号则用于标记 HTML 实体，如果你只是想要使用这些符号，你必须要使用实体的形式，像是 `<` 和 `&amp;`。
 
 `&` 符号其实很容易让写作网络文件的人感到困扰，如果你要打「AT&T」 ，你必须要写成「`AT&amp;T`」 ，还得转换网址内的 `&` 符号，如果你要链接到 `http://images.google.com/images?num=30&q=larry+bird`
 
@@ -98,7 +98,7 @@ AT&amp;T
 Markdown 将会把它转换为:
 
 ```html
-4 &lt; 5
+4 < 5
 ```
 
 不过需要注意的是，code 范围内，不论是行内还是块， `<` 和 `&` 两个符号都*一定*会被转换成 HTML 实体，这项特性让你可以很容易地用 Markdown 写 HTML code (和 HTML 相对而言， HTML 语法中，你要把所有的 `<` 和 `&` 都转换为 HTML 实体，才能在 HTML 文件里面写出 HTML code。)
@@ -404,9 +404,9 @@ end tell
 
 ```html
 <pre>
-  <code>&lt;div class="footer"&gt;
+  <code><div class="footer">
   &amp;copy; 2004 Foo Corporation
-&lt;/div&gt;</code>
+</div></code>
 </pre>
 ```
 
@@ -685,7 +685,7 @@ Please don’t use any `<blink>` tags.
 转为:
 
 ```html
-<p>Please don’t use any <code>&lt;blink&gt;</code> tags.</p>
+<p>Please don’t use any <code><blink></code> tags.</p>
 ```
 
 你也可以这样写:

@@ -1,0 +1,1776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-AI Snake Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #222;
+            font-family: 'Press Start 2P', cursive;
+            color: #eee;
+            padding: 18px; /* Reduced from 20px */
+            box-sizing: border-box; /* Include padding in element's total width and height */
+            font-size: 12px; /* Reduced from 14px */
+        }
+
+        .main-layout-container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px; /* Limit overall width */
+            gap: 18px; /* Reduced from 20px */
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            justify-content: center;
+        }
+
+        .panel {
+            background-color: #333;
+            border-radius: 10px;
+            padding: 18px; /* Reduced from 20px */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .left-panel {
+            flex: 1; /* Allow panel to grow */
+            min-width: 240px; /* Adjusted min width */
+            max-width: 280px; /* Adjusted max width */
+        }
+
+        .center-panel {
+            flex: 2; /* Allow panel to grow more */
+            min-width: 380px; /* Minimum width for the canvas area */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .right-panel {
+            flex: 1; /* Allow panel to grow */
+            min-width: 240px; /* Adjusted min width */
+            max-width: 280px; /* Adjusted max width */
+        }
+
+        /* Visual Separators */
+        .panel + .panel {
+            border-left: 2px solid #555; /* Separator between panels */
+            padding-left: 18px; /* Reduced from 20px */
+        }
+
+        /* Adjust padding for the first panel */
+        .main-layout-container > .panel:first-child {
+            padding-left: 18px; /* Reduced from 20px */
+        }
+
+        h1 {
+            font-size: 26px; /* Reduced from 28px */
+            margin-bottom: 15px;
+            color: #4CAF50;
+        }
+
+        canvas {
+            background-color: #1a1a1a;
+            display: block;
+            margin: 18px auto; /* Reduced from 20px */
+            border: 5px solid #555;
+            border-radius: 5px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+            max-width: 100%; /* Ensure canvas is responsive */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .controls {
+            margin-top: 18px; /* Reduced from 20px */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px; /* Reduced from 10px */
+        }
+
+        button {
+            font-family: 'Press Start 2P', cursive;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 12px; /* Reduced from 10px 15px */
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 10px; /* Reduced from 12px */
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            box-shadow: 0 5px #388E3C;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button:active {
+            background-color: #388E3C;
+            box-shadow: 0 2px #1B5E20;
+            transform: translateY(3px);
+        }
+
+        button:disabled {
+            background-color: #888;
+            box-shadow: 0 5px #666;
+            cursor: not-allowed;
+        }
+
+        select {
+            font-family: 'Press Start 2P', cursive;
+            padding: 6px; /* Reduced from 8px */
+            border-radius: 5px;
+            border: 2px solid #4CAF50;
+            background-color: #1a1a1a;
+            color: #eee;
+            font-size: 10px; /* Reduced from 12px */
+            cursor: pointer;
+            max-width: 100%; /* Prevent overflow */
+            box-sizing: border-box;
+        }
+
+        .game-mode-select select {
+            text-overflow: ellipsis; /* Add ellipsis for overflow */
+            white-space: nowrap; /* Prevent text wrapping */
+            overflow: hidden; /* Hide overflowing text */
+            max-width: 100px; /* Set a max width */
+        }
+
+
+        #score-boards {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 8px; /* Reduced from 10px */
+        }
+
+        .score-board {
+            font-size: 12px; /* Reduced from 14px */
+            color: #eee;
+            padding: 4px 8px; /* Reduced from 5px 10px */
+            border-radius: 5px;
+            min-width: 70px; /* Adjusted min width */
+            text-align: center;
+            border: 1px solid #555; /* Added border */
+            background-color: #444; /* Added background */
+        }
+
+        #message {
+            margin-top: 18px; /* Reduced from 20px */
+            font-size: 12px; /* Reduced from 14px */
+            color: #FF5722; /* Orange */
+            min-height: 1.2em; /* Reserve space */
+            background-color: #444; /* Added background */
+            padding: 8px; /* Added padding */
+            border-radius: 5px;
+            width: 100%; /* Take full width */
+            box-sizing: border-box;
+        }
+
+        .leaderboard-container h2, .right-panel h2 {
+            font-size: 18px; /* Reduced from 20px */
+            margin-bottom: 15px;
+            color: #4CAF50;
+        }
+
+        #leaderboardList {
+            list-style: none;
+            padding: 0;
+            /* max-height: 300px; */
+            overflow-y: auto;
+            text-align: left;
+            width: 100%; /* Ensure list takes full width */
+            height: 100%;
+        }
+
+        #leaderboardList li {
+            background-color: #444;
+            margin-bottom: 6px; /* Reduced from 8px */
+            padding: 6px; /* Reduced from 8px */
+            border-radius: 4px;
+            font-size: 10px; /* Reduced from 11px */
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        #leaderboardList li span {
+            margin-right: 6px; /* Reduced from 8px */
+        }
+
+        #leaderboardList li span:last-child {
+            margin-right: 0;
+            color: #ccc;
+            font-style: italic;
+            font-size: 9px; /* Reduced from 10px */
+        }
+
+        #leaderboardList li strong {
+            color: #FFD700;
+        }
+
+        .algorithm-select, .map-size-select, .game-mode-select, .game-speed-select {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 10px;
+            flex-wrap: wrap; /* Allow wrapping */
+            justify-content: center;
+        }
+
+
+        .snake-selection {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 8px; /* Reduced from 10px */
+            width: 100%; /* Ensure selection container takes full width */
+        }
+
+        .snake-entry {
+            display: flex;
+            align-items: center;
+            gap: 8px; /* Reduced from 10px */
+            justify-content: space-between; /* Distribute space */
+            width: 100%; /* Ensure entry takes full width */
+            background-color: #444;
+            padding: 4px 8px; /* Reduced from 5px 10px */
+            border-radius: 4px;
+        }
+
+        .snake-entry span {
+            flex-grow: 1; /* Allow text to take available space */
+            text-align: left;
+            font-size: 11px; /* Reduced from 12px */
+        }
+
+        .remove-snake-button {
+            background-color: #E74C3C;
+            box-shadow: 0 5px #C0392B;
+        }
+
+        .remove-snake-button:hover {
+            background-color: #C0392B;
+        }
+
+        .remove-snake-button:active {
+            background-color: #A93226;
+            box-shadow: 0 2px #87281E;
+            transform: translateY(3px);
+        }
+
+        #round-info {
+            font-size: 16px; /* Size for round info */
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        #individual-maps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Two columns, responsive */
+            gap: 10px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .snake-map-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #1a1a1a;
+            border: 3px solid #555;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .snake-map-container canvas {
+            margin: 0; /* Remove default canvas margin */
+            border: none; /* Remove border from individual canvases */
+            box-shadow: none; /* Remove shadow from individual canvases */
+        }
+
+        .snake-map-info {
+            font-size: 12px;
+            margin-top: 5px;
+            color: #eee;
+        }
+
+
+        /* Responsive Adjustments */
+        @media (max-width: 900px) {
+            .main-layout-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .left-panel, .center-panel, .right-panel {
+                width: 100%;
+                max-width: 600px; /* Limit width on smaller screens */
+                min-width: auto;
+                border-left: none; /* Remove left border when stacked */
+                padding-left: 18px; /* Reduced from 20px */
+                margin-bottom: 18px; /* Reduced from 20px */
+            }
+
+            .panel + .panel {
+                border-top: 2px solid #555; /* Add top border when stacked */
+                padding-top: 18px; /* Reduced from 20px */
+                padding-left: 18px; /* Keep left padding */
+            }
+
+            .main-layout-container > .panel:first-child {
+                padding-top: 0; /* No top padding for the first panel */
+                margin-bottom: 18px; /* Reduced from 20px */
+            }
+
+            body {
+                font-size: 11px; /* Smaller base font on small screens */
+            }
+
+            h1 {
+                font-size: 22px; /* Reduced from 24px */
+            }
+
+            button, select {
+                font-size: 9px; /* Reduced from 10px */
+                padding: 7px 10px; /* Adjusted padding */
+            }
+
+            .score-board {
+                font-size: 11px; /* Reduced from 12px */
+                min-width: 55px; /* Adjusted min width */
+            }
+
+            #message {
+                font-size: 11px; /* Reduced from 12px */
+            }
+
+            .leaderboard-container h2, .right-panel h2 {
+                font-size: 16px; /* Reduced from 18px */
+            }
+
+            #leaderboardList li {
+                font-size: 9px; /* Reduced from 10px */
+                padding: 5px; /* Reduced from 6px */
+            }
+
+            #leaderboardList li span:last-child {
+                font-size: 8px; /* Reduced from 9px */
+            }
+
+            .snake-entry span {
+                font-size: 10px; /* Reduced from 10px */
+            }
+
+            #round-info {
+                font-size: 14px; /* Adjusted size */
+            }
+
+            #individual-maps {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust for smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 9px; /* Even smaller base font on very small screens */
+                padding: 8px; /* Reduced from 10px */
+            }
+
+            .panel {
+                padding: 12px; /* Reduced from 15px */
+            }
+
+            h1 {
+                font-size: 18px; /* Reduced from 20px */
+            }
+
+            button, select {
+                font-size: 8px; /* Reduced from 9px */
+                padding: 5px 8px; /* Adjusted padding */
+            }
+
+            .score-board {
+                font-size: 10px; /* Reduced from 10px */
+                min-width: 45px; /* Adjusted min width */
+            }
+
+            #message {
+                font-size: 10px; /* Reduced from 10px */
+            }
+
+            .leaderboard-container h2, .right-panel h2 {
+                font-size: 14px; /* Reduced from 16px */
+            }
+
+            #leaderboardList li {
+                font-size: 8px; /* Reduced from 9px */
+                padding: 4px; /* Reduced from 5px */
+            }
+
+            #leaderboardList li span:last-child {
+                font-size: 7px; /* Reduced from 8px */
+            }
+
+            .snake-entry span {
+                font-size: 9px; /* Reduced from 9px */
+            }
+
+            #individual-maps {
+                grid-template-columns: 1fr; /* Stack columns on very small screens */
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="main-layout-container">
+    <div class="panel left-panel">
+        <div class="leaderboard-container">
+            <h2>Leaderboard</h2>
+            <ul id="leaderboardList">
+            </ul>
+        </div>
+    </div>
+
+    <div class="panel center-panel">
+        <h1>Multi-AI Snake</h1>
+        <div id="round-info">Round: 0</div>
+        <div id="score-boards">
+        </div>
+        <canvas id="gameCanvas" width="750" height="750"></canvas>
+        <div id="individual-maps" style="display: none;">
+        </div>
+        <div class="controls">
+            <button id="startButton">Start Game</button>
+            <button id="pauseButton" disabled>Pause Game</button>
+            <button id="endButton" disabled>End Game</button>
+        </div>
+        <div id="message"></div>
+    </div>
+
+    <div class="panel right-panel">
+        <h2>Settings</h2>
+        <div class="game-mode-select">
+            <label for="game-mode-select">Game Mode:</label>
+            <select id="game-mode-select">
+                <option value="no_collision">No Collision (Avoid Others)</option>
+                <option value="pass_through">Pass Through (Ignore Others)</option>
+                <option value="classic">Classic (Collide with Others)</option>
+                <option value="own_maps">Own Maps</option>
+            </select>
+        </div>
+        <div class="map-size-select">
+            <label for="map-size-select">Map Size:</label>
+            <select id="map-size-select">
+                <option value="10">10x10</option>
+                <option value="20">20x20</option>
+                <option value="30">30x30</option>
+                <option value="40">40x40</option>
+                <option value="50" selected>50x50</option>
+            </select>
+        </div>
+        <div class="game-speed-select">
+            <label for="game-speed-select">Speed:</label>
+            <select id="game-speed-select">
+                <option value="200">Slow</option>
+                <option value="100" selected>Normal</option>
+                <option value="50">Fast</option>
+                <option value="20">Very Fast</option>
+            </select>
+        </div>
+        <h2>Snake Selection</h2>
+        <div class="snake-selection">
+            <div class="algorithm-select">
+                <label for="add-algo-select">Add Snake AI:</label>
+                <select id="add-algo-select">
+                    <option value="bfs">BFS</option>
+                    <option value="greedy">Greedy</option>
+                    <option value="a_star">A*</option>
+                    <option value="dfs">DFS</option>
+                    <option value="hybrid">Hybrid</option>
+                </select>
+                <button id="addSnakeButton">Add Snake</button>
+            </div>
+            <div id="selected-snakes">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const startButton = document.getElementById('startButton');
+    const pauseButton = document.getElementById('pauseButton');
+    const endButton = document.getElementById('endButton');
+    const scoreBoardsContainer = document.getElementById('score-boards');
+    const messageDisplay = document.getElementById('message');
+    const leaderboardList = document.getElementById('leaderboardList');
+    const addAlgoSelect = document.getElementById('add-algo-select');
+    const addSnakeButton = document.getElementById('addSnakeButton');
+    const selectedSnakesContainer = document.getElementById('selected-snakes');
+    const mapSizeSelect = document.getElementById('map-size-select');
+    const gameModeSelect = document.getElementById('game-mode-select');
+    const gameSpeedSelect = document.getElementById('game-speed-select'); // Get speed select
+    const roundInfoDisplay = document.getElementById('round-info');
+    const individualMapsContainer = document.getElementById('individual-maps');
+
+
+    const canvasPixelSize = 750; // Fixed canvas pixel size
+    let tileCount = parseInt(mapSizeSelect.value); // Initial tile count from select
+    let gridSize = canvasPixelSize / tileCount;
+
+    const MAX_SNAKES = 6;
+
+    let snakes = []; // Array to hold multiple snake objects
+    let food = {x: 0, y: 0}; // Single food for shared map modes
+    let gameInterval;
+    let isGameRunning = false;
+    let isGamePaused = false;
+    let currentRound = 0; // Track game rounds
+
+    // Leaderboard array
+    let leaderboard = [];
+
+    // Node class for A* and pathfinding searches
+    class Node {
+        constructor(x, y, g, h, parent = null) {
+            this.x = x;
+            this.y = y;
+            this.g = g; // Cost from start
+            this.h = h; // Heuristic cost to target
+            this.f = g + h; // Total cost
+            this.parent = parent; // Parent node for path reconstruction
+        }
+
+        equals(other) {
+            return this.x === other.x && this.y === other.y;
+        }
+
+        toString() {
+            return `${this.x},${this.y}`;
+        }
+    }
+
+    // Heuristic function (Manhattan distance)
+    function manhattanDistance(pos1, pos2) {
+        if (!pos1 || !pos2) {
+            console.error("manhattanDistance called with null/undefined position", pos1, pos2);
+            return Infinity; // Return a large value if positions are invalid
+        }
+        return Math.abs(pos1.x - pos2.x) + Math.abs(pos1.y - pos2.y);
+    }
+
+    // Helper to reconstruct path from a node
+    function reconstructPath(targetNode) {
+        const path = [];
+        let temp = targetNode;
+        while (temp.parent) {
+            path.unshift({dx: temp.x - temp.parent.x, dy: temp.y - temp.parent.y});
+            temp = temp.parent;
+        }
+        return path;
+    }
+
+    // Get obstacles for pathfinding based on game mode and current snake
+    function getObstacleCells(currentSnake, allSnakes, gameMode, currentTileCount) {
+        const obstacleCells = new Set();
+
+        // Add segments of the current snake's body that are obstacles
+        // These are all segments except the head (index 0) and the tail (last segment, which moves)
+        currentSnake.body.slice(1, currentSnake.body.length - 1).forEach(segment => {
+            obstacleCells.add(`${segment.x},${segment.y}`);
+        });
+
+        // Add walls as obstacles
+        for (let i = 0; i < currentTileCount; i++) {
+            obstacleCells.add(`${-1},${i}`);
+            obstacleCells.add(`${currentTileCount},${i}`);
+            obstacleCells.add(`${i},${-1}`);
+            obstacleCells.add(`${i},${currentTileCount}`);
+        }
+
+
+        if (gameMode === 'no_collision' || gameMode === 'classic') { // Other snakes are obstacles ONLY in these modes
+            allSnakes.forEach(snake => {
+                if (snake.isAlive && snake !== currentSnake) {
+                    // Other snakes' entire bodies are obstacles
+                    snake.body.forEach(segment => {
+                        obstacleCells.add(`${segment.x},${segment.y}`);
+                    });
+                }
+            });
+        }
+
+        return obstacleCells;
+    }
+
+
+    // AI Algorithms
+    const algorithms = {
+        // Breadth-First Search (Finds shortest path)
+        bfs: {
+            name: 'BFS',
+            findPath: (start, target, currentSnake, allSnakes, gameMode, currentTileCount) => {
+                if (!start || !target) {
+                    console.error(`BFS: Invalid start (${start}) or target (${target}) position.`);
+                    return []; // Cannot find path with invalid positions
+                }
+                const queue = [{x: start.x, y: start.y, path: []}];
+                const visited = new Set();
+                visited.add(`${start.x},${start.y}`);
+
+                const obstacleCells = getObstacleCells(currentSnake, allSnakes, gameMode, currentTileCount);
+
+
+                while (queue.length > 0) {
+                    const current = queue.shift();
+                    const {x, y, path: currentPath} = current;
+
+                    // Check if target is reached
+                    if (x === target.x && y === target.y) {
+                        return currentPath;
+                    }
+
+                    // Possible moves (Up, Down, Left, Right)
+                    const moves = [
+                        {dx: 0, dy: -1}, {dx: 0, dy: 1},
+                        {dx: -1, dy: 0}, {dx: 1, dy: 0}
+                    ];
+
+                    for (const move of moves) {
+                        const nextX = x + move.dx;
+                        const nextY = y + move.dy;
+                        const nextPos = `${nextX},${nextY}`;
+
+                        // Check if the next position is within bounds, not visited, and not an obstacle
+                        if (nextX >= 0 && nextX < currentTileCount && nextY >= 0 && nextY < currentTileCount && !visited.has(nextPos) && !obstacleCells.has(nextPos)) {
+                            visited.add(nextPos);
+                            queue.push({x: nextX, y: nextY, path: [...currentPath, move]});
+                        }
+                    }
+                }
+
+                return []; // No path found
+            }
+        },
+        // Greedy Algorithm (Always moves towards food if possible, otherwise makes a valid move)
+        greedy: {
+            name: 'Greedy',
+            getNextMove: (start, target, currentSnake, allSnakes, gameMode, currentTileCount) => {
+                if (!start || !target) {
+                    console.error(`Greedy: Invalid start (${start}) or target (${target}) position.`);
+                    return null; // Cannot determine move with invalid positions
+                }
+                const possibleMoves = [
+                    {dx: 0, dy: -1}, {dx: 0, dy: 1},
+                    {dx: -1, dy: 0}, {dx: 1, dy: 0}
+                ];
+
+                // Prioritize moves that get closer to the food
+                possibleMoves.sort((a, b) => {
+                    const distA = manhattanDistance({x: start.x + a.dx, y: start.y + a.dy}, target);
+                    const distB = manhattanDistance({x: start.x + b.dx, y: start.y + b.dy}, target);
+                    return distA - distB;
+                });
+
+                const obstacleCells = getObstacleCells(currentSnake, allSnakes, gameMode, currentTileCount);
+
+
+                for (const move of possibleMoves) {
+                    const nextX = start.x + move.dx;
+                    const nextY = start.y + move.dy;
+                    const nextPos = `${nextX},${nextY}`;
+
+                    // Check if the move is within bounds and not an obstacle
+                    if (nextX >= 0 && nextX < currentTileCount && nextY >= 0 && nextY < currentTileCount && !obstacleCells.has(nextPos)) {
+                        return move; // Return the first valid move (which is prioritized towards food)
+                    }
+                }
+
+                // If no move gets closer or is valid, try any valid move as a fallback
+                for (const move of possibleMoves) {
+                    const nextX = start.x + move.dx;
+                    const nextY = start.y + move.dy;
+                    const nextPos = `${nextX},${nextY}`;
+
+                    if (nextX >= 0 && nextX < currentTileCount && nextY >= 0 && nextY < currentTileCount && !obstacleCells.has(nextPos)) {
+                        return move;
+                    }
+                }
+
+                return null; // No valid move found (trapped)
+            }
+        },
+        // A* Search Algorithm
+        a_star: {
+            name: 'A*',
+            findPath: (start, target, currentSnake, allSnakes, gameMode, currentTileCount) => {
+                if (!start || !target) {
+                    console.error(`A*: Invalid start (${start}) or target (${target}) position.`);
+                    return []; // Cannot find path with invalid positions
+                }
+                const openSet = [];
+                const closedSet = new Set();
+                const startNode = new Node(start.x, start.y, 0, manhattanDistance(start, target));
+                openSet.push(startNode);
+
+                const obstacleCells = getObstacleCells(currentSnake, allSnakes, gameMode, currentTileCount);
+
+
+                while (openSet.length > 0) {
+                    // Sort open set by f cost and get the lowest
+                    openSet.sort((a, b) => a.f - b.f);
+                    const currentNode = openSet.shift();
+
+                    // Check if target is reached
+                    if (currentNode.x === target.x && currentNode.y === target.y) {
+                        return reconstructPath(currentNode);
+                    }
+
+                    closedSet.add(currentNode.toString());
+
+                    // Possible moves (Up, Down, Left, Right)
+                    const moves = [
+                        {dx: 0, dy: -1}, {dx: 0, dy: 1},
+                        {dx: -1, dy: 0}, {dx: 1, dy: 0}
+                    ];
+
+                    for (const move of moves) {
+                        const neighborX = currentNode.x + move.dx;
+                        const neighborY = currentNode.y + move.dy;
+                        const neighborPos = `${neighborX},${neighborY}`;
+
+                        // Check bounds and if it's an obstacle
+                        let isObstacle = false;
+                        if (neighborX < 0 || neighborX >= currentTileCount || neighborY < 0 || neighborY >= currentTileCount) {
+                            isObstacle = true; // Wall is always an obstacle
+                        } else if (obstacleCells.has(neighborPos)) {
+                            isObstacle = true; // Other obstacles (own body, other snakes)
+                        }
+
+                        if (isObstacle) {
+                            continue; // Skip invalid or occupied cells
+                        }
+
+
+                        // Create neighbor node
+                        const neighborNode = new Node(neighborX, neighborY, currentNode.g + 1, manhattanDistance({
+                            x: neighborX,
+                            y: neighborY
+                        }, target), currentNode);
+
+                        // If neighbor is in closed set and new path is not better, skip
+                        if (closedSet.has(neighborNode.toString())) {
+                            continue;
+                        }
+
+                        // If neighbor is not in open set or new path is better
+                        const existingNeighbor = openSet.find(node => node.equals(neighborNode));
+                        if (!existingNeighbor || neighborNode.g < existingNeighbor.g) {
+                            if (existingNeighbor) {
+                                // Remove existing from open set
+                                openSet.splice(openSet.indexOf(existingNeighbor), 1);
+                            }
+                            // Add new/updated neighbor to open set
+                            openSet.push(neighborNode);
+                        }
+                    }
+                }
+
+                return []; // No path found
+            }
+        },
+        // Depth-First Search Algorithm (Exploratory, not guaranteed shortest path)
+        dfs: {
+            name: 'DFS',
+            findPath: (start, target, currentSnake, allSnakes, gameMode, currentTileCount) => {
+                if (!start || !target) {
+                    console.error(`DFS: Invalid start (${start}) or target (${target}) position.`);
+                    return []; // Cannot find path with invalid positions
+                }
+                const stack = [{x: start.x, y: start.y, path: []}];
+                const visited = new Set();
+                visited.add(`${start.x},${start.y}`);
+
+                const obstacleCells = getObstacleCells(currentSnake, allSnakes, gameMode, currentTileCount);
+
+                while (stack.length > 0) {
+                    const current = stack.pop(); // Use pop for DFS (stack)
+                    const {x, y, path: currentPath} = current;
+
+                    // Check if target is reached
+                    if (x === target.x && y === target.y) {
+                        return currentPath;
+                    }
+
+                    // Possible moves (randomized order for exploration)
+                    const moves = [
+                        {dx: 0, dy: -1}, {dx: 0, dy: 1},
+                        {dx: -1, dy: 0}, {dx: 1, dy: 0}
+                    ].sort(() => Math.random() - 0.5); // Randomize order
+
+
+                    for (const move of moves) {
+                        const nextX = x + move.dx;
+                        const nextY = y + move.dy;
+                        const nextPos = `${nextX},${nextY}`;
+
+                        // Check if the next position is within bounds, not visited, and not an obstacle
+                        if (nextX >= 0 && nextX < currentTileCount && nextY >= 0 && nextY < currentTileCount && !visited.has(nextPos) && !obstacleCells.has(nextPos)) {
+                            visited.add(nextPos);
+                            stack.push({x: nextX, y: nextY, path: [...currentPath, move]});
+                        }
+                    }
+                }
+
+                return []; // No path found
+            }
+        },
+        // Hybrid Strategy Algorithm
+        hybrid: {
+            name: 'Hybrid',
+            findPath: (start, target, currentSnake, allSnakes, gameMode, currentTileCount) => {
+                if (!start || !target) {
+                    console.error(`Hybrid: Invalid start (${start}) or target (${target}) position.`);
+                    return []; // Cannot find path with invalid positions
+                }
+
+                // Strategy 1: Try to find a safe path to the food using A* (or BFS)
+                const pathToFood = algorithms.a_star.findPath(start, target, currentSnake, allSnakes, gameMode, currentTileCount); // Use A* for shortest safe path to food
+
+                if (pathToFood.length > 0 && isPathSafe(pathToFood, start, currentSnake, allSnakes, gameMode, currentTileCount)) {
+                    // If a safe path to food exists, take it
+                    return pathToFood;
+                } else {
+                    // Strategy 2: If no safe path to food, find the longest path to stay alive
+                    // This is a simplified longest path (using BFS to find *any* path to tail);
+                    // A true longest path algorithm (like Hamiltonian path) is complex.
+                    // We'll use BFS to find a path to the tail if possible, as a survival mechanism.
+                    // This prevents immediate trapping but doesn't guarantee optimal survival.
+                    const pathToTail = algorithms.bfs.findPath(start, currentSnake.body[currentSnake.body.length - 1], currentSnake, allSnakes, gameMode, currentTileCount);
+
+                    if (pathToTail.length > 0) {
+                        return pathToTail; // Follow path to tail to avoid immediate death
+                    } else {
+                        // If no path to food or tail, the snake is trapped
+                        return []; // Indicate no valid path
+                    }
+                }
+            }
+        }
+    };
+
+    // Function to check if a path is "safe" (can reach the tail after eating)
+    function isPathSafe(path, start, currentSnake, allSnakes, gameMode, currentTileCount) {
+        if (path.length === 0) return false; // An empty path is not safe
+
+        // Simulate the snake moving along the path
+        let simulatedBody = [...currentSnake.body];
+        for (const move of path) {
+            const nextHead = {x: simulatedBody[0].x + move.dx, y: simulatedBody[0].y + move.dy};
+
+            // Check for collision during simulation (against walls and simulated body)
+            if (nextHead.x < 0 || nextHead.x >= currentTileCount || nextHead.y < 0 || nextHead.y >= currentTileCount) {
+                return false; // Hits wall during simulated path
+            }
+            // Check against simulated body (excluding the very next segment which the head will occupy)
+            for (let i = 1; i < simulatedBody.length; i++) {
+                if (nextHead.x === simulatedBody[i].x && nextHead.y === simulatedBody[i].y) {
+                    return false; // Hits self during simulated path
+                }
+            }
+
+            simulatedBody.unshift(nextHead);
+            // Tail is removed after eating, so the new tail is the original second-to-last segment
+            if (simulatedBody.length > currentSnake.body.length) { // Only pop if the body grew
+                simulatedBody.pop();
+            }
+        }
+
+        const simulatedHead = simulatedBody[0];
+        const simulatedTail = simulatedBody[simulatedBody.length - 1];
+
+        // Now, check if there is a path from the simulated head to the simulated tail
+        // Need a temporary snake object for the pathfinding function
+        const tempSnake = {
+            id: 'temp', // Use a temporary ID
+            body: simulatedBody,
+            dx: 0,
+            dy: 0,
+            score: 0,
+            headColor: '',
+            bodyColor: '',
+            algorithm: '',
+            path: [],
+            reason: '',
+            isAlive: true,
+            food: null,
+            canvas: null,
+            ctx: null
+        };
+
+        // Obstacles for the safe path check: the *simulated* body (excluding the tail) and other snakes
+        const safePathObstacles = new Set();
+        // Add all segments of the simulated body except the tail
+        for (let i = 0; i < tempSnake.body.length - 1; i++) {
+            safePathObstacles.add(`${tempSnake.body[i].x},${tempSnake.body[i].y}`);
+        }
+
+
+        // Add walls as obstacles
+        for (let i = 0; i < currentTileCount; i++) {
+            safePathObstacles.add(`${-1},${i}`);
+            safePathObstacles.add(`${currentTileCount},${i}`);
+            safePathObstacles.add(`${i},${-1}`);
+            safePathObstacles.add(`${i},${currentTileCount}`);
+        }
+
+        if (gameMode === 'no_collision' || gameMode === 'classic') { // Other snakes are obstacles ONLY in these modes
+            allSnakes.forEach(snake => {
+                if (snake.isAlive && snake !== currentSnake) { // Check against original other snakes
+                    snake.body.forEach(segment => {
+                        safePathObstacles.add(`${segment.x},${segment.y}`);
+                    });
+                }
+            });
+        }
+
+
+        // Use BFS (or A*) for the safe path check - BFS is simpler here
+        const queue = [{x: simulatedHead.x, y: simulatedHead.y}];
+        const visited = new Set();
+        visited.add(`${simulatedHead.x},${simulatedHead.y}`);
+
+        while (queue.length > 0) {
+            const current = queue.shift();
+            const {x, y} = current;
+
+            // If we reached the simulated tail, the path is safe
+            if (x === simulatedTail.x && y === simulatedTail.y) {
+                return true;
+            }
+
+            const moves = [
+                {dx: 0, dy: -1}, {dx: 0, dy: 1},
+                {dx: -1, dy: 0}, {dx: 1, dy: 0}
+            ];
+
+            for (const move of moves) {
+                const nextX = x + move.dx;
+                const nextY = y + move.dy;
+                const nextPos = `${nextX},${nextY}`;
+
+                // Check bounds, not visited, and not an obstacle in the simulated state
+                if (nextX >= 0 && nextX < currentTileCount && nextY >= 0 && nextY < currentTileCount && !visited.has(nextPos) && !safePathObstacles.has(nextPos)) {
+                    visited.add(nextPos);
+                    queue.push({x: nextX, y: nextY});
+                }
+            }
+        }
+
+        return false; // No path found from simulated head to simulated tail
+    }
+
+
+    // Function to draw a single tile on a given context
+    function drawTileOnContext(ctx, x, y, color, currentGridSize) {
+        if (!ctx) return; // Ensure context exists
+        ctx.fillStyle = color;
+        ctx.fillRect(x * currentGridSize, y * currentGridSize, currentGridSize, currentGridSize);
+        ctx.strokeStyle = '#222';
+        ctx.strokeRect(x * currentGridSize, y * currentGridSize, currentGridSize, currentGridSize);
+    }
+
+    // Function to draw a path segment on a given context
+    function drawPathSegmentOnContext(ctx, x, y, color, currentGridSize) {
+        if (!ctx) return; // Ensure context exists
+        ctx.fillStyle = color + 'A0'; // Reduced transparency for fill (more opaque)
+        ctx.fillRect(x * currentGridSize, y * currentGridSize, currentGridSize, currentGridSize);
+        ctx.strokeStyle = color + 'C0'; // Reduced transparency for stroke (more opaque)
+        ctx.strokeRect(x * currentGridSize, y * currentGridSize, currentGridSize, currentGridSize);
+    }
+
+
+    // Function to draw a snake on a given context
+    function drawSnakeOnContext(ctx, snake, currentGridSize, drawPath = false) {
+        if (!ctx) return; // Ensure context exists
+
+        // Draw the planned path if requested and the snake is a pathfinding algorithm
+        if (drawPath && (snake.algorithm === 'bfs' || snake.algorithm === 'a_star' || snake.algorithm === 'dfs' || snake.algorithm === 'hybrid') && snake.path && snake.path.length > 0) {
+            let currentPathX = snake.body[0].x;
+            let currentPathY = snake.body[0].y;
+            const pathColor = snake.headColor; // Use snake's head color for path
+
+            // Draw the entire path
+            for (let i = 0; i < snake.path.length; i++) {
+                currentPathX += snake.path[i].dx;
+                currentPathY += snake.path[i].dy;
+                // Avoid drawing path on top of the snake's current body (except the head)
+                let isBody = false;
+                for (let j = 1; j < snake.body.length; j++) {
+                    if (currentPathX === snake.body[j].x && currentPathY === snake.body[j].y) {
+                        isBody = true;
+                        break;
+                    }
+                }
+                if (!isBody) {
+                    drawPathSegmentOnContext(ctx, currentPathX, currentPathY, pathColor, currentGridSize);
+                }
+            }
+        }
+
+
+        snake.body.forEach((segment, index) => {
+            // Apply slight transparency to the body segments
+            const color = index === 0 ? snake.headColor : snake.bodyColor + 'C0'; // Reduced transparency for body
+            drawTileOnContext(ctx, segment.x, segment.y, color, currentGridSize);
+        });
+    }
+
+    // Function to draw the food on a given context
+    function drawFoodOnContext(ctx, foodPos, currentGridSize) {
+        if (!ctx || !foodPos) return; // Ensure context and food position exist
+        drawTileOnContext(ctx, foodPos.x, foodPos.y, '#FF5722', currentGridSize); // Orange food
+    }
+
+    // Function to generate random food location
+    function generateFood(snake = null) { // Pass snake for 'own_maps' mode
+        let foodPos = {
+            x: Math.floor(Math.random() * tileCount),
+            y: Math.floor(Math.random() * tileCount)
+        };
+
+        // Ensure food doesn't spawn on any *alive* snake (or the specific snake in own_maps mode)
+        let onSnake = true;
+        while (onSnake) {
+            onSnake = false;
+            if (gameModeSelect.value === 'own_maps' && snake) {
+                for (const segment of snake.body) {
+                    if (segment.x === foodPos.x && segment.y === foodPos.y) {
+                        onSnake = true;
+                        foodPos = {
+                            x: Math.floor(Math.random() * tileCount),
+                            y: Math.floor(Math.random() * tileCount)
+                        };
+                        break;
+                    }
+                }
+            } else { // Shared map modes
+                for (const s of snakes) {
+                    if (s.isAlive) {
+                        for (const segment of s.body) {
+                            if (segment.x === foodPos.x && segment.y === foodPos.y) {
+                                onSnake = true;
+                                foodPos = {
+                                    x: Math.floor(Math.random() * tileCount),
+                                    y: Math.floor(Math.random() * tileCount)
+                                };
+                                break;
+                            }
+                        }
+                    }
+                    if (onSnake) break;
+                }
+            }
+        }
+
+        if (gameModeSelect.value === 'own_maps' && snake) {
+            snake.food = foodPos; // Assign food to the specific snake
+        } else {
+            food = foodPos; // Assign food to the global food object
+        }
+
+        // Pathfinding is now triggered *after* food generation in startGame or gameLoop
+    }
+
+    // Function to move a snake
+    function moveSnake(snake) {
+        const head = {x: snake.body[0].x + snake.dx, y: snake.body[0].y + snake.dy};
+        snake.body.unshift(head); // Add new head
+        snake.distance = (snake.distance || 0) + 1; // Increment distance
+
+        const targetFood = gameModeSelect.value === 'own_maps' ? snake.food : food;
+
+        // Check for collision with food
+        if (head.x === targetFood.x && head.y === targetFood.y) {
+            snake.score++;
+            // Update score display for this snake
+            const scoreElement = document.getElementById(`score-${snake.id}`);
+            if (scoreElement) {
+                scoreElement.textContent = `Snake ${snake.id}: ${snake.score}`;
+            }
+            generateFood(gameModeSelect.value === 'own_maps' ? snake : null); // Generate new food (for specific snake or globally)
+        } else {
+            snake.body.pop(); // Remove tail if no food
+        }
+    }
+
+    // Function to check for collisions for a specific snake
+    // Returns true if game over for this snake, false otherwise.
+    function checkCollision(snake) {
+        const head = snake.body[0];
+        const currentMode = gameModeSelect.value;
+
+        // Wall collision
+        if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount) {
+            snake.reason = 'Wall';
+            snake.isAlive = false; // Mark snake as not alive immediately
+            addResultToLeaderboard(snake.id, snake.score, snake.algorithm, snake.reason, snake.distance); // Add to leaderboard immediately
+            return true;
+        }
+
+        // Self collision (start checking from the 4th segment to avoid checking against the head itself)
+        for (let i = 4; i < snake.body.length; i++) {
+            if (head.x === snake.body[i].x && head.y === snake.body[i].y) {
+                snake.reason = 'Self';
+                snake.isAlive = false; // Mark snake as not alive immediately
+                addResultToLeaderboard(snake.id, snake.score, snake.algorithm, snake.reason, snake.distance); // Add to leaderboard immediately
+                return true;
+            }
+        }
+
+        // Collision with other *alive* snakes
+        if (currentMode === 'classic') { // Collision ends game only in Classic mode
+            for (const otherSnake of snakes) {
+                if (otherSnake !== snake && otherSnake.isAlive) {
+                    // Check against the entire body of other snakes
+                    for (const segment of otherSnake.body) {
+                        if (head.x === segment.x && segment.y === head.y) { // Check if heads collide OR head hits body
+                            snake.reason = 'Collision';
+                            snake.isAlive = false; // Mark snake as not alive immediately
+                            addResultToLeaderboard(snake.id, snake.score, snake.algorithm, snake.reason, snake.distance); // Add to leaderboard immediately
+                            return true; // Game over for this snake
+                        }
+                    }
+                }
+            }
+        }
+        /*
+        In 'no_collision', 'pass_through', and 'own_maps' modes, snake-on-snake collision does not end the game.
+        The AI pathfinding functions handle avoiding other snakes in 'no_collision' mode.
+        No explicit check needed here for those modes.
+        */
+
+
+        return false; // No game-ending collision detected
+    }
+
+    // Function to clear the canvas
+    function clearCanvas(targetCanvas = canvas) {
+        const targetCtx = targetCanvas.getContext('2d');
+        targetCtx.fillStyle = '#1a1a1a';
+        targetCtx.fillRect(0, 0, targetCanvas.width, targetCanvas.height);
+    }
+
+    // Function for AI to determine the next move for a snake
+    function aiMove(snake) {
+        if (!snake.isAlive) return; // Don't move dead snakes
+
+        const currentMode = gameModeSelect.value;
+        const targetFood = currentMode === 'own_maps' ? snake.food : food;
+
+        // Ensure snake body has a head and target food exists before attempting pathfinding
+        if (snake.body.length === 0 || !targetFood) {
+            console.error(`Snake ${snake.id}: Cannot determine move. No body or target food.`);
+            snake.isAlive = false;
+            snake.reason = 'No body or food';
+            addResultToLeaderboard(snake.id, snake.score, snake.algorithm, snake.reason, snake.distance); // Add to leaderboard immediately
+            return;
+        }
+
+
+        if (snake.algorithm === 'bfs' || snake.algorithm === 'a_star' || snake.algorithm === 'dfs' || snake.algorithm === 'hybrid') {
+            // Always recalculate path for pathfinding algorithms in real-time
+            const target = currentMode === 'own_maps' ? snake.food : food;
+            snake.path = algorithms[snake.algorithm].findPath(snake.body[0], target, snake, snakes, currentMode, tileCount);
+
+
+            // If a path exists, follow the next step
+            if (snake.path.length > 0) {
+                const nextMove = snake.path.shift();
+                snake.dx = nextMove.dx;
+                snake.dy = nextMove.dy;
+            } else {
+                // If no path to food (or safe path), the snake is trapped
+                snake.reason = 'Trapped';
+                snake.isAlive = false;
+                addResultToLeaderboard(snake.id, snake.score, snake.algorithm, snake.reason, snake.distance); // Add to leaderboard immediately
+                return; // Stop processing for this snake
+            }
+        } else if (snake.algorithm === 'greedy') {
+            const nextMove = algorithms.greedy.getNextMove(snake.body[0], targetFood, snake, snakes, currentMode, tileCount);
+            if (nextMove) {
+                snake.dx = nextMove.dx;
+                snake.dy = nextMove.dy;
+            } else {
+                snake.reason = 'Trapped';
+                snake.isAlive = false;
+                addResultToLeaderboard(snake.id, snake.score, snake.algorithm, snake.reason, snake.distance); // Add to leaderboard immediately
+            }
+        }
+        // Add logic for other algorithms here
+    }
+
+
+    // Function to add game result to leaderboard
+    function addResultToLeaderboard(snakeId, score, algorithm, reason, distance) {
+        // Only add if not already added for this round for this snake
+        if (!leaderboard.some(r => r.round === currentRound && r.id === snakeId)) {
+            leaderboard.push({
+                round: currentRound,
+                id: snakeId,
+                score: score,
+                algorithm: algorithm,
+                reason: reason,
+                distance: distance
+            });
+            // Sort leaderboard by round then score descending
+            leaderboard.sort((a, b) => {
+                if (b.round !== a.round) {
+                    return b.round - a.round; // Sort by round descending
+                }
+                // Then by score descending within the same round, then distance descending
+                if (b.score !== a.score) {
+                    return b.score - a.score;
+                }
+                return b.distance - a.distance;
+            });
+            displayLeaderboard(); // Update the displayed leaderboard
+        }
+    }
+
+    // Function to display leaderboard
+    function displayLeaderboard() {
+        leaderboardList.innerHTML = ''; // Clear current list
+        if (leaderboard.length === 0) {
+            const listItem = document.createElement('li');
+            listItem.textContent = 'No games played yet.';
+            leaderboardList.appendChild(listItem);
+        } else {
+            leaderboard.forEach(record => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `<span>R${record.round} | Snake ${record.id} (${algorithms[record.algorithm].name})</span> <strong>Score: ${record.score}</strong> <span>Dist: ${record.distance} | ${record.reason || 'Ended'}</span>`;
+                leaderboardList.appendChild(listItem);
+            });
+        }
+    }
+
+    // Function to generate initial positions based on tileCount
+    function generateInitialPositions(count) {
+        const positions = [];
+        // Distribute positions somewhat evenly based on tileCount
+        const step = Math.floor(tileCount / (Math.ceil(Math.sqrt(count)) + 1));
+        let x = step;
+        let y = step;
+        for (let i = 0; i < count; i++) {
+            positions.push({x: x, y: y});
+            x += step;
+            if (x >= tileCount - step) {
+                x = step;
+                y += step;
+                if (y >= tileCount - step) {
+                    // Fallback for more snakes than planned positions
+                    y = Math.floor(Math.random() * tileCount);
+                    x = Math.floor(Math.random() * tileCount);
+                }
+            }
+        }
+        // Add some randomness to initial positions to avoid perfect symmetry
+        positions.forEach(pos => {
+            pos.x = Math.max(0, Math.min(tileCount - 1, pos.x + Math.floor(Math.random() * Math.max(1, tileCount / 20)) - Math.floor(Math.max(1, tileCount / 20) / 2))); // Add random offset based on size
+            pos.y = Math.max(0, Math.min(tileCount - 1, pos.y + Math.floor(Math.random() * Math.max(1, tileCount / 20)) - Math.floor(Math.max(1, tileCount / 20) / 2))); // Add random offset based on size
+        });
+        return positions;
+    }
+
+
+    // Function to add a snake to the selection before the game starts
+    function addSnake() {
+        if (snakes.length >= MAX_SNAKES) {
+            messageDisplay.textContent = `Maximum of ${MAX_SNAKES} snakes reached.`;
+            return;
+        }
+
+        const selectedAlgo = addAlgoSelect.value;
+        const snakeId = snakes.length + 1; // Simple ID assignment
+
+        // Assign color based on ID
+        const snakeColors = [
+            {head: '#3498DB', body: '#2980B9'}, // Blue
+            {head: '#E74C3C', body: '#C0392B'},  // Red
+            {head: '#F1C40F', body: '#F39C12'},   // Yellow
+            {head: '#9B59B6', body: '#8E44AD'}, // Purple
+            {head: '#00FFFF', body: '#00CED1'}, // Cyan
+            {head: '#FF69B4', body: '#FF1493'}  // Pink
+        ];
+
+
+        snakes.push({
+            id: snakeId,
+            body: [], // Body will be initialized in startGame
+            dx: 0,
+            dy: 0,
+            score: 0,
+            distance: 0, // Initialize distance
+            headColor: snakeColors[snakeId - 1] ? snakeColors[snakeId - 1].head : '#eee', // Fallback color
+            bodyColor: snakeColors[snakeId - 1] ? snakeColors[snakeId - 1].body : '#ccc', // Fallback color
+            algorithm: selectedAlgo,
+            path: [], // Only used by pathfinding algorithms
+            reason: '',
+            isAlive: true,
+            food: null, // Food for 'own_maps' mode
+            canvas: null, // Canvas for 'own_maps' mode
+            ctx: null // Context for 'own_maps' mode
+        });
+
+        updateSnakeSelectionUI();
+        updateScoreBoards(); // Add scoreboard for the new snake
+        messageDisplay.textContent = `Snake ${snakeId} (${algorithms[selectedAlgo].name}) added.`;
+    }
+
+    // Function to remove a snake from the selection before the game starts
+    function removeSnake(snakeIdToRemove) {
+        snakes = snakes.filter(snake => snake.id !== snakeIdToRemove);
+        // Re-assign IDs and update UI
+        snakes.forEach((snake, index) => {
+            snake.id = index + 1;
+            // Also update colors based on new ID
+            const snakeColors = [
+                {head: '#3498DB', body: '#2980B9'}, // Blue
+                {head: '#E74C3C', body: '#C0392B'},  // Red
+                {head: '#F1C40F', body: '#F39C12'},   // Yellow
+                {head: '#9B59B6', body: '#8E44AD'}, // Purple
+                {head: '#00FFFF', body: '#00CED1'}, // Cyan
+                {head: '#FF69B4', body: '#FF1493'}  // Pink
+            ];
+            snake.headColor = snakeColors[index] ? snakeColors[index].head : '#eee'; // Fallback color
+            snake.bodyColor = snakeColors[index] ? snakeColors[index].body : '#ccc'; // Fallback color
+        });
+        updateSnakeSelectionUI();
+        updateScoreBoards(); // Remove scoreboard for the removed snake
+        messageDisplay.textContent = `Snake ${snakeIdToRemove} removed.`;
+    }
+
+    // Update the UI showing selected snakes
+    function updateSnakeSelectionUI() {
+        selectedSnakesContainer.innerHTML = '';
+        snakes.forEach(snake => {
+            const snakeEntry = document.createElement('div');
+            snakeEntry.classList.add('snake-entry');
+            snakeEntry.innerHTML = `
+                    <span>Snake ${snake.id}: ${algorithms[snake.algorithm].name}</span>
+                    <button class="remove-snake-button" data-snake-id="${snake.id}">Remove</button>
+                `;
+            selectedSnakesContainer.appendChild(snakeEntry);
+        });
+
+        // Add event listeners to remove buttons
+        selectedSnakesContainer.querySelectorAll('.remove-snake-button').forEach(button => {
+            button.addEventListener('click', (event) => {
+                const snakeId = parseInt(event.target.dataset.snakeId);
+                removeSnake(snakeId);
+            });
+        });
+
+        // Disable add button if max snakes reached
+        if (snakes.length >= MAX_SNAKES) {
+            addSnakeButton.disabled = true;
+        } else {
+            addSnakeButton.disabled = false;
+        }
+    }
+
+    // Create or update score boards dynamically
+    function updateScoreBoards() {
+        scoreBoardsContainer.innerHTML = '';
+        snakes.forEach(snake => {
+            const scoreBoard = document.createElement('div');
+            scoreBoard.id = `score-${snake.id}`;
+            scoreBoard.classList.add('score-board');
+            scoreBoard.style.color = snake.headColor; // Use head color for score
+            scoreBoard.textContent = `Snake ${snake.id}: ${snake.score}`;
+            scoreBoardsContainer.appendChild(scoreBoard);
+        });
+    }
+
+    // Setup individual maps for 'own_maps' mode
+    function setupOwnMaps() {
+        individualMapsContainer.innerHTML = ''; // Clear previous maps
+        individualMapsContainer.style.display = 'grid';
+        canvas.style.display = 'none'; // Hide the main canvas
+
+        // Calculate size for individual canvases based on number of snakes for a 2-column layout
+        const numSnakes = snakes.length;
+        const numColumns = numSnakes > 0 ? Math.min(2, numSnakes) : 1; // Max 2 columns
+        const mapSize = canvasPixelSize / numColumns; // Divide total canvas size by number of columns
+
+        const individualGridSize = mapSize / tileCount;
+
+        snakes.forEach(snake => {
+            const mapContainer = document.createElement('div');
+            mapContainer.classList.add('snake-map-container');
+
+            const snakeCanvas = document.createElement('canvas');
+            snakeCanvas.width = mapSize;
+            snakeCanvas.height = mapSize;
+            snake.canvas = snakeCanvas;
+            snake.ctx = snakeCanvas.getContext('2d');
+
+            const infoDiv = document.createElement('div');
+            infoDiv.classList.add('snake-map-info');
+            infoDiv.id = `map-info-${snake.id}`;
+            infoDiv.style.color = snake.headColor;
+            infoDiv.textContent = `Snake ${snake.id} (${algorithms[snake.algorithm].name}) Score: ${snake.score}`;
+
+
+            mapContainer.appendChild(snakeCanvas);
+            mapContainer.appendChild(infoDiv);
+            individualMapsContainer.appendChild(mapContainer);
+
+            // Clear and draw initial state on individual canvas
+            clearCanvas(snake.canvas);
+            // Food and snake are drawn in the main game loop
+        });
+
+        // Adjust grid template columns based on the actual number of snakes to maintain 2 columns if possible
+        if (numSnakes > 0) {
+            individualMapsContainer.style.gridTemplateColumns = `repeat(${numColumns}, minmax(0, 1fr))`;
+        } else {
+            individualMapsContainer.style.gridTemplateColumns = `1fr`; // Default to single column if no snakes
+        }
+    }
+
+    // Update info for individual maps
+    function updateOwnMapInfo(snake) {
+        const infoDiv = document.getElementById(`map-info-${snake.id}`);
+        if (infoDiv) {
+            infoDiv.textContent = `Snake ${snake.id} (${algorithms[snake.algorithm].name}) Score: ${snake.score}${snake.isAlive ? '' : ` (${snake.reason})`}`;
+        }
+    }
+
+
+    // Main game loop
+    function gameLoop() {
+        if (!isGameRunning || isGamePaused) return;
+
+        let aliveSnakesCount = 0;
+        const currentMode = gameModeSelect.value;
+
+        // First, determine next moves for all alive snakes
+        snakes.forEach(snake => {
+            if (snake.isAlive) {
+                // Pass game mode and tileCount to aiMove so it can pass it to pathfinding
+                aiMove(snake);
+            }
+        });
+
+        // Then, check collisions and move snakes
+        snakes.forEach(snake => {
+            if (snake.isAlive) {
+                // Check for game-ending collisions (wall, self, or other snakes in classic mode) BEFORE moving
+                // checkCollision already handles marking as not alive and adding to leaderboard
+                if (!checkCollision(snake)) {
+                    // If no game-ending collision, move the snake
+                    moveSnake(snake);
+                    aliveSnakesCount++; // This snake is still alive after moving
+                }
+            }
+        });
+
+        // Clear and draw based on game mode
+        if (currentMode === 'own_maps') {
+            snakes.forEach(snake => {
+                if (snake.canvas && snake.ctx) {
+                    const individualGridSize = snake.canvas.width / tileCount;
+                    clearCanvas(snake.canvas);
+                    // Draw snake and its path first
+                    if (snake.isAlive) {
+                        drawSnakeOnContext(snake.ctx, snake, individualGridSize, true); // Draw path in own maps mode
+                    }
+                    // Draw food on top
+                    drawFoodOnContext(snake.ctx, snake.food, individualGridSize);
+                    updateOwnMapInfo(snake); // Update info even if not moving
+                }
+            });
+        } else { // Shared map modes
+            clearCanvas(canvas);
+            // Draw snakes and their paths first
+            snakes.forEach(snake => {
+                if (snake.isAlive) {
+                    // Draw snake and its path
+                    drawSnakeOnContext(ctx, snake, gridSize, true); // Draw path in shared map modes
+                }
+            });
+            // Draw food on top
+            drawFoodOnContext(ctx, food, gridSize);
+        }
+
+
+        // If all snakes are dead, end the game
+        if (aliveSnakesCount === 0 && snakes.length > 0) {
+            endGame('All snakes are dead!');
+        } else if (snakes.length === 0 && isGameRunning) {
+            // Should not happen if game started with snakes, but a safeguard
+            endGame('No snakes remaining to play!');
+        }
+    }
+
+    // Function to start or resume the game
+    function startGame() {
+        if (snakes.length === 0) {
+            messageDisplay.textContent = 'Please add at least one snake to start the game.';
+            return;
+        }
+
+        if (!isGameRunning) {
+            /* Start a new game */
+            isGameRunning = true;
+            isGamePaused = false;
+            messageDisplay.textContent = ''; // Clear previous message
+            currentRound++; // Increment round for a new game
+            roundInfoDisplay.textContent = `Round: ${currentRound}`;
+
+
+            // Update tileCount and gridSize based on selection
+            tileCount = parseInt(mapSizeSelect.value);
+            gridSize = canvasPixelSize / tileCount;
+
+
+            const currentMode = gameModeSelect.value;
+
+            // Re-initialize snakes for a new game (reset positions, scores, etc.)
+            const initialPositions = generateInitialPositions(snakes.length);
+
+            // 1. Initialize snake bodies with starting positions
+            snakes.forEach((snake, index) => {
+                snake.body = [initialPositions[index]]; // Initialize snake body HERE
+                snake.dx = 0;
+                snake.dy = 0;
+                snake.score = 0;
+                snake.distance = 0; // Reset distance
+                snake.path = [];
+                snake.reason = '';
+                snake.isAlive = true;
+                const scoreElement = document.getElementById(`score-${snake.id}`);
+                if (scoreElement) {
+                    scoreElement.textContent = `Snake ${snake.id}: ${snake.score}`;
+                }
+            });
+
+            // 2. Generate food *after* bodies are initialized
+            if (currentMode === 'own_maps') {
+                snakes.forEach(snake => {
+                    generateFood(snake); // Generate food for each snake in own maps mode
+                });
+            } else { // Shared map modes
+                generateFood(); // Generate global food
+            }
+
+            // 3. Setup canvases based on game mode *after* food is generated
+            if (currentMode === 'own_maps') {
+                setupOwnMaps();
+            } else {
+                canvas.width = canvasPixelSize; // Ensure main canvas size is consistent
+                canvas.height = canvasPixelSize;
+                canvas.style.display = 'block'; // Show main canvas
+                individualMapsContainer.style.display = 'none'; // Hide individual maps
+            }
+
+
+            // 4. Initialize paths for pathfinding algorithms *after* bodies and food are set
+            // Paths are now recalculated in the game loop, so initial pathfinding is not strictly needed here,
+            // but we can do a first calculation to have a path ready for the first move.
+            snakes.forEach(snake => {
+                if (snake.isAlive && (snake.algorithm === 'bfs' || snake.algorithm === 'a_star' || snake.algorithm === 'dfs' || snake.algorithm === 'hybrid')) {
+                    const targetFood = currentMode === 'own_maps' ? snake.food : food;
+                    // Ensure snake body has a head and target food exists before finding path
+                    if (snake.body.length > 0 && targetFood) {
+                        snake.path = algorithms[snake.algorithm].findPath(snake.body[0], targetFood, snake, snakes, currentMode, tileCount);
+                        // If the initial path isn't safe, try to find a path to the tail immediately
+                        if (snake.path.length > 0 && !isPathSafe(snake.path, snake.body[0], snake, snakes, currentMode, tileCount)) {
+                            const pathToTail = algorithms[snake.algorithm].findPath(snake.body[0], snake.body[snake.body.length - 1], snake, snakes, currentMode, tileCount);
+                            if (pathToTail.length > 0) {
+                                snake.path = pathToTail; // Prioritize path to tail if food path is unsafe
+                            } else {
+                                // Still no safe path, snake is likely trapped from the start
+                                console.error(`Snake ${snake.id}: Trapped from start.`);
+                                snake.reason = 'Trapped from start';
+                                snake.isAlive = false; // Mark as dead
+                                addResultToLeaderboard(snake.id, snake.score, snake.algorithm, snake.reason, snake.distance); // Add to leaderboard
+                            }
+                        }
+                    } else {
+                        console.error(`Snake ${snake.id}: Cannot initialize path. No body or target food.`);
+                        // Snake might still be alive but won't move if no path
+                    }
+                }
+            });
+
+            startButton.textContent = 'Resume Game'; // Change button text
+            startButton.disabled = true; // Disable start/resume until paused or ended
+            pauseButton.disabled = false;
+            endButton.disabled = false;
+            addSnakeButton.disabled = true; // Prevent adding snakes during game
+            selectedSnakesContainer.querySelectorAll('button').forEach(button => button.disabled = true); // Disable remove buttons
+            mapSizeSelect.disabled = true; // Disable settings during game
+            gameModeSelect.disabled = true;
+            gameSpeedSelect.disabled = true; // Disable speed select
+
+
+            const gameSpeed = parseInt(gameSpeedSelect.value);
+            gameInterval = setInterval(gameLoop, gameSpeed); // Game speed (lower is faster)
+
+        } else if (isGamePaused) {
+            /* Resume paused game */
+            isGamePaused = false;
+            messageDisplay.textContent = 'Game Resumed.';
+            startButton.textContent = 'Resume Game'; // Keep button text
+            startButton.disabled = true; // Disable resume while running
+            pauseButton.disabled = false;
+            endButton.disabled = false;
+            mapSizeSelect.disabled = true; // Keep settings disabled
+            gameModeSelect.disabled = true;
+            gameSpeedSelect.disabled = true; // Keep speed select disabled
+
+
+            const gameSpeed = parseInt(gameSpeedSelect.value);
+            gameInterval = setInterval(gameLoop, gameSpeed); // Resume interval
+        }
+    }
+
+    // Function to pause the game
+    function pauseGame() {
+        if (!isGameRunning || isGamePaused) return;
+
+        clearInterval(gameInterval);
+        isGamePaused = true;
+        messageDisplay.textContent = 'Game Paused.';
+        startButton.textContent = 'Resume Game'; // Change button text
+        startButton.disabled = false; // Enable resume button
+        pauseButton.disabled = true;
+        endButton.disabled = false;
+    }
+
+    // Function to end the game
+    function endGame(message = 'Game Ended.') {
+        clearInterval(gameInterval);
+        isGameRunning = false;
+        isGamePaused = false;
+        messageDisplay.textContent = 'Game Over! ' + message;
+        // Ensure all *alive* snakes have their results added if game ended by user or naturally (e.g., all trapped)
+        snakes.forEach(snake => {
+            if (snake.isAlive) { // If still alive when game ends, they finished
+                snake.reason = snake.reason || 'Ended'; // Use existing reason or 'Ended'
+                addResultToLeaderboard(snake.id, snake.score, snake.algorithm, snake.reason, snake.distance); // Add to leaderboard
+            }
+            // If a snake died earlier, it was already added to the leaderboard.
+            snake.isAlive = false; // Mark as not alive after adding to leaderboard
+        });
+
+
+        startButton.textContent = 'Start Game'; // Reset button text
+        startButton.disabled = false; // Enable start button
+        pauseButton.disabled = true;
+        endButton.disabled = true;
+        addSnakeButton.disabled = false; // Allow adding snakes again
+        selectedSnakesContainer.querySelectorAll('button').forEach(button => button.disabled = false); // Enable remove buttons
+        mapSizeSelect.disabled = false; // Enable settings
+        gameModeSelect.disabled = false;
+        gameSpeedSelect.disabled = false; // Enable speed select
+
+        // Clear snakes array and scoreboards for a clean start
+        snakes = [];
+        updateSnakeSelectionUI();
+        updateScoreBoards();
+
+        // Clean up own maps UI
+        individualMapsContainer.innerHTML = '';
+        individualMapsContainer.style.display = 'none';
+        canvas.style.display = 'block'; // Show the main canvas again
+    }
+
+    // Event listeners for buttons
+    startButton.addEventListener('click', startGame);
+    pauseButton.addEventListener('click', pauseGame);
+    endButton.addEventListener('click', () => endGame('Game ended by user.'));
+    addSnakeButton.addEventListener('click', addSnake);
+    // Map size change listener (only affects next game)
+    mapSizeSelect.addEventListener('change', (event) => {
+        if (!isGameRunning) {
+            tileCount = parseInt(event.target.value);
+            gridSize = canvasPixelSize / tileCount;
+            canvas.width = canvasPixelSize;
+            canvas.height = canvasPixelSize;
+            clearCanvas(); // Clear canvas with new size
+            messageDisplay.textContent = `Map size set to ${tileCount}x${tileCount}. Add snakes and start a new game.`;
+            // Re-initialize snakes with new initial positions based on the new tileCount
+            snakes = []; // Clear current snakes
+            updateSnakeSelectionUI(); // Update UI
+            updateScoreBoards(); // Clear scoreboards
+        } else {
+            // Inform user map size change only applies to new games
+            messageDisplay.textContent = 'Map size can only be changed before starting a game.';
+            mapSizeSelect.value = tileCount; // Reset select to current game size
+        }
+    });
+
+    // Game mode change listener (only affects next game)
+    gameModeSelect.addEventListener('change', (event) => {
+        if (isGameRunning) {
+            // Inform user game mode change only applies to new games
+            messageDisplay.textContent = 'Game mode can only be changed before starting a game.';
+            // Note: We don't reset the select value here, as the game continues with the old mode.
+            /*
+            // If you wanted to reset the select:
+            let currentModeValue = 'no_collision'; // Default
+            for(const option of gameModeSelect.options) {
+                if (option.textContent.includes(messageDisplay.textContent.split('(')[1]?.split(')')[0])) { // Crude way to get current mode name from message
+                     currentModeValue = option.value;
+                     break;
+                }
+            }
+            gameModeSelect.value = currentModeValue;
+            */
+        }
+    });
+
+    // Game speed change listener (only affects next game start/resume)
+    gameSpeedSelect.addEventListener('change', (event) => {
+        if (isGameRunning) {
+            messageDisplay.textContent = 'Speed change will apply on the next game start or resume.';
+        }
+    });
+
+
+    // Initial setup
+    canvas.width = canvasPixelSize;
+    canvas.height = canvasPixelSize;
+    clearCanvas();
+    displayLeaderboard(); // Display empty leaderboard on load
+    roundInfoDisplay.textContent = `Round: ${currentRound}`;
+    // No snakes initialized here, they are added via the UI before starting.
+    updateSnakeSelectionUI(); // Display initial empty selection UI
+    updateScoreBoards(); // Display initial empty scoreboards
+
+
+</script>
+</body>
+</html>

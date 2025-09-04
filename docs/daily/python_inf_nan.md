@@ -1,5 +1,5 @@
 ---
-icon: b fa-simplybuilt
+icon: simplybuilt
 category: 天天笔记
 date: 2022-03-02
 
@@ -38,15 +38,13 @@ float('inf') + float('inf')  # inf
 
 特别地，
 
-- 0 * float('inf') 结果为：nan
+- 0 \* float('inf') 结果为：nan
 
 - float('inf') / float('inf') 结果为：nan
 
 - float('inf') - float('inf') 结果为：nan
 
 - float('-inf') - float('-inf') 结果也为：nan
-
-
 
 nan代表Not A Number（不是一个数），它并不等于0，
 
@@ -96,7 +94,7 @@ numpy中也有相类似的方法可用来判断数据。
 # True
 ```
 
-------
+---
 
 参考资料：
 

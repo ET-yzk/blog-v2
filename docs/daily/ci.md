@@ -1,7 +1,7 @@
 ---
-icon: b fa-simplybuilt
+date: 2023-11-21
+icon: simplybuilt
 category: 天天笔记
-
 ---
 
 # CI 持续集成 todo

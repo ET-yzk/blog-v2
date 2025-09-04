@@ -1,10 +1,10 @@
 ---
-icon: b fa-simplybuilt
+icon: simplybuilt
 category: 天天笔记
-date: 2025-04-18
+date: 2025-01-18
 ---
 
-# Docker
+# Docker 实践
 
 1. 若遇到 docker 容器服务长时间启动不起来，即长时间处于 `starting` 状态，很可能是对外端口与主机使用端口出现冲突，排查方法如下：
 

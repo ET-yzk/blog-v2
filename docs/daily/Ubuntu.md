@@ -1,5 +1,5 @@
 ---
-icon: b fa-simplybuilt
+icon: simplybuilt
 category: 天天笔记
 date: 2020-01-15
 
@@ -35,4 +35,3 @@ sudo reboot
 sudo systemctl set-default graphical.target
 sudo reboot
 ```
-

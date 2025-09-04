@@ -1,5 +1,5 @@
 ---
-icon: b fa-simplybuilt
+icon: simplybuilt
 category: 未知分类
 date: 2022-01-13
 
@@ -25,14 +25,14 @@ ReferenceError: fetch is not defined
 1. npm install node-fetch
 2. const fetch = require('node-fetch') -->
 <script>
-  fetch('https://v1.hitokoto.cn')
-    .then(response => response.json())
-    .then(data => {
-      const hitokoto = document.getElementById('hitokoto_text')
-      hitokoto.href = 'https://hitokoto.cn/?uuid=' + data.uuid
-      hitokoto.innerText = data.hitokoto
+  fetch("https://v1.hitokoto.cn")
+    .then((response) => response.json())
+    .then((data) => {
+      const hitokoto = document.getElementById("hitokoto_text");
+      hitokoto.href = "https://hitokoto.cn/?uuid=" + data.uuid;
+      hitokoto.innerText = data.hitokoto;
     })
-    .catch(console.error)
+    .catch(console.error);
 </script>
 ```
 
@@ -40,23 +40,27 @@ ReferenceError: fetch is not defined
 <!-- Vue3 -->
 <!-- Vuepress 可用axios方法-->
 <script>
-    export default {
-      mounted() {
-        axios.get('https://v1.hitokoto.cn/?c=d&c=e&c=i&c=j&c=k')
-          .then(({ data }) => {
-            const hitokoto = document.getElementById('hitokoto_text')
-            hitokoto.href = 'https://hitokoto.cn/?uuid=' + data.uuid
-            hitokoto.innerText = '🍃「 ' + data.hitokoto + '」'
-        })
-        .catch(console.error)
-      },
-    }
+export default {
+  mounted() {
+    axios
+      .get("https://v1.hitokoto.cn/?c=d&c=e&c=i&c=j&c=k")
+      .then(({ data }) => {
+        const hitokoto = document.getElementById("hitokoto_text");
+        hitokoto.href = "https://hitokoto.cn/?uuid=" + data.uuid;
+        hitokoto.innerText = "🍃「 " + data.hitokoto + "」";
+      })
+      .catch(console.error);
+  },
+};
 </script>
 ```
 
 ```html
 <!-- or -->
-<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+<script
+  src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto"
+  defer
+></script>
 ```
 
 <p class="heti" id="hitokoto"><a href="#" id="hitokoto_text">: )  Loading...</a></p>
@@ -74,7 +78,7 @@ export default {
   },
 }
 </script>
+
 ## IP
 
 ![IP签名](https://tool.lu/netcard/)
-

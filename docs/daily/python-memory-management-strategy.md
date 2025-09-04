@@ -1,5 +1,6 @@
 ---
-icon: b fa-simplybuilt
+date: 2023-11-07
+icon: simplybuilt
 category: 天天笔记
 
 tag:
@@ -22,8 +23,8 @@ tag:
 
 ### 增加情形
 
-1. 对象被创建：x = [1]      **[1]为对象**
-2. 新增其他别名对其引用：y = x      **变量名为别名**
+1. 对象被创建：x = [1] **[1]为对象**
+2. 新增其他别名对其引用：y = x **变量名为别名**
 3. 被作为参数传递给函数：foo(x)
 4. 作为容器对象的一个元素：a = [x]
 
@@ -82,8 +83,8 @@ del x  # x -> 0 | y -> 2 | z -> 2
 **查看阈值**：
 
 ```python
-import gc 
-gc.get_threshold() 
+import gc
+gc.get_threshold()
 # (700, 10, 10)
 ```
 
@@ -104,14 +105,14 @@ gc.get_threshold()
 现在回过头来分析之前的阈值：
 
 ```bash
->>> gc.get_threshold() 
+>>> gc.get_threshold()
 (700, 10, 10)
 ```
 
 第一个 10 代表每 10 次 0 代的垃圾回收才会触发 1 次 1 代的垃圾回收，每 10 次 1 代的垃圾回收才会触发 1 次 2 代的垃圾回收。当然，也可以手动垃圾回收：
 
 ```bash
->>> gc.collect() 
+>>> gc.collect()
 2
 ```
 

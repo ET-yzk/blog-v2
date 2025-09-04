@@ -60,4 +60,4 @@ jobs:
           BUILD_SCRIPT: corepack enable && corepack prepare pnpm@latest --activate && pnpm install && pnpm run docs:build
           BUILD_DIR: docs/.vuepress/dist
           CNAME: https://blog.yzketx.online
-          COMMIT_MESSAGE:  Auto deploy by the Vuepress-deploy
+          COMMIT_MESSAGE: Auto deploy by the Vuepress-deploy

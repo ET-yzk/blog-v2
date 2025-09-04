@@ -1,5 +1,5 @@
 ---
-icon: b fa-simplybuilt
+icon: simplybuilt
 category: 天天笔记
 date: 2022-01-20
 
@@ -81,17 +81,17 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@master
+      - name: Checkout
+        uses: actions/checkout@master
 
-    - name: vuepress-deploy
-      uses: jenkey2011/vuepress-deploy@master
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        TARGET_REPO: username/repo
-        TARGET_BRANCH: master
-        BUILD_SCRIPT: yarn && yarn docs:build  # 需要与 package.json 中的脚本对应
-        BUILD_DIR: blog/.vuepress/dist/
+      - name: vuepress-deploy
+        uses: jenkey2011/vuepress-deploy@master
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          TARGET_REPO: username/repo
+          TARGET_BRANCH: master
+          BUILD_SCRIPT: yarn && yarn docs:build # 需要与 package.json 中的脚本对应
+          BUILD_DIR: blog/.vuepress/dist/
 ```
 
 上述配置的结果是：每次推送代码，将自动构建、部署到`username/repo`的`master`分支。就是这么简单~
@@ -134,7 +134,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           # 选择要使用的 node 版本
-          node-version: '14'
+          node-version: "14"
 
       # 缓存 node_modules
       - name: Cache dependencies
@@ -173,5 +173,4 @@ jobs:
 ## VuePress Theme
 
 - [vuepress-theme-hope](https://vuepress-theme-hope.github.io/zh/)
-- 
-
+-

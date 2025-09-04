@@ -1,6 +1,8 @@
 ---
+date: 2022-01-20
 article: false
 author: Martin Kleppmann 原著 && 冯若航 译著
+icon: "tabler:number-2-small"
 ---
 
 # 第二章：数据模型与查询语言
@@ -10,9 +12,8 @@ author: Martin Kleppmann 原著 && 冯若航 译著
 > 语言的边界就是思想的边界。
 >
 > —— 路德维奇·维特根斯坦，《逻辑哲学》（1922）
->
 
--------------------
+---
 
 [TOC]
 
@@ -32,8 +33,6 @@ author: Martin Kleppmann 原著 && 冯若航 译著
 掌握一个数据模型需要花费很多精力（想想关系数据建模有多少本书）。即便只使用一个数据模型，不用操心其内部工作机制，构建软件也是非常困难的。然而，因为数据模型对上层软件的功能（能做什么，不能做什么）有着至深的影响，所以选择一个适合的数据模型是非常重要的。
 
 在本章中，我们将研究一系列用于数据存储和查询的通用数据模型（前面列表中的第2点）。特别地，我们将比较关系模型，文档模型和少量基于图形的数据模型。我们还将查看各种查询语言并比较它们的用例。在[第三章](ch3.md)中，我们将讨论存储引擎是如何工作的。也就是说，这些数据模型实际上是如何实现的（列表中的第3点）。
-
-
 
 ## 关系模型与文档模型
 
@@ -55,10 +54,10 @@ author: Martin Kleppmann 原著 && 冯若航 译著
 
 采用NoSQL数据库的背后有几个驱动因素，其中包括：
 
-* 需要比关系数据库更好的可伸缩性，包括非常大的数据集或非常高的写入吞吐量
-* 相比商业数据库产品，免费和开源软件更受偏爱。
-* 关系模型不能很好地支持一些特殊的查询操作
-* 受挫于关系模型的限制性，渴望一种更具多动态性与表现力的数据模型【5】
+- 需要比关系数据库更好的可伸缩性，包括非常大的数据集或非常高的写入吞吐量
+- 相比商业数据库产品，免费和开源软件更受偏爱。
+- 关系模型不能很好地支持一些特殊的查询操作
+- 受挫于关系模型的限制性，渴望一种更具多动态性与表现力的数据模型【5】
 
 不同的应用程序有不同的需求，一个用例的最佳技术选择可能不同于另一个用例的最佳技术选择。因此，在可预见的未来，关系数据库似乎可能会继续与各种非关系数据库一起使用 - 这种想法有时也被称为**混合持久化（polyglot persistence）**。
 
@@ -76,9 +75,9 @@ author: Martin Kleppmann 原著 && 冯若航 译著
 
 例如，[图2-1](./img/fig2-1.png)展示了如何在关系模式中表示简历（一个LinkedIn简介）。整个简介可以通过一个唯一的标识符`user_id`来标识。像`first_name`和`last_name`这样的字段每个用户只出现一次，所以可以在User表上将其建模为列。但是，大多数人在职业生涯中拥有多于一份的工作，人们可能有不同样的教育阶段和任意数量的联系信息。从用户到这些项目之间存在一对多的关系，可以用多种方式来表示：
 
-* 传统SQL模型（SQL：1999之前）中，最常见的规范化表示形式是将职位，教育和联系信息放在单独的表中，对User表提供外键引用，如[图2-1](./img/fig2-1.png)所示。
-* 后续的SQL标准增加了对结构化数据类型和XML数据的支持;这允许将多值数据存储在单行内，并支持在这些文档内查询和索引。这些功能在Oracle，IBM DB2，MS SQL Server和PostgreSQL中都有不同程度的支持【6,7】。JSON数据类型也得到多个数据库的支持，包括IBM DB2，MySQL和PostgreSQL 【8】。
-* 第三种选择是将职业，教育和联系信息编码为JSON或XML文档，将其存储在数据库的文本列中，并让应用程序解析其结构和内容。这种配置下，通常不能使用数据库来查询该编码列中的值。
+- 传统SQL模型（SQL：1999之前）中，最常见的规范化表示形式是将职位，教育和联系信息放在单独的表中，对User表提供外键引用，如[图2-1](./img/fig2-1.png)所示。
+- 后续的SQL标准增加了对结构化数据类型和XML数据的支持;这允许将多值数据存储在单行内，并支持在这些文档内查询和索引。这些功能在Oracle，IBM DB2，MS SQL Server和PostgreSQL中都有不同程度的支持【6,7】。JSON数据类型也得到多个数据库的支持，包括IBM DB2，MySQL和PostgreSQL 【8】。
+- 第三种选择是将职业，教育和联系信息编码为JSON或XML文档，将其存储在数据库的文本列中，并让应用程序解析其结构和内容。这种配置下，通常不能使用数据库来查询该编码列中的值。
 
 对于一个像简历这样自包含文档的数据结构而言，JSON表示是非常合适的：请参阅[例2-1]()。JSON比XML更简单。面向文档的数据库（如MongoDB 【9】，RethinkDB 【10】，CouchDB 【11】和Espresso【12】）支持这种数据模型。
 
@@ -138,11 +137,11 @@ JSON表示比[图2-1](./img/fig2-1.png)中的多表模式具有更好的**局部
 
 如果用户界面用一个自由文本字段来输入区域和行业，那么将他们存储为纯文本字符串是合理的。另一方式是给出地理区域和行业的标准化的列表，并让用户从下拉列表或自动填充器中进行选择，其优势如下：
 
-* 各个简介之间样式和拼写统一
-* 避免歧义（例如，如果有几个同名的城市）
-* 易于更新——名称只存储在一个地方，如果需要更改（例如，由于政治事件而改变城市名称），很容易进行全面更新。
-* 本地化支持——当网站翻译成其他语言时，标准化的列表可以被本地化，使得地区和行业可以使用用户的语言来显示
-* 更好的搜索——例如，搜索华盛顿州的慈善家就会匹配这份简介，因为地区列表可以编码记录西雅图在华盛顿这一事实（从“Greater Seattle Area”这个字符串中看不出来）
+- 各个简介之间样式和拼写统一
+- 避免歧义（例如，如果有几个同名的城市）
+- 易于更新——名称只存储在一个地方，如果需要更改（例如，由于政治事件而改变城市名称），很容易进行全面更新。
+- 本地化支持——当网站翻译成其他语言时，标准化的列表可以被本地化，使得地区和行业可以使用用户的语言来显示
+- 更好的搜索——例如，搜索华盛顿州的慈善家就会匹配这份简介，因为地区列表可以编码记录西雅图在华盛顿这一事实（从“Greater Seattle Area”这个字符串中看不出来）
 
 存储ID还是文本字符串，这是个 **副本（duplication）** 问题。当使用ID时，对人类有意义的信息（比如单词：Philanthropy）只存储在一处，所有引用它的地方使用ID（ID只在数据库中有意义）。当直接存储文本时，对人类有意义的信息会复制在每处使用记录中。
 
@@ -160,13 +159,14 @@ JSON表示比[图2-1](./img/fig2-1.png)中的多表模式具有更好的**局部
 
 此外，即便应用程序的最初版本适合无连接的文档模型，随着功能添加到应用程序中，数据会变得更加互联。例如，考虑一下对简历例子进行的一些修改：
 
-***组织和学校作为实体***
+**_组织和学校作为实体_**
 
 在前面的描述中，`organization`（用户工作的公司）和`school_name`（他们学习的地方）只是字符串。也许他们应该是对实体的引用呢？然后，每个组织，学校或大学都可以拥有自己的网页（标识，新闻提要等）。每个简历可以链接到它所提到的组织和学校，并且包括他们的图标和其他信息（请参阅[图2-3](./img/fig2-3.png)，来自LinkedIn的一个例子）。
 
-***推荐***
+**_推荐_**
 
 假设你想添加一个新的功能：一个用户可以为另一个用户写一个推荐。在用户的简历上显示推荐，并附上推荐用户的姓名和照片。如果推荐人更新他们的照片，那他们写的任何推荐都需要显示新的照片。因此，推荐应该拥有作者个人简介的引用。
+
 ![](./img/fig2-3.png)
 
 **图2-3 公司名不仅是字符串，还是一个指向公司实体的链接（LinkedIn截图）**
@@ -272,8 +272,8 @@ UPDATE users SET first_name = substring_index(name, ' ', 1); 	-- MySQL
 
 当由于某种原因（例如，数据是异构的）集合中的项目并不都具有相同的结构时,读时模式更具优势。例如，如果：
 
-* 存在许多不同类型的对象，将每种类型的对象放在自己的表中是不现实的。
-* 数据的结构由外部系统决定。你无法控制外部系统且它随时可能变化。
+- 存在许多不同类型的对象，将每种类型的对象放在自己的表中是不现实的。
+- 数据的结构由外部系统决定。你无法控制外部系统且它随时可能变化。
 
 在上述情况下，模式的坏处远大于它的帮助，无模式文档可能是一个更加自然的数据模型。但是，要是所有记录都具有相同的结构，那么模式是记录并强制这种结构的有效机制。第四章将更详细地讨论模式和模式演化。
 
@@ -301,8 +301,6 @@ UPDATE users SET first_name = substring_index(name, ' ', 1); 	-- MySQL
 
 [^v]: Codd对关系模型【1】的原始描述实际上允许在关系模式中与JSON文档非常相似。他称之为**非简单域（nonsimple domains）**。这个想法是，一行中的值不一定是一个像数字或字符串一样的原始数据类型，也可以是一个嵌套的关系（表），因此可以把一个任意嵌套的树结构作为一个值，这很像30年后添加到SQL中的JSON或XML支持。
 
-
-
 ## 数据查询语言
 
 当引入关系模型时，关系模型包含了一种查询数据的新方法：SQL是一种 **声明式** 查询语言，而IMS和CODASYL使用 **命令式** 代码来查询数据库。那是什么意思？
@@ -311,20 +309,22 @@ UPDATE users SET first_name = substring_index(name, ' ', 1); 	-- MySQL
 
 ```js
 function getSharks() {
-    var sharks = [];
-    for (var i = 0; i < animals.length; i++) {
-        if (animals[i].family === "Sharks") {
-            sharks.push(animals[i]);
-        }
+  var sharks = [];
+  for (var i = 0; i < animals.length; i++) {
+    if (animals[i].family === "Sharks") {
+      sharks.push(animals[i]);
     }
-    return sharks;
+  }
+  return sharks;
 }
 ```
 
 在关系代数中：
+
 $$
 sharks = σ_{family = "sharks"}(animals)
 $$
+
 σ（希腊字母西格玛）是选择操作符，只返回符合条件的动物，`family="shark"`。
 
 定义SQL时，它紧密地遵循关系代数的结构：
@@ -353,21 +353,22 @@ SQL示例不确保任何特定的顺序，因此不在意顺序是否改变。�
 
 ```html
 <ul>
-    <li class="selected">
-        <p>Sharks</p>
-        <ul>
-            <li>Great White Shark</li>
-            <li>Tiger Shark</li>
-            <li>Hammerhead Shark</li>
-        </ul>
-    </li>
-    <li><p>Whales</p>
-        <ul>
-            <li>Blue Whale</li>
-            <li>Humpback Whale</li>
-            <li>Fin Whale</li>
-        </ul>
-    </li>
+  <li class="selected">
+    <p>Sharks</p>
+    <ul>
+      <li>Great White Shark</li>
+      <li>Tiger Shark</li>
+      <li>Hammerhead Shark</li>
+    </ul>
+  </li>
+  <li>
+    <p>Whales</p>
+    <ul>
+      <li>Blue Whale</li>
+      <li>Humpback Whale</li>
+      <li>Fin Whale</li>
+    </ul>
+  </li>
 </ul>
 ```
 
@@ -375,7 +376,7 @@ SQL示例不确保任何特定的顺序，因此不在意顺序是否改变。�
 
 ```css
 li.selected > p {
-	background-color: blue;
+  background-color: blue;
 }
 ```
 
@@ -398,23 +399,23 @@ li.selected > p {
 ```js
 var liElements = document.getElementsByTagName("li");
 for (var i = 0; i < liElements.length; i++) {
-    if (liElements[i].className === "selected") {
-        var children = liElements[i].childNodes;
-        for (var j = 0; j < children.length; j++) {
-            var child = children[j];
-            if (child.nodeType === Node.ELEMENT_NODE && child.tagName === "P") {
-                child.setAttribute("style", "background-color: blue");
-            }
-        }
+  if (liElements[i].className === "selected") {
+    var children = liElements[i].childNodes;
+    for (var j = 0; j < children.length; j++) {
+      var child = children[j];
+      if (child.nodeType === Node.ELEMENT_NODE && child.tagName === "P") {
+        child.setAttribute("style", "background-color: blue");
+      }
     }
+  }
 }
 ```
 
 这段JavaScript代码命令式地将元素设置为蓝色背景，但是代码看起来很糟糕。不仅比CSS和XSL等价物更长，更难理解，而且还有一些严重的问题：
 
-* 如果选定的类被移除（例如，因为用户点击了不同的页面），即使代码重新运行，蓝色背景也不会被移除 - 因此该项目将保持突出显示，直到整个页面被重新加载。使用CSS，浏览器会自动检测`li.selected> p`规则何时不再适用，并在选定的类被移除后立即移除蓝色背景。
+- 如果选定的类被移除（例如，因为用户点击了不同的页面），即使代码重新运行，蓝色背景也不会被移除 - 因此该项目将保持突出显示，直到整个页面被重新加载。使用CSS，浏览器会自动检测`li.selected> p`规则何时不再适用，并在选定的类被移除后立即移除蓝色背景。
 
-* 如果你想要利用新的API（例如`document.getElementsBy ClassName（“selected”`）甚至`document.evaluate()`）来提高性能，则必须重写代码。另一方面，浏览器供应商可以在不破坏兼容性的情况下提高CSS和XPath的性能。
+- 如果你想要利用新的API（例如`document.getElementsBy ClassName（“selected”`）甚至`document.evaluate()`）来提高性能，则必须重写代码。另一方面，浏览器供应商可以在不破坏兼容性的情况下提高CSS和XPath的性能。
 
 在Web浏览器中，使用声明式CSS样式比使用JavaScript命令式地操作样式要好得多。类似地，在数据库中，使用像SQL这样的声明式查询语言比使用命令式查询API要好得多[^vi]。
 
@@ -448,28 +449,30 @@ GROUP BY observation_month;
 同样的查询用MongoDB的MapReduce功能可以按如下来表述：
 
 ```js
-db.observations.mapReduce(function map() {
-        var year = this.observationTimestamp.getFullYear();
-        var month = this.observationTimestamp.getMonth() + 1;
-        emit(year + "-" + month, this.numAnimals);
+db.observations.mapReduce(
+  function map() {
+    var year = this.observationTimestamp.getFullYear();
+    var month = this.observationTimestamp.getMonth() + 1;
+    emit(year + "-" + month, this.numAnimals);
+  },
+  function reduce(key, values) {
+    return Array.sum(values);
+  },
+  {
+    query: {
+      family: "Sharks",
     },
-    function reduce(key, values) {
-        return Array.sum(values);
-    },
-    {
-        query: {
-          family: "Sharks"
-        },
-        out: "monthlySharkReport"
-    });
+    out: "monthlySharkReport",
+  },
+);
 ```
 
-* 可以声明式地指定一个只考虑鲨鱼种类的过滤器（这是MongoDB特定的MapReduce扩展）。
-* 每个匹配查询的文档都会调用一次JavaScript函数`map`，将`this`设置为文档对象。
-* `map`函数发出一个键（包括年份和月份的字符串，如`"2013-12"`或`"2014-1"`）和一个值（该观察记录中的动物数量）。
-* `map`发出的键值对按键来分组。对于具有相同键（即，相同的月份和年份）的所有键值对，调用一次`reduce`函数。
-* `reduce`函数将特定月份内所有观测记录中的动物数量相加。
-* 将最终的输出写入到`monthlySharkReport`集合中。
+- 可以声明式地指定一个只考虑鲨鱼种类的过滤器（这是MongoDB特定的MapReduce扩展）。
+- 每个匹配查询的文档都会调用一次JavaScript函数`map`，将`this`设置为文档对象。
+- `map`函数发出一个键（包括年份和月份的字符串，如`"2013-12"`或`"2014-1"`）和一个值（该观察记录中的动物数量）。
+- `map`发出的键值对按键来分组。对于具有相同键（即，相同的月份和年份）的所有键值对，调用一次`reduce`函数。
+- `reduce`函数将特定月份内所有观测记录中的动物数量相加。
+- 将最终的输出写入到`monthlySharkReport`集合中。
 
 例如，假设`observations`集合包含这两个文档：
 
@@ -501,18 +504,19 @@ MapReduce的一个可用性问题是，必须编写两个密切合作的JavaScri
 ```js
 db.observations.aggregate([
   { $match: { family: "Sharks" } },
-  { $group: {
-    _id: {
-      year:  { $year:  "$observationTimestamp" },
-      month: { $month: "$observationTimestamp" }
+  {
+    $group: {
+      _id: {
+        year: { $year: "$observationTimestamp" },
+        month: { $month: "$observationTimestamp" },
+      },
+      totalAnimals: { $sum: "$numAnimals" },
     },
-    totalAnimals: { $sum: "$numAnimals" } }}
+  },
 ]);
 ```
 
 聚合管道语言与SQL的子集具有类似表现力，但是它使用基于JSON的语法而不是SQL的英语句子式语法; 这种差异也许是口味问题。这个故事的寓意是NoSQL系统可能会发现自己意外地重新发明了SQL，尽管带着伪装。
-
-
 
 ## 图数据模型
 
@@ -522,15 +526,15 @@ db.observations.aggregate([
 
 一个图由两种对象组成：**顶点（vertices）**（也称为**节点（nodes）** 或**实体（entities）**），和**边（edges）**（ 也称为**关系（relationships）** 或**弧 （arcs）** ）。多种数据可以被建模为一个图形。典型的例子包括：
 
-***社交图谱***
+**_社交图谱_**
 
 顶点是人，边指示哪些人彼此认识。
 
-***网络图谱***
+**_网络图谱_**
 
 顶点是网页，边缘表示指向其他页面的HTML链接。
 
-***公路或铁路网络***
+**_公路或铁路网络_**
 
 顶点是交叉路口，边线代表它们之间的道路或铁路线。
 
@@ -550,18 +554,18 @@ db.observations.aggregate([
 
 在属性图模型中，每个**顶点（vertex）** 包括：
 
-* 唯一的标识符
-* 一组 **出边（outgoing edges）**
-* 一组 **入边（ingoing edges）**
-* 一组属性（键值对）
+- 唯一的标识符
+- 一组 **出边（outgoing edges）**
+- 一组 **入边（ingoing edges）**
+- 一组属性（键值对）
 
 每条 **边（edge）** 包括：
 
-* 唯一标识符
-* **边的起点/尾部顶点（tail vertex）**
-* **边的终点/头部顶点（head vertex）**
-* 描述两个顶点之间关系类型的标签
-* 一组属性（键值对）
+- 唯一标识符
+- **边的起点/尾部顶点（tail vertex）**
+- **边的终点/头部顶点（head vertex）**
+- 描述两个顶点之间关系类型的标签
+- 一组属性（键值对）
 
 可以将图存储看作由两个关系表组成：一个存储顶点，另一个存储边，如[例2-2]()所示（该模式使用PostgreSQL JSON数据类型来存储每个顶点或每条边的属性）。头部和尾部顶点用来存储每条边；如果你想要一组顶点的输入或输出边，你可以分别通过`head_vertex`或`tail_vertex`来查询`edges`表。
 
@@ -629,9 +633,9 @@ RETURN person.name
 查询按如下来解读：
 
 > 找到满足以下两个条件的所有顶点（称之为person顶点）：
-> 1.  `person`顶点拥有一条到某个顶点的`BORN_IN`出边。从那个顶点开始，沿着一系列`WITHIN`出边最终到达一个类型为`Location`，`name`属性为`United States`的顶点。
 >
-> 2. `person`顶点还拥有一条`LIVES_IN`出边。沿着这条边，可以通过一系列`WITHIN`出边最终到达一个类型为`Location`，`name`属性为`Europe`的顶点。
+> 1.  `person`顶点拥有一条到某个顶点的`BORN_IN`出边。从那个顶点开始，沿着一系列`WITHIN`出边最终到达一个类型为`Location`，`name`属性为`United States`的顶点。
+> 2.  `person`顶点还拥有一条`LIVES_IN`出边。沿着这条边，可以通过一系列`WITHIN`出边最终到达一个类型为`Location`，`name`属性为`Europe`的顶点。
 >
 > 对于这样的`Person`顶点，返回其`name`属性。
 
@@ -653,7 +657,7 @@ RETURN person.name
 
 自SQL:1999，查询可变长度遍历路径的思想可以使用称为**递归公用表表达式**（`WITH RECURSIVE`语法）的东西来表示。[例2-5]()显示了同样的查询 - 查找从美国移民到欧洲的人的姓名 - 在SQL使用这种技术（PostgreSQL，IBM DB2，Oracle和SQL Server均支持）来表述。但是，与Cypher相比，其语法非常笨拙。
 
-**例2-5  与示例2-4同样的查询，在SQL中使用递归公用表表达式表示**
+**例2-5 与示例2-4同样的查询，在SQL中使用递归公用表表达式表示**
 
 ```sql
 WITH RECURSIVE
@@ -691,12 +695,12 @@ WITH RECURSIVE
     JOIN lives_in_europe ON vertices.vertex_id = lives_in_europe.vertex_id;
 ```
 
-* 首先，查找`name`属性为`United States`的顶点，将其作为`in_usa`顶点的集合的第一个元素。
-* 从`in_usa`集合的顶点出发，沿着所有的`with_in`入边，将其尾顶点加入同一集合，不断递归直到所有`with_in`入边都被访问完毕。
-* 同理，从`name`属性为`Europe`的顶点出发，建立`in_europe`顶点的集合。
-* 对于`in_usa`集合中的每个顶点，根据`born_in`入边来查找出生在美国某个地方的人。
-* 同样，对于`in_europe`集合中的每个顶点，根据`lives_in`入边来查找居住在欧洲的人。
-* 最后，把在美国出生的人的集合与在欧洲居住的人的集合相交。
+- 首先，查找`name`属性为`United States`的顶点，将其作为`in_usa`顶点的集合的第一个元素。
+- 从`in_usa`集合的顶点出发，沿着所有的`with_in`入边，将其尾顶点加入同一集合，不断递归直到所有`with_in`入边都被访问完毕。
+- 同理，从`name`属性为`Europe`的顶点出发，建立`in_europe`顶点的集合。
+- 对于`in_usa`集合中的每个顶点，根据`born_in`入边来查找出生在美国某个地方的人。
+- 同样，对于`in_europe`集合中的每个顶点，根据`lives_in`入边来查找居住在欧洲的人。
+- 最后，把在美国出生的人的集合与在欧洲居住的人的集合相交。
 
 同一个查询，用某一个查询语言可以写成4行，而用另一个查询语言需要29行，这恰恰说明了不同的数据模型是为不同的应用场景而设计的。选择适合应用程序的数据模型非常重要。
 
@@ -834,12 +838,10 @@ SPARQL是一种很好的查询语言——哪怕语义网从未实现，它仍�
 >
 > 不，他们在几个重要方面有所不同：
 >
-> * 在CODASYL中，数据库有一个模式，用于指定哪种记录类型可以嵌套在其他记录类型中。在图形数据库中，不存在这样的限制：任何顶点都可以具有到其他任何顶点的边。这为应用程序适应不断变化的需求提供了更大的灵活性。
-> * 在CODASYL中，达到特定记录的唯一方法是遍历其中的一个访问路径。在图形数据库中，可以通过其唯一ID直接引用任何顶点，也可以使用索引来查找具有特定值的顶点。
-> * 在CODASYL，记录的后续是一个有序集合，所以数据库的人不得不维持排序（这会影响存储布局），并且插入新记录到数据库的应用程序不得不担心的新记录在这些集合中的位置。在图形数据库中，顶点和边不是有序的（只能在查询时对结果进行排序）。
-> * 在CODASYL中，所有查询都是命令式的，难以编写，并且很容易因架构中的变化而受到破坏。在图形数据库中，如果需要，可以在命令式代码中编写遍历，但大多数图形数据库也支持高级声明式查询语言，如Cypher或SPARQL。
->
->
+> - 在CODASYL中，数据库有一个模式，用于指定哪种记录类型可以嵌套在其他记录类型中。在图形数据库中，不存在这样的限制：任何顶点都可以具有到其他任何顶点的边。这为应用程序适应不断变化的需求提供了更大的灵活性。
+> - 在CODASYL中，达到特定记录的唯一方法是遍历其中的一个访问路径。在图形数据库中，可以通过其唯一ID直接引用任何顶点，也可以使用索引来查找具有特定值的顶点。
+> - 在CODASYL，记录的后续是一个有序集合，所以数据库的人不得不维持排序（这会影响存储布局），并且插入新记录到数据库的应用程序不得不担心的新记录在这些集合中的位置。在图形数据库中，顶点和边不是有序的（只能在查询时对结果进行排序）。
+> - 在CODASYL中，所有查询都是命令式的，难以编写，并且很容易因架构中的变化而受到破坏。在图形数据库中，如果需要，可以在命令式代码中编写遍历，但大多数图形数据库也支持高级声明式查询语言，如Cypher或SPARQL。
 
 ### 基础：Datalog
 
@@ -911,8 +913,6 @@ Cypher和SPARQL使用SELECT立即跳转，但是Datalog一次只进行一小步�
 
 相对于本章讨论的其他查询语言，我们需要采取不同的思维方式来思考Datalog方法，但这是一种非常强大的方法，因为规则可以在不同的查询中进行组合和重用。虽然对于简单的一次性查询，显得不太方便，但是它可以更好地处理数据很复杂的情况。
 
-
-
 ## 本章小结
 
 数据模型是一个巨大的课题，在本章中，我们快速浏览了各种不同的模型。我们没有足够的空间来详细介绍每个模型的细节，但是希望这个概述足以激起你的兴趣，以更多地了解最适合你的应用需求的模型。
@@ -930,122 +930,116 @@ Cypher和SPARQL使用SELECT立即跳转，但是Datalog一次只进行一小步�
 
 虽然我们已经覆盖了很多层面，但仍然有许多数据模型没有提到。举几个简单的例子：
 
-* 使用基因组数据的研究人员通常需要执行**序列相似性搜索**，这意味着需要一个很长的字符串（代表一个DNA分子），并在一个拥有类似但不完全相同的字符串的大型数据库中寻找匹配。这里所描述的数据库都不能处理这种用法，这就是为什么研究人员编写了像GenBank这样的专门的基因组数据库软件的原因【48】。
-* 粒子物理学家数十年来一直在进行大数据类型的大规模数据分析，像大型强子对撞机（LHC）这样的项目现在可以工作在数百亿兆字节的范围内！在这样的规模下，需要定制解决方案来阻止硬件成本的失控【49】。
-* **全文搜索**可以说是一种经常与数据库一起使用的数据模型。信息检索是一个很大的专业课题，我们不会在本书中详细介绍，但是我们将在第三章和第三部分中介绍搜索索引。
+- 使用基因组数据的研究人员通常需要执行**序列相似性搜索**，这意味着需要一个很长的字符串（代表一个DNA分子），并在一个拥有类似但不完全相同的字符串的大型数据库中寻找匹配。这里所描述的数据库都不能处理这种用法，这就是为什么研究人员编写了像GenBank这样的专门的基因组数据库软件的原因【48】。
+- 粒子物理学家数十年来一直在进行大数据类型的大规模数据分析，像大型强子对撞机（LHC）这样的项目现在可以工作在数百亿兆字节的范围内！在这样的规模下，需要定制解决方案来阻止硬件成本的失控【49】。
+- **全文搜索**可以说是一种经常与数据库一起使用的数据模型。信息检索是一个很大的专业课题，我们不会在本书中详细介绍，但是我们将在第三章和第三部分中介绍搜索索引。
 
 让我们暂时将其放在一边。在[下一章](ch3.md)中，我们将讨论在**实现**本章描述的数据模型时会遇到的一些权衡。
 
-
-
-
-
 ## 参考文献
 
-
-1.  Edgar F. Codd: “[A Relational Model of Data for Large Shared Data Banks](https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf),” *Communications of the ACM*, volume 13, number 6, pages 377–387, June 1970. [doi:10.1145/362384.362685](http://dx.doi.org/10.1145/362384.362685)
+1.  Edgar F. Codd: “[A Relational Model of Data for Large Shared Data Banks](https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf),” _Communications of the ACM_, volume 13, number 6, pages 377–387, June 1970. [doi:10.1145/362384.362685](http://dx.doi.org/10.1145/362384.362685)
 
 1.  Michael Stonebraker and Joseph M. Hellerstein: “[What Goes Around Comes Around](http://mitpress2.mit.edu/books/chapters/0262693143chapm1.pdf),”
-    in *Readings in Database Systems*, 4th edition, MIT Press, pages 2–41, 2005. ISBN: 978-0-262-69314-1
+    in _Readings in Database Systems_, 4th edition, MIT Press, pages 2–41, 2005. ISBN: 978-0-262-69314-1
 
-1.  Pramod J. Sadalage and Martin Fowler: *NoSQL Distilled*. Addison-Wesley, August 2012. ISBN:
+1.  Pramod J. Sadalage and Martin Fowler: _NoSQL Distilled_. Addison-Wesley, August 2012. ISBN:
     978-0-321-82662-6
 
-1.  Eric Evans: “[NoSQL: What's in a Name?](http://blog.sym-link.com/2009/10/30/nosql_whats_in_a_name.html),” *blog.sym-link.com*, October 30, 2009.
+1.  Eric Evans: “[NoSQL: What's in a Name?](http://blog.sym-link.com/2009/10/30/nosql_whats_in_a_name.html),” _blog.sym-link.com_, October 30, 2009.
 
-1.  James Phillips:  “[Surprises in Our NoSQL   Adoption Survey](http://blog.couchbase.com/nosql-adoption-survey-surprises),” *blog.couchbase.com*, February 8, 2012.
+1.  James Phillips: “[Surprises in Our NoSQL Adoption Survey](http://blog.couchbase.com/nosql-adoption-survey-surprises),” _blog.couchbase.com_, February 8, 2012.
 
-1.  Michael Wagner:  *SQL/XML:2006 – Evaluierung der Standardkonformität ausgewählter Datenbanksysteme*.  Diplomica Verlag, Hamburg, 2010. ISBN: 978-3-836-64609-3
+1.  Michael Wagner: _SQL/XML:2006 – Evaluierung der Standardkonformität ausgewählter Datenbanksysteme_. Diplomica Verlag, Hamburg, 2010. ISBN: 978-3-836-64609-3
 
-1.  “[XML   Data in SQL Server](http://technet.microsoft.com/en-us/library/bb522446.aspx),” SQL Server 2012 documentation, *technet.microsoft.com*, 2013.
+1.  “[XML Data in SQL Server](http://technet.microsoft.com/en-us/library/bb522446.aspx),” SQL Server 2012 documentation, _technet.microsoft.com_, 2013.
 
-1.  “[PostgreSQL   9.3.1 Documentation](http://www.postgresql.org/docs/9.3/static/index.html),” The PostgreSQL Global Development Group, 2013.
+1.  “[PostgreSQL 9.3.1 Documentation](http://www.postgresql.org/docs/9.3/static/index.html),” The PostgreSQL Global Development Group, 2013.
 
 1.  “[The MongoDB 2.4 Manual](http://docs.mongodb.org/manual/),” MongoDB, Inc., 2013.
 
-1.  “[RethinkDB 1.11 Documentation](http://www.rethinkdb.com/docs/),” *rethinkdb.com*, 2013.
+1.  “[RethinkDB 1.11 Documentation](http://www.rethinkdb.com/docs/),” _rethinkdb.com_, 2013.
 
-1.  “[Apache CouchDB 1.6 Documentation](http://docs.couchdb.org/en/latest/),” *docs.couchdb.org*, 2014.
+1.  “[Apache CouchDB 1.6 Documentation](http://docs.couchdb.org/en/latest/),” _docs.couchdb.org_, 2014.
 
-1.  Lin Qiao, Kapil Surlaker, Shirshanka Das, et al.: “[On Brewing Fresh Espresso: LinkedIn’s Distributed Data Serving Platform](http://www.slideshare.net/amywtang/espresso-20952131),” at *ACM International Conference on Management of Data* (SIGMOD), June 2013.
+1.  Lin Qiao, Kapil Surlaker, Shirshanka Das, et al.: “[On Brewing Fresh Espresso: LinkedIn’s Distributed Data Serving Platform](http://www.slideshare.net/amywtang/espresso-20952131),” at _ACM International Conference on Management of Data_ (SIGMOD), June 2013.
 
-1.  Rick Long, Mark Harrington, Robert Hain, and Geoff Nicholls: <a href="http://www.redbooks.ibm.com/redbooks/pdfs/sg245352.pdf">*IMS Primer*</a>. IBM Redbook SG24-5352-00, IBM International Technical Support Organization, January 2000.
+1.  Rick Long, Mark Harrington, Robert Hain, and Geoff Nicholls: <a href="http://www.redbooks.ibm.com/redbooks/pdfs/sg245352.pdf">_IMS Primer_</a>. IBM Redbook SG24-5352-00, IBM International Technical Support Organization, January 2000.
 
 1.  Stephen D. Bartlett: “[IBM’s IMS—Myths, Realities, and Opportunities](ftp://public.dhe.ibm.com/software/data/ims/pdf/TCG2013015LI.pdf),” The Clipper Group Navigator, TCG2013015LI, July 2013.
 
-1.  Sarah Mei: “[Why You Should Never Use MongoDB](http://www.sarahmei.com/blog/2013/11/11/why-you-should-never-use-mongodb/),” *sarahmei.com*, November 11, 2013.
+1.  Sarah Mei: “[Why You Should Never Use MongoDB](http://www.sarahmei.com/blog/2013/11/11/why-you-should-never-use-mongodb/),” _sarahmei.com_, November 11, 2013.
 
-1.  J. S. Knowles and D. M. R. Bell: “The CODASYL Model,” in *Databases—Role and Structure: An Advanced Course*, edited by P. M. Stocker, P. M. D. Gray, and M. P. Atkinson, pages 19–56, Cambridge University Press, 1984. ISBN: 978-0-521-25430-4
+1.  J. S. Knowles and D. M. R. Bell: “The CODASYL Model,” in _Databases—Role and Structure: An Advanced Course_, edited by P. M. Stocker, P. M. D. Gray, and M. P. Atkinson, pages 19–56, Cambridge University Press, 1984. ISBN: 978-0-521-25430-4
 
-1.  Charles W. Bachman: “[The Programmer as Navigator](http://dl.acm.org/citation.cfm?id=362534),” *Communications of the ACM*, volume 16, number 11, pages 653–658, November 1973. [doi:10.1145/355611.362534](http://dx.doi.org/10.1145/355611.362534)
+1.  Charles W. Bachman: “[The Programmer as Navigator](http://dl.acm.org/citation.cfm?id=362534),” _Communications of the ACM_, volume 16, number 11, pages 653–658, November 1973. [doi:10.1145/355611.362534](http://dx.doi.org/10.1145/355611.362534)
 
 1.  Joseph M. Hellerstein, Michael Stonebraker, and James Hamilton: “[Architecture of a Database System](http://db.cs.berkeley.edu/papers/fntdb07-architecture.pdf),”
-    *Foundations and Trends in Databases*, volume 1, number 2, pages 141–259, November 2007. [doi:10.1561/1900000002](http://dx.doi.org/10.1561/1900000002)
+    _Foundations and Trends in Databases_, volume 1, number 2, pages 141–259, November 2007. [doi:10.1561/1900000002](http://dx.doi.org/10.1561/1900000002)
 
-1.  Sandeep Parikh and Kelly Stirman: “[Schema Design for Time Series Data in MongoDB](http://blog.mongodb.org/post/65517193370/schema-design-for-time-series-data-in-mongodb),” *blog.mongodb.org*, October 30, 2013.
+1.  Sandeep Parikh and Kelly Stirman: “[Schema Design for Time Series Data in MongoDB](http://blog.mongodb.org/post/65517193370/schema-design-for-time-series-data-in-mongodb),” _blog.mongodb.org_, October 30, 2013.
 
-1.  Martin Fowler: “[Schemaless Data Structures](http://martinfowler.com/articles/schemaless/),” *martinfowler.com*, January 7, 2013.
+1.  Martin Fowler: “[Schemaless Data Structures](http://martinfowler.com/articles/schemaless/),” _martinfowler.com_, January 7, 2013.
 
-1.  Amr Awadallah: “[Schema-on-Read vs. Schema-on-Write](http://www.slideshare.net/awadallah/schemaonread-vs-schemaonwrite),” at *Berkeley EECS RAD Lab Retreat*, Santa Cruz, CA, May 2009.
+1.  Amr Awadallah: “[Schema-on-Read vs. Schema-on-Write](http://www.slideshare.net/awadallah/schemaonread-vs-schemaonwrite),” at _Berkeley EECS RAD Lab Retreat_, Santa Cruz, CA, May 2009.
 
-1.  Martin Odersky: “[The Trouble with Types](http://www.infoq.com/presentations/data-types-issues),” at *Strange Loop*, September 2013.
+1.  Martin Odersky: “[The Trouble with Types](http://www.infoq.com/presentations/data-types-issues),” at _Strange Loop_, September 2013.
 
-1.  Conrad Irwin: “[MongoDB—Confessions of a PostgreSQL Lover](https://speakerdeck.com/conradirwin/mongodb-confessions-of-a-postgresql-lover),” at *HTML5DevConf*, October 2013.
+1.  Conrad Irwin: “[MongoDB—Confessions of a PostgreSQL Lover](https://speakerdeck.com/conradirwin/mongodb-confessions-of-a-postgresql-lover),” at _HTML5DevConf_, October 2013.
 
 1.  “[Percona Toolkit Documentation: pt-online-schema-change](http://www.percona.com/doc/percona-toolkit/2.2/pt-online-schema-change.html),” Percona Ireland Ltd., 2013.
 
 1.  Rany Keddo, Tobias Bielohlawek, and Tobias Schmidt: “[Large Hadron Migrator](https://github.com/soundcloud/lhm),” SoundCloud, 2013. Shlomi Noach:
 
-    “[gh-ost: GitHub's Online Schema Migration Tool for MySQL](http://githubengineering.com/gh-ost-github-s-online-migration-tool-for-mysql/),” *githubengineering.com*, August 1, 2016.
+    “[gh-ost: GitHub's Online Schema Migration Tool for MySQL](http://githubengineering.com/gh-ost-github-s-online-migration-tool-for-mysql/),” _githubengineering.com_, August 1, 2016.
 
-1.  James C. Corbett, Jeffrey Dean, Michael Epstein, et al.: “[Spanner: Google’s Globally-Distributed Database](http://research.google.com/archive/spanner.html),” at *10th USENIX Symposium on Operating System Design and Implementation* (OSDI),
+1.  James C. Corbett, Jeffrey Dean, Michael Epstein, et al.: “[Spanner: Google’s Globally-Distributed Database](http://research.google.com/archive/spanner.html),” at _10th USENIX Symposium on Operating System Design and Implementation_ (OSDI),
     October 2012.
 
-1.  Donald K. Burleson: “[Reduce I/O with Oracle Cluster Tables](http://www.dba-oracle.com/oracle_tip_hash_index_cluster_table.htm),” *dba-oracle.com*.
+1.  Donald K. Burleson: “[Reduce I/O with Oracle Cluster Tables](http://www.dba-oracle.com/oracle_tip_hash_index_cluster_table.htm),” _dba-oracle.com_.
 
-1.  Fay Chang, Jeffrey Dean, Sanjay Ghemawat, et al.: “[Bigtable: A Distributed Storage System for Structured Data](http://research.google.com/archive/bigtable.html),” at *7th USENIX Symposium on Operating System Design and Implementation* (OSDI), November 2006.
+1.  Fay Chang, Jeffrey Dean, Sanjay Ghemawat, et al.: “[Bigtable: A Distributed Storage System for Structured Data](http://research.google.com/archive/bigtable.html),” at _7th USENIX Symposium on Operating System Design and Implementation_ (OSDI), November 2006.
 
 1.  Bobbie J. Cochrane and Kathy A. McKnight: “[DB2 JSON Capabilities, Part 1: Introduction to DB2 JSON](http://www.ibm.com/developerworks/data/library/techarticle/dm-1306nosqlforjson1/),” IBM developerWorks, June 20, 2013.
 
-1.  Herb Sutter: “[The Free Lunch Is Over: A Fundamental Turn Toward Concurrency in Software](http://www.gotw.ca/publications/concurrency-ddj.htm),” *Dr. Dobb's Journal*, volume 30, number 3, pages 202-210, March 2005.
+1.  Herb Sutter: “[The Free Lunch Is Over: A Fundamental Turn Toward Concurrency in Software](http://www.gotw.ca/publications/concurrency-ddj.htm),” _Dr. Dobb's Journal_, volume 30, number 3, pages 202-210, March 2005.
 
 1.  Joseph M. Hellerstein: “[The Declarative Imperative: Experiences and Conjectures in Distributed Logic](http://www.eecs.berkeley.edu/Pubs/TechRpts/2010/EECS-2010-90.pdf),” Electrical Engineering and Computer Sciences, University of California at Berkeley, Tech report UCB/EECS-2010-90, June 2010.
 
-1.  Jeffrey Dean and Sanjay Ghemawat: “[MapReduce: Simplified Data Processing on Large Clusters](http://research.google.com/archive/mapreduce.html),” at *6th USENIX Symposium on Operating System Design and Implementation* (OSDI), December 2004.
+1.  Jeffrey Dean and Sanjay Ghemawat: “[MapReduce: Simplified Data Processing on Large Clusters](http://research.google.com/archive/mapreduce.html),” at _6th USENIX Symposium on Operating System Design and Implementation_ (OSDI), December 2004.
 
-1.  Craig Kerstiens: “[JavaScript in Your Postgres](https://blog.heroku.com/javascript_in_your_postgres),” *blog.heroku.com*, June 5, 2013.
+1.  Craig Kerstiens: “[JavaScript in Your Postgres](https://blog.heroku.com/javascript_in_your_postgres),” _blog.heroku.com_, June 5, 2013.
 
-1.  Nathan Bronson, Zach Amsden, George Cabrera, et al.: “[TAO: Facebook’s Distributed Data Store for the Social Graph](https://www.usenix.org/conference/atc13/technical-sessions/presentation/bronson),” at *USENIX Annual Technical Conference* (USENIX ATC), June 2013.
+1.  Nathan Bronson, Zach Amsden, George Cabrera, et al.: “[TAO: Facebook’s Distributed Data Store for the Social Graph](https://www.usenix.org/conference/atc13/technical-sessions/presentation/bronson),” at _USENIX Annual Technical Conference_ (USENIX ATC), June 2013.
 
-1.  “[Apache TinkerPop3.2.3 Documentation](http://tinkerpop.apache.org/docs/3.2.3/reference/),” *tinkerpop.apache.org*, October 2016.
+1.  “[Apache TinkerPop3.2.3 Documentation](http://tinkerpop.apache.org/docs/3.2.3/reference/),” _tinkerpop.apache.org_, October 2016.
 
 1.  “[The Neo4j Manual v2.0.0](http://docs.neo4j.org/chunked/2.0.0/index.html),” Neo Technology, 2013. Emil Eifrem: [Twitter correspondence](https://twitter.com/emileifrem/status/419107961512804352), January 3, 2014.
 
 1.  David Beckett and Tim Berners-Lee: “[Turtle – Terse RDF Triple Language](http://www.w3.org/TeamSubmission/turtle/),” W3C Team Submission, March 28, 2011.
 
-1.  “[Datomic Development Resources](http://docs.datomic.com/),” Metadata Partners, LLC, 2013. W3C RDF Working Group: “[Resource Description Framework (RDF)](http://www.w3.org/RDF/),” *w3.org*, 10 February 2004.
+1.  “[Datomic Development Resources](http://docs.datomic.com/),” Metadata Partners, LLC, 2013. W3C RDF Working Group: “[Resource Description Framework (RDF)](http://www.w3.org/RDF/),” _w3.org_, 10 February 2004.
 
 1.  “[Apache Jena](http://jena.apache.org/),” Apache Software Foundation.
 
 1.  Steve Harris, Andy Seaborne, and Eric Prud'hommeaux: “[SPARQL 1.1 Query Language](http://www.w3.org/TR/sparql11-query/),”
     W3C Recommendation, March 2013.
 
-1.  Todd J. Green, Shan Shan Huang, Boon Thau Loo, and Wenchao Zhou: “[Datalog and Recursive Query Processing](http://blogs.evergreen.edu/sosw/files/2014/04/Green-Vol5-DBS-017.pdf),” *Foundations and Trends in Databases*, volume 5, number 2, pages 105–195, November 2013. [doi:10.1561/1900000017](http://dx.doi.org/10.1561/1900000017)
+1.  Todd J. Green, Shan Shan Huang, Boon Thau Loo, and Wenchao Zhou: “[Datalog and Recursive Query Processing](http://blogs.evergreen.edu/sosw/files/2014/04/Green-Vol5-DBS-017.pdf),” _Foundations and Trends in Databases_, volume 5, number 2, pages 105–195, November 2013. [doi:10.1561/1900000017](http://dx.doi.org/10.1561/1900000017)
 
-1.  Stefano Ceri, Georg Gottlob, and Letizia Tanca: “[What You Always Wanted to Know About Datalog (And Never Dared to Ask)](https://www.researchgate.net/profile/Letizia_Tanca/publication/3296132_What_you_always_wanted_to_know_about_Datalog_and_never_dared_to_ask/links/0fcfd50ca2d20473ca000000.pdf),” *IEEE Transactions on Knowledge and Data Engineering*, volume 1, number 1, pages 146–166, March 1989. [doi:10.1109/69.43410](http://dx.doi.org/10.1109/69.43410)
+1.  Stefano Ceri, Georg Gottlob, and Letizia Tanca: “[What You Always Wanted to Know About Datalog (And Never Dared to Ask)](https://www.researchgate.net/profile/Letizia_Tanca/publication/3296132_What_you_always_wanted_to_know_about_Datalog_and_never_dared_to_ask/links/0fcfd50ca2d20473ca000000.pdf),” _IEEE Transactions on Knowledge and Data Engineering_, volume 1, number 1, pages 146–166, March 1989. [doi:10.1109/69.43410](http://dx.doi.org/10.1109/69.43410)
 
-1.  Serge Abiteboul, Richard Hull, and Victor Vianu: <a href="http://webdam.inria.fr/Alice/">*Foundations of Databases*</a>. Addison-Wesley, 1995. ISBN: 978-0-201-53771-0, available online at *webdam.inria.fr/Alice*
+1.  Serge Abiteboul, Richard Hull, and Victor Vianu: <a href="http://webdam.inria.fr/Alice/">_Foundations of Databases_</a>. Addison-Wesley, 1995. ISBN: 978-0-201-53771-0, available online at _webdam.inria.fr/Alice_
 
-1.  Nathan Marz: “[Cascalog](http://cascalog.org/)," *cascalog.org*. Dennis A. Benson,  Ilene Karsch-Mizrachi, David J. Lipman, et al.:
+1.  Nathan Marz: “[Cascalog](http://cascalog.org/)," _cascalog.org_. Dennis A. Benson, Ilene Karsch-Mizrachi, David J. Lipman, et al.:
 
-      “[GenBank](http://nar.oxfordjournals.org/content/36/suppl_1/D25.full-text-lowres.pdf),”   *Nucleic Acids Research*, volume 36, Database issue, pages D25–D30, December 2007.   [doi:10.1093/nar/gkm929](http://dx.doi.org/10.1093/nar/gkm929)
+    “[GenBank](http://nar.oxfordjournals.org/content/36/suppl_1/D25.full-text-lowres.pdf),” _Nucleic Acids Research_, volume 36, Database issue, pages D25–D30, December 2007. [doi:10.1093/nar/gkm929](http://dx.doi.org/10.1093/nar/gkm929)
 
-1.  Fons Rademakers:   “[ROOT   for Big Data Analysis](http://indico.cern.ch/getFile.py/access?contribId=13&resId=0&materialId=slides&confId=246453),” at *Workshop on the Future of Big Data Management*,
-      London, UK, June 2013.
+1.  Fons Rademakers: “[ROOT for Big Data Analysis](http://indico.cern.ch/getFile.py/access?contribId=13&resId=0&materialId=slides&confId=246453),” at _Workshop on the Future of Big Data Management_,
+    London, UK, June 2013.
 
-------
+---
 
 | 上一章                                       | 目录                                 | 下一章                       |
 | -------------------------------------------- | ------------------------------------ | ---------------------------- |
 | [第一章：可靠性、可伸缩性、可维护性](ch1.md) | [设计数据密集型应用](DDIA_README.md) | [第三章：存储与检索](ch3.md) |
-

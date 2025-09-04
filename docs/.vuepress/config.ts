@@ -11,7 +11,9 @@ export default defineUserConfig({
   head: [
     [
       "script",
-      { src: "https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js" },
+      {
+        src: "https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js",
+      },
     ],
     [
       "script",
@@ -19,39 +21,47 @@ export default defineUserConfig({
         src: "https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js",
       },
     ],
-    ["script", { src: "https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js" }],
-    [
-      "script",
-      { src: "https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js" },
-    ],
-    [
-      "script",
-      { src: "https://unpkg.com/axios/dist/axios.min.js" },
-    ],
-    // 官方已内置该 icon 库，也可在styles中引入，并将 themeConfig.iconPrefix 设置为 'fas fa-'
     [
       "script",
       {
-        src: "https://kit.fontawesome.com/f13755d114.js",
-        crossorigin: "anonymous"  // 跨域请求
+        src: "https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js",
       },
     ],
+    [
+      "script",
+      {
+        src: "https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js",
+      },
+    ],
+    [
+      "script",
+      {
+          src: "https://unpkg.com/axios/dist/axios.min.js",
+      },
+    ],
+    // 官方已内置该 icon 库，也可在styles中引入，并将 themeConfig.iconPrefix 设置为 'fa'
+    // [
+    //   "script",
+    //   {
+    //     src: "https://kit.fontawesome.com/f13755d114.js",
+    //     crossorigin: "anonymous", // 跨域请求
+    //   },
+    // ],
   ],
 
-  // 控制需要生成 <link rel="prefetch"> 资源提示的文件
-  shouldPrefetch: (filename) => !filename.includes("page-"),
-
-  // markdown配置已移除，这些选项现在在主题配置中设置
+  // 控制需要生成 <link rel="prefetch"> 资源提示的文件，不包含 "page-" 前缀的文件进行预加载
+  // shouldPrefetch: (filename) => !filename.includes("page-"),
+  shouldPrefetch: false,
 
   locales: {
     "/": {
       lang: "zh-CN",
       title: "ET-yzk 🌱",
-      description: "凌晨四点，见海棠花未眠 🌸",// "At four o'clock in the morning, I saw Begonia flowers awake",
+      description: "凌晨四点，见海棠花未眠 🌸", // "At four o'clock in the morning, I saw Begonia flowers awake",
     },
     "/en/": {
       lang: "en-US",
-      title: "I'm kfkfka zkye",
+      title: "Kfkfka ✨",
       description: "Kfkfka personal blog",
     },
   },

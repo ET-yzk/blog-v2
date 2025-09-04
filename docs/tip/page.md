@@ -1,6 +1,6 @@
 ---
 # 这是页面的图标
-icon: s fa-file-alt
+icon: "mdi:file"
 # 这是文章的标题
 title: 页面配置
 # 设置作者

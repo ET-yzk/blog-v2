@@ -20,6 +20,9 @@ importers:
       '@vuepress/plugin-slimsearch':
         specifier: 2.0.0-rc.112
         version: 2.0.0-rc.112(vuepress@2.0.0-rc.25(@vuepress/bundler-vite@2.0.0-rc.25(@types/node@24.3.0)(sass@1.92.0)(yaml@2.8.1))(vue@3.5.21))
+      '@vuepress/plugin-watermark':
+        specifier: 2.0.0-rc.112
+        version: 2.0.0-rc.112(vuepress@2.0.0-rc.25(@vuepress/bundler-vite@2.0.0-rc.25(@types/node@24.3.0)(sass@1.92.0)(yaml@2.8.1))(vue@3.5.21))
       '@waline/client':
         specifier: 3.6.0
         version: 3.6.0
@@ -40,7 +43,7 @@ importers:
         version: 2.0.0-rc.25(@vuepress/bundler-vite@2.0.0-rc.25(@types/node@24.3.0)(sass@1.92.0)(yaml@2.8.1))(vue@3.5.21)
       vuepress-theme-hope:
         specifier: 2.0.0-rc.94
-        version: 2.0.0-rc.94(@vuepress/plugin-feed@2.0.0-rc.112(vuepress@2.0.0-rc.25(@vuepress/bundler-vite@2.0.0-rc.25(@types/node@24.3.0)(sass@1.92.0)(yaml@2.8.1))(vue@3.5.21)))(@vuepress/plugin-slimsearch@2.0.0-rc.112(vuepress@2.0.0-rc.25(@vuepress/bundler-vite@2.0.0-rc.25(@types/node@24.3.0)(sass@1.92.0)(yaml@2.8.1))(vue@3.5.21)))(@waline/client@3.6.0)(flowchart.ts@3.0.1)(katex@0.16.22)(markdown-it@14.1.0)(mermaid@11.10.1)(sass@1.92.0)(vuepress@2.0.0-rc.25(@vuepress/bundler-vite@2.0.0-rc.25(@types/node@24.3.0)(sass@1.92.0)(yaml@2.8.1))(vue@3.5.21))
+        version: 2.0.0-rc.94(@vuepress/plugin-feed@2.0.0-rc.112(vuepress@2.0.0-rc.25(@vuepress/bundler-vite@2.0.0-rc.25(@types/node@24.3.0)(sass@1.92.0)(yaml@2.8.1))(vue@3.5.21)))(@vuepress/plugin-slimsearch@2.0.0-rc.112(vuepress@2.0.0-rc.25(@vuepress/bundler-vite@2.0.0-rc.25(@types/node@24.3.0)(sass@1.92.0)(yaml@2.8.1))(vue@3.5.21)))(@vuepress/plugin-watermark@2.0.0-rc.112(vuepress@2.0.0-rc.25(@vuepress/bundler-vite@2.0.0-rc.25(@types/node@24.3.0)(sass@1.92.0)(yaml@2.8.1))(vue@3.5.21)))(@waline/client@3.6.0)(flowchart.ts@3.0.1)(katex@0.16.22)(markdown-it@14.1.0)(mermaid@11.10.1)(sass@1.92.0)(vuepress@2.0.0-rc.25(@vuepress/bundler-vite@2.0.0-rc.25(@types/node@24.3.0)(sass@1.92.0)(yaml@2.8.1))(vue@3.5.21))
 
 packages:
 
@@ -1211,6 +1214,11 @@ packages:
 
   '@vuepress/plugin-theme-data@2.0.0-rc.112':
     resolution: {integrity: sha512-QrCzB/wLxWmy76iEN140pZ1ZaigsFRimfGp1A65UOWAytEmkeRecEGBqZua4PDwiYOZQz/gf80xu5/SFsa8BAQ==}
+    peerDependencies:
+      vuepress: 2.0.0-rc.24
+
+  '@vuepress/plugin-watermark@2.0.0-rc.112':
+    resolution: {integrity: sha512-80oklpp8u4embZ/pgpuS4nsVuXq3xpB23upEvAi605K82M0TyBJKXWle1tUtKkgyMY3BUl51CnUmAmjF28cQhA==}
     peerDependencies:
       vuepress: 2.0.0-rc.24
 
@@ -2521,6 +2529,9 @@ packages:
       '@vuepress/bundler-webpack':
         optional: true
 
+  watermark-js-plus@1.6.3:
+    resolution: {integrity: sha512-iCLOGf70KacIwjGF9MDViYxQcRiVwOH7l42qDHLeE2HeUsQD1EQuUC9cKRG/4SErTUmdqV3yf5WnKk2dRARHPQ==}
+
   web-namespaces@2.0.1:
     resolution: {integrity: sha512-bKr1DkiNa2krS7qxNtdrtHAmzuYGFQLiQ13TsorsdT6ULTkPLKuu5+GsFpDlg6JFjUTwX2DyhMPG2be8uPrqsQ==}
 
@@ -3814,6 +3825,16 @@ snapshots:
       '@vue/devtools-api': 7.7.7
       vue: 3.5.21
       vuepress: 2.0.0-rc.25(@vuepress/bundler-vite@2.0.0-rc.25(@types/node@24.3.0)(sass@1.92.0)(yaml@2.8.1))(vue@3.5.21)
+    transitivePeerDependencies:
+      - typescript
+
+  '@vuepress/plugin-watermark@2.0.0-rc.112(vuepress@2.0.0-rc.25(@vuepress/bundler-vite@2.0.0-rc.25(@types/node@24.3.0)(sass@1.92.0)(yaml@2.8.1))(vue@3.5.21))':
+    dependencies:
+      '@vuepress/helper': 2.0.0-rc.112(vuepress@2.0.0-rc.25(@vuepress/bundler-vite@2.0.0-rc.25(@types/node@24.3.0)(sass@1.92.0)(yaml@2.8.1))(vue@3.5.21))
+      '@vueuse/core': 13.9.0(vue@3.5.21)
+      vue: 3.5.21
+      vuepress: 2.0.0-rc.25(@vuepress/bundler-vite@2.0.0-rc.25(@types/node@24.3.0)(sass@1.92.0)(yaml@2.8.1))(vue@3.5.21)
+      watermark-js-plus: 1.6.3
     transitivePeerDependencies:
       - typescript
 
@@ -5137,7 +5158,7 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  vuepress-theme-hope@2.0.0-rc.94(@vuepress/plugin-feed@2.0.0-rc.112(vuepress@2.0.0-rc.25(@vuepress/bundler-vite@2.0.0-rc.25(@types/node@24.3.0)(sass@1.92.0)(yaml@2.8.1))(vue@3.5.21)))(@vuepress/plugin-slimsearch@2.0.0-rc.112(vuepress@2.0.0-rc.25(@vuepress/bundler-vite@2.0.0-rc.25(@types/node@24.3.0)(sass@1.92.0)(yaml@2.8.1))(vue@3.5.21)))(@waline/client@3.6.0)(flowchart.ts@3.0.1)(katex@0.16.22)(markdown-it@14.1.0)(mermaid@11.10.1)(sass@1.92.0)(vuepress@2.0.0-rc.25(@vuepress/bundler-vite@2.0.0-rc.25(@types/node@24.3.0)(sass@1.92.0)(yaml@2.8.1))(vue@3.5.21)):
+  vuepress-theme-hope@2.0.0-rc.94(@vuepress/plugin-feed@2.0.0-rc.112(vuepress@2.0.0-rc.25(@vuepress/bundler-vite@2.0.0-rc.25(@types/node@24.3.0)(sass@1.92.0)(yaml@2.8.1))(vue@3.5.21)))(@vuepress/plugin-slimsearch@2.0.0-rc.112(vuepress@2.0.0-rc.25(@vuepress/bundler-vite@2.0.0-rc.25(@types/node@24.3.0)(sass@1.92.0)(yaml@2.8.1))(vue@3.5.21)))(@vuepress/plugin-watermark@2.0.0-rc.112(vuepress@2.0.0-rc.25(@vuepress/bundler-vite@2.0.0-rc.25(@types/node@24.3.0)(sass@1.92.0)(yaml@2.8.1))(vue@3.5.21)))(@waline/client@3.6.0)(flowchart.ts@3.0.1)(katex@0.16.22)(markdown-it@14.1.0)(mermaid@11.10.1)(sass@1.92.0)(vuepress@2.0.0-rc.25(@vuepress/bundler-vite@2.0.0-rc.25(@types/node@24.3.0)(sass@1.92.0)(yaml@2.8.1))(vue@3.5.21)):
     dependencies:
       '@vuepress/helper': 2.0.0-rc.112(vuepress@2.0.0-rc.25(@vuepress/bundler-vite@2.0.0-rc.25(@types/node@24.3.0)(sass@1.92.0)(yaml@2.8.1))(vue@3.5.21))
       '@vuepress/plugin-active-header-links': 2.0.0-rc.112(vuepress@2.0.0-rc.25(@vuepress/bundler-vite@2.0.0-rc.25(@types/node@24.3.0)(sass@1.92.0)(yaml@2.8.1))(vue@3.5.21))
@@ -5182,6 +5203,7 @@ snapshots:
     optionalDependencies:
       '@vuepress/plugin-feed': 2.0.0-rc.112(vuepress@2.0.0-rc.25(@vuepress/bundler-vite@2.0.0-rc.25(@types/node@24.3.0)(sass@1.92.0)(yaml@2.8.1))(vue@3.5.21))
       '@vuepress/plugin-slimsearch': 2.0.0-rc.112(vuepress@2.0.0-rc.25(@vuepress/bundler-vite@2.0.0-rc.25(@types/node@24.3.0)(sass@1.92.0)(yaml@2.8.1))(vue@3.5.21))
+      '@vuepress/plugin-watermark': 2.0.0-rc.112(vuepress@2.0.0-rc.25(@vuepress/bundler-vite@2.0.0-rc.25(@types/node@24.3.0)(sass@1.92.0)(yaml@2.8.1))(vue@3.5.21))
       sass: 1.92.0
     transitivePeerDependencies:
       - '@vue/repl'
@@ -5221,6 +5243,8 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
       - typescript
+
+  watermark-js-plus@1.6.3: {}
 
   web-namespaces@2.0.1: {}
 

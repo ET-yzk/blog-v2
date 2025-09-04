@@ -1,4 +1,5 @@
 ---
+date: 2023-02-27
 index: false
 sidebar: false
 toc: false
@@ -6,7 +7,7 @@ toc: false
 
 # The MIT License (MIT)
 
-::: warning
+::: important
 
 Copyright © 2023 \<copyright zkye\>
 

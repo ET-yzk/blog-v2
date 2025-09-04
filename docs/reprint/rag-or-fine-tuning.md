@@ -1,5 +1,5 @@
 ---
-icon: b fa-simplybuilt
+icon: simplybuilt
 category: 转载整理
 date: 2023-12-13
 

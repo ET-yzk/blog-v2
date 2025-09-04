@@ -1,5 +1,5 @@
 ---
-icon: b fa-simplybuilt
+icon: simplybuilt
 category: 天天笔记
 date: 2021-11-23
 
@@ -21,17 +21,17 @@ tag:
 
 底下有个42K赞同的答案，是这样说的：
 
-***writes down "1+1+1+1+1+1+1+1 =" on a sheet of paper\***
+**\*writes down "1+1+1+1+1+1+1+1 =" on a sheet of paper\***
 
 **"What's that equal to?"**
 
-***counting\* "Eight!"**
+**\*counting\* "Eight!"**
 
-***writes down another "1+" on the left\***
+**\*writes down another "1+" on the left\***
 
 **"What about that?"**
 
-***quickly\* "Nine!"**
+**\*quickly\* "Nine!"**
 
 **"How'd you know it was nine so fast?"**
 
@@ -49,11 +49,7 @@ tag:
 
 首先要对这个问题进行抽象，n个阶梯，每个阶梯都代表一个”位置“， 就像是图论中的一个”点“，然后这些n个不同位置之间会有一些桥梁把它们连起来：
 
-
-
 ![img](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202111230906552.jpeg)
-
-
 
 这个图，就是该问题的抽象表达形式，那么这个问题就转化成了从 Node 0 到 Node 10 有几种不同的路可以走？
 

@@ -1,5 +1,6 @@
 ---
-icon: b fa-simplybuilt
+date: 2023-03-07
+icon: simplybuilt
 category: 天天笔记
 
 tag:
@@ -17,8 +18,6 @@ tag:
 3. 也许你在了解metaclass的相关知识之后，你对python的类的一些机制会更了解。
 
 4. 更多...
-
- 
 
 二 metaclass的作用是什么？（感性认识）
 
@@ -38,8 +37,6 @@ metaclass能有什么用处，先来个感性的认识：
 
 7. 更多...
 
- 
-
 三 metaclass的相关知识
 
 1. 什么是元类？
@@ -52,25 +49,19 @@ metaclass能有什么用处，先来个感性的认识：
 
 元类定义某些类及其实例的行为。
 
- 
-
 也就是说metaclass的实例化结果是类，而class实例化的结果是instance。我是这么理解的：
 
-metaclass是类似创建类的模板，所有的类都是通过他来create的（调用__new__），这使得你可以自由的控制
+metaclass是类似创建类的模板，所有的类都是通过他来create的（调用**new**），这使得你可以自由的控制
 
 创建类的那个过程，实现你所需要的功能。
 
- 
-
 1.2 元类基础
 
-\* 一般情况下， 如果你要用类来实现metaclass的话，该类需要继承于type，而且通常会重写type的__new__方法来控制创建过程。
+\* 一般情况下， 如果你要用类来实现metaclass的话，该类需要继承于type，而且通常会重写type的**new**方法来控制创建过程。
 
 当然你也可以用函数的方式（下文会讲）
 
 \* 在metaclass里面定义的方法会成为类的方法，可以直接通过类名来调用
-
- 
 
 2. 使用气象类
 
@@ -78,9 +69,7 @@ metaclass是类似创建类的模板，所有的类都是通过他来create的�
 
 2.1.1 类继承于type， 例如： class Meta（type）:p ass
 
-2.1.2 将需要使用metaclass来构建class的类的__metaclass__属性（不需要显示声明，直接有的了）赋值为Meta（继承于type的类）
-
- 
+2.1.2 将需要使用metaclass来构建class的类的**metaclass**属性（不需要显示声明，直接有的了）赋值为Meta（继承于type的类）
 
 2.2 用函数的形式
 
@@ -92,23 +81,21 @@ bases： 基类，通常是tuple类型
 
 attrs： dict类型，就是类的属性或者函数
 
-2.2.2 将需要使用metaclass来构建class的类的__metaclass__属性（不需要显示声明，直接有的了）赋值为函数metaclas_new
-
- 
+2.2.2 将需要使用metaclass来构建class的类的**metaclass**属性（不需要显示声明，直接有的了）赋值为函数metaclas_new
 
 3 元类 原理
 
 3.1 基本
 
-metaclass的原理其实是这样的：当定义好类之后，创建类的时候其实是调用了type的__new__方法为这个类分配内存空间，创建
+metaclass的原理其实是这样的：当定义好类之后，创建类的时候其实是调用了type的**new**方法为这个类分配内存空间，创建
 
-好了之后再调用type的__init__方法初始化（做一些赋值等）。所以metaclass的所有magic其实就在于这个__new__方法里面了。
+好了之后再调用type的**init**方法初始化（做一些赋值等）。所以metaclass的所有magic其实就在于这个**new**方法里面了。
 
-说说这个方法：__new__（cls， name， bases， attrs）
+说说这个方法：**new**（cls， name， bases， attrs）
 
 cls： 将要创建的类，类似与self，但是self指向的是instance，而这里cls指向的是class
 
-name： 类的名字，也就是我们通常用类名.__name__获取的。
+name： 类的名字，也就是我们通常用类名.**name**获取的。
 
 基类： 基类
 
@@ -118,29 +105,25 @@ attrs： 属性的dict。dict的内容可以是变量（类属性），也可以
 
 getattr和setattr（只是一个建议）
 
-
-
 3.2 查找顺序
 
-再说说关于__metaclass__这个属性。这个属性的说明是这样的：
+再说说关于**metaclass**这个属性。这个属性的说明是这样的：
 
 此变量可以是名称、基数和字典的任何可调用接受参数。创建类时，将使用可调用对象而不是内置的 type（）。版本 2.2 中的新功能。(所以有了上面介绍的分别用类或者函数的方法）
 
-The appropriate metaclass is determined by the following precedence rules: 
+The appropriate metaclass is determined by the following precedence rules:
 
-If dict['__metaclass__'] exists, it is used. 
+If dict['__metaclass__'] exists, it is used.
 
-Otherwise, if there is at least one base class, its metaclass is used (this looks for a __class__ attribute first and if not found, uses its type). 
+Otherwise, if there is at least one base class, its metaclass is used (this looks for a **class** attribute first and if not found, uses its type).
 
-Otherwise, if a global variable named __metaclass__ exists, it is used. 
+Otherwise, if a global variable named **metaclass** exists, it is used.
 
-Otherwise, the old-style, classic metaclass (types.ClassType) is used. 
+Otherwise, the old-style, classic metaclass (types.ClassType) is used.
 
 这个查找顺序也比较好懂，而且利用这个顺序的话，如果是old-style类的话，可以在某个需要的模块里面指定全局变量
 
-__metaclass__ = type就能把所有的old-style 变成 new-style的类了。(这是其中一种trick)
-
- 
+**metaclass** = type就能把所有的old-style 变成 new-style的类了。(这是其中一种trick)
 
 四 例子
 
@@ -150,64 +133,62 @@ __metaclass__ = type就能把所有的old-style 变成 new-style的类了。(这
 
 Python代码
 
-1. \#!/usr/bin/python 
-2. \#coding :utf-8 
-3.  
-4.  
-5. **def** ma(cls): 
-6.   **print** 'method a' 
-7.  
-8. **def** mb(cls): 
-9.   **print** 'method b' 
-10.  
-11. method_dict = { 
-12.   'ma': ma, 
-13.   'mb': mb, 
-14. } 
-15.  
-16. **class** DynamicMethod(type): 
-17.   **def** __new__(cls, name, bases, dct): 
-18. ​    **if** name[:3] == 'Abc': 
-19. ​      dct.update(method_dict) 
-20. ​    **return** type.__new__(cls, name, bases, dct) 
-21.  
-22.   **def** __init__(cls, name, bases, dct): 
-23. ​    super(DynamicMethod, cls).__init__(name, bases, dct) 
-24.  
-25.  
-26. **class** AbcTest(object): 
-27.   __metaclass__ = DynamicMethod 
-28.   **def** mc(self, x): 
-29. ​    **print** x * 3 
-30.  
-31. **class** NotAbc(object): 
-32.   __metaclass__ = DynamicMethod 
-33.   **def** md(self, x): 
-34. ​    **print** x * 3 
-35.  
-36. **def** main(): 
-37.   a = AbcTest() 
-38.   a.mc(3) 
-39.   a.ma() 
-40.   **print** dir(a) 
-41.  
-42.   b = NotAbc() 
-43.   **print** dir(b) 
-44.  
-45. **if** __name__ == '__main__': 
-46.   main() 
+1. \#!/usr/bin/python
+2. \#coding :utf-8
+3.
+4.
+5. **def** ma(cls):
+6. **print** 'method a'
+7.
+8. **def** mb(cls):
+9. **print** 'method b'
+10.
+11. method_dict = {
+12. 'ma': ma,
+13. 'mb': mb,
+14. }
+15.
+16. **class** DynamicMethod(type):
+17. **def** **new**(cls, name, bases, dct):
+18. ​ **if** name[:3] == 'Abc':
+19. ​ dct.update(method_dict)
+20. ​ **return** type.**new**(cls, name, bases, dct)
+21.
+22. **def** **init**(cls, name, bases, dct):
+23. ​ super(DynamicMethod, cls).**init**(name, bases, dct)
+24.
+25.
+26. **class** AbcTest(object):
+27. **metaclass** = DynamicMethod
+28. **def** mc(self, x):
+29. ​ **print** x \* 3
+30.
+31. **class** NotAbc(object):
+32. **metaclass** = DynamicMethod
+33. **def** md(self, x):
+34. ​ **print** x \* 3
+35.
+36. **def** main():
+37. a = AbcTest()
+38. a.mc(3)
+39. a.ma()
+40. **print** dir(a)
+41.
+42. b = NotAbc()
+43. **print** dir(b)
+44.
+45. **if** **name** == '**main**':
+46. main()
 
-通过DynamicMethod这个metaclass的原型，我们可以在那些指定了__metaclass__属性位DynamicMethod的类里面，
+通过DynamicMethod这个metaclass的原型，我们可以在那些指定了**metaclass**属性位DynamicMethod的类里面，
 
 根据类名字，如果是以'Abc'开头的就给它加上ma和mb的方法(这里的条件只是一种简单的例子假设了，实际应用上
 
 可能更复杂）,如果不是'Abc'开头的类就不加. 这样就可以打到动态添加方法的效果了。其实，你也可以将需要动态
 
-添加或者修改的方法改到__new__里面，因为python是支持在方法里面再定义方法的. 通过这个例子，其实可以看到
+添加或者修改的方法改到**new**里面，因为python是支持在方法里面再定义方法的. 通过这个例子，其实可以看到
 
-只要我们能操作__new__方法里面的其中一个参数attrs，就可以动态添加东西了。
-
- 
+只要我们能操作**new**方法里面的其中一个参数attrs，就可以动态添加东西了。
 
 2. 批量的对某些方法使用decorator，而不需要每次都在方法的上面加入@decorator_func
 
@@ -219,38 +200,38 @@ Python代码
 
 Python代码
 
-1. \#!/usr/bin/python 
-2. \#coding :utf-8 
-3. **from** types **import** FunctionType 
-4.  
-5. **def** login_required(func): 
-6.   **print** 'login check logic here' 
-7.   **return** func 
-8.  
-9.  
-10. **class** LoginDecorator(type): 
-11.   **def** __new__(cls, name, bases, dct): 
-12. ​    **for** name, value **in** dct.iteritems(): 
-13. ​      **if** name **not** **in** ('__metaclass__', '__init__', '__module__') **and**\ 
-14. ​        type(value) == FunctionType: 
-15. ​        value = login_required(value) 
-16.  
-17. ​      dct[name] = value 
-18. ​    **return** type.__new__(cls, name, bases, dct) 
-19.  
-20.  
-21. **class** Operation(object): 
-22.   __metaclass__ = LoginDecorator 
-23.  
+1. \#!/usr/bin/python
+2. \#coding :utf-8
+3. **from** types **import** FunctionType
+4.
+5. **def** login_required(func):
+6. **print** 'login check logic here'
+7. **return** func
+8.
+9.
+10. **class** LoginDecorator(type):
+11. **def** **new**(cls, name, bases, dct):
+12. ​ **for** name, value **in** dct.iteritems():
+13. ​ **if** name **not** **in** ('**metaclass**', '**init**', '**module**') **and**\
+14. ​ type(value) == FunctionType:
+15. ​ value = login_required(value)
+16.
+17. ​ dct[name] = value
+18. ​ **return** type.**new**(cls, name, bases, dct)
+19.
+20.
+21. **class** Operation(object):
+22. **metaclass** = LoginDecorator
+23.
 24. **def** delete（self， x）：
 25. **打印** '已删除 %s' % str（x）
-26.  
-27.  
+26.
+27.
 28. **def** main（）：
 29. op = Operation（）
 30. op.delete（'test'）
-31.  
-32. **如果** __name__ == '__main__'：
+31.
+32. **如果** **name** == '**main**'：
 33. 主（）
 
 这样子你就可以不用在delete函数上面写@login_required， 也能达到decorator的效果了。不过可读性就差点了。
@@ -259,39 +240,39 @@ Python代码
 
 Python代码
 
-1. \#！/usr/bin/python 
-2. \#coding ：utf-8 
-3.  
+1. \#！/usr/bin/python
+2. \#coding ：utf-8
+3.
 4. **def** monkey_patch（name， bases， dct）：
 5. **assert** len（bases） == 1
 6. 基数 = 基数[0]
 7. **对于** name， value **in** dct.iteritems（）：
-8. **如果**名称**不在** （“__module__”、“__metaclass__”）：
+8. **如果**名称**不在** （“**module**”、“**metaclass**”）：
 9. setattr（base， name， value）
 10. **返回**基地
-11.  
+11.
 12. **类** A（对象）：
 13. **def** a（自我）：
 14. **打印**“我是一个对象”
-15.  
-16.  
+15.
+16.
 17. **类** PatchA（A）：
-18. __metaclass__ = monkey_patch
-19.  
+18. **metaclass** = monkey_patch
+19.
 20. **def** patcha_method（自我）：
 21. **打印**“这是为A类修补的方法”
-22.  
+22.
 23. **def** main（）：
 24. pa = PatchA（）
 25. pa.patcha_method（）
 26. pa.a（）
 27. **print** dir（pa）
 28. **print** dir（PatchA）
-29.  
-30. **如果** __name__ == '__main__'：
+29.
+30. **如果** **name** == '**main**'：
 31. 主（）
 
-5. 提供接口注册，接口格式检查等, 这个功能可以参考这篇文章：
+32. 提供接口注册，接口格式检查等, 这个功能可以参考这篇文章：
 
 http://mikeconley.ca/blog/2010/05/04/python-metaclasses-in-review-board/
 
@@ -300,8 +281,6 @@ http://mikeconley.ca/blog/2010/05/04/python-metaclasses-in-review-board/
 以下是网上的例子：
 
 http://marlonyao.iteye.com/blog/762156
-
- 
 
 五 总结
 
@@ -313,11 +292,9 @@ http://marlonyao.iteye.com/blog/762156
 
 降低代码的可读性。所以你必需权衡metaclass的利弊。
 
-2. metaclass的优势在于它的动态性和可描述性（比如上面例子中的self.delegate.__getitem__（i）这样的代码，它
+2. metaclass的优势在于它的动态性和可描述性（比如上面例子中的self.delegate.**getitem**（i）这样的代码，它
 
 可以用另外的函数代码生成,而无需每次手动编写）, 它能把类的动态性扩展到极致。
-
- 
 
 六 补充
 
@@ -333,8 +310,6 @@ http://marlonyao.iteye.com/blog/762156
 
 外的函数代码生成，而无需每次手动编写“，在python中我们可以做得更多。
 
- 
-
 2.对于python而言，metaclass使程序员可以干涉class的创建过程，并可以在任何
 
 时候修改这样的class（包括修改metaclass），由于class的意义是为instance集合
@@ -343,25 +318,21 @@ http://marlonyao.iteye.com/blog/762156
 
 很好的服务。
 
- 
-
-3.注意metaclass的__new__和__init__的区别。
+3.注意metaclass的**new**和**init**的区别。
 
 类动态方法（类型）：
 
-def __new__（cls， name， bases， dct）： # cls=DynamicMethod
+def **new**（cls， name， bases， dct）： # cls=DynamicMethod
 
-def __init__（cls， name， bases， dct）： # cls=你创建的类对象
+def **init**（cls， name， bases， dct）： # cls=你创建的类对象
 
-这意味着在__new__中我们通常只是修改dct，但是在__init__中，我们可以直接修
+这意味着在**new**中我们通常只是修改dct，但是在**init**中，我们可以直接修
 
 改创建好的类，所以我认为这两个接口的主要区别有2点：
 
 1)调用时机不同(用处请发散思维）;
 
-2）__init__比__new__更有用，我在实际项目中一般都是用__init__的。
-
- 
+2）**init**比**new**更有用，我在实际项目中一般都是用**init**的。
 
 4.在python中我们为什么要修改class？那当然是为了改变它的行为，或者为了创
 
@@ -375,15 +346,13 @@ find_by_name、find_by_phone等方法，但是又不想手写这些方法（其�
 
 写，因为这种组合太多了），这时你可以在A、B共同的metaclass中定义一个自动添
 
-加方法的子程序，当然你也可以重写__getattr__之类的接口来hook所有
+加方法的子程序，当然你也可以重写**getattr**之类的接口来hook所有
 
 find_by_XXX函数调用，这就是时间换空间了，想象你要执行find_by_XXX一百万
 
 次。也可以比较一下在c++/java中如何应对这种需求。
 
- 
-
-5.python的成功之处在于它无处不在的namespace（就是那个__dict__，其意义可以
+5.python的成功之处在于它无处不在的namespace（就是那个**dict**，其意义可以
 
 参考SICP第一章的environment模型，对计算理论感兴趣的也可以用lambda演算来
 
@@ -392,8 +361,6 @@ find_by_XXX函数调用，这就是时间换空间了，想象你要执行find_b
 metaclass->class->instance的关系，又知道了对象的方法是放在类里的（请详细
 
 考察python查找一个方法的流程），那么用python实现各种设计模式就比较简单了。
-
- 
 
 6.metaclass不会使程序变晦涩，前提是了解了metaclass的固有存在，许多教程的
 
@@ -405,17 +372,15 @@ metaclass->class->instance的关系，又知道了对象的方法是放在类里
 
 善于实现DSL和语法分析器也部分得益于此。
 
- 
-
 岳同学：
 
-不能说__init__比__new__更有用吧。我觉得要看场合。毕竟__new__能做到比
+不能说**init**比**new**更有用吧。我觉得要看场合。毕竟**new**能做到比
 
-__init__更多的事情。比如有时候想改生成的类型名字，或者改类型的父类。:)
+**init**更多的事情。比如有时候想改生成的类型名字，或者改类型的父类。:)
 
-不过的确大多数场合用__init__就够用了。＋1
+不过的确大多数场合用**init**就够用了。＋1
 
-在__init__中控制类生成的过程有一点要注意：在__init__（）的最后一个参
+在**init**中控制类生成的过程有一点要注意：在**init**（）的最后一个参
 
 数（attrs）中，对于类中定义的函数类型的属性，比如：
 
@@ -434,8 +399,6 @@ def abc（self）：
 self.abc -->解绑方法
 
 不过实际使用中影响不大
-
-
 
 七 其他
 

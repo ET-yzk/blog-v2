@@ -1,14 +1,21 @@
 {
   "name": "blog",
+  "private": true,
   "version": "2.0.0",
   "description": "kfkfka zkye's blog",
   "license": "MIT",
+  "author": "zkye",
   "type": "module",
+  "keywords": [
+    "zkye-blog",
+    "vuepress",
+    "personal-blog"
+  ],
   "scripts": {
-    "docs:build": "vuepress build docs",
-    "docs:clean-dev": "vuepress dev docs --clean-cache",
-    "docs:dev": "vuepress dev docs",
-    "docs:preview": "vuepress preview docs",
+    "docs:build": "vuepress-vite build docs",
+    "docs:clean-dev": "vuepress-vite dev docs --clean-cache",
+    "docs:dev": "vuepress-vite dev docs",
+    "docs:preview": "vite preview --outDir ./docs/.vuepress/dist",
     "docs:update-package": "pnpm dlx vp-update"
   },
   "devDependencies": {
@@ -16,6 +23,7 @@
     "@vuepress/plugin-comment": "2.0.0-rc.112",
     "@vuepress/plugin-feed": "2.0.0-rc.112",
     "@vuepress/plugin-slimsearch": "2.0.0-rc.112",
+    "@vuepress/plugin-watermark": "2.0.0-rc.112",
     "@waline/client": "3.6.0",
     "flowchart.ts": "^3.0.1",
     "katex": "^0.16.9",

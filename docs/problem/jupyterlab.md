@@ -1,5 +1,5 @@
 ---
-icon: b fa-simplybuilt
+icon: simplybuilt
 category: 踩坑指南
 date: 2021-10-28
 
@@ -50,4 +50,3 @@ conda install ipykernel -y
 # 导入 pytorch 虚拟环境到 ipykernel
 python -m ipykernel install --user --name <虚拟环境名> --display-name "Python PyTorch"
 ```
-

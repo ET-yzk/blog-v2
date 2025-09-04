@@ -1,5 +1,6 @@
 ---
-icon: b fa-markdown
+date: 2022-01-20
+icon: "streamline:markdown-document-programming-solid"
 title: Markdown v2
 order: 1
 category: 使用指南
@@ -57,7 +58,7 @@ This is another regular paragraph.
 
 ### 特殊字元自动转换
 
-<  &
+< &
 
 在 HTML 文件中，有两个字元需要特殊处理: `<` 和 `&` 。 `<` 符号用于起始标签，`&` 符号则用于标记 HTML 实体，如果你只是想要使用这些符号，你必须要使用实体的形式，像是 `<` 和 `&amp;`。
 
@@ -651,7 +652,7 @@ Use the `printf()` function.
 如果要在代码内插入反引号，你可以用多个反引号来开启和结束行内代码:
 
 ```md
-`` There is a literal backtick (`) here. ``
+``There is a literal backtick (`) here.``
 ```
 
 这段语法会产生:
@@ -838,7 +839,5 @@ Example: `:smile:` :smile:
 [4]: http://docutils.sourceforge.net/rst.html
 [5]: http://www.triptico.com/software/grutatxt.html
 [6]: http://ettext.taint.org/doc/
-
 [bq]: #blockquotes
-
 [l]: #列表

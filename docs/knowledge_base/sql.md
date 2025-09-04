@@ -1,8 +1,12 @@
+---
+date: 2023-03-07
+---
+
 # SQL 必知必会
 
 ## count
 
-- count(*) ：它会获取所有行的数据，不做任何处理，行数加1。
+- count(\*) ：它会获取所有行的数据，不做任何处理，行数加1。
 - count(1)：它会获取所有行的数据，每行固定值1，也是行数加1。
 - count(id)：id代表主键，它需要从所有行的数据中解析出id字段，其中id肯定都不为NULL，行数加1。
 - count(普通索引列)：它需要从所有行的数据中解析出普通索引列，然后判断是否为NULL，如果不是NULL，则行数+1。
@@ -10,7 +14,7 @@
 
 由此，最后count的性能从高到低是：
 
-> count(*) ≈ count(1) > count(id) > count(普通索引列) > count(未加索引列)
+> count(\*) ≈ count(1) > count(id) > count(普通索引列) > count(未加索引列)
 
 所以，其实`count(*)`是最快的。
 
@@ -26,7 +30,7 @@
 
 ```sql
 # 关键字的书写顺序如下：
-		1.select 
+		1.select
 		2.from
 		3.where
 		4.group by
@@ -60,9 +64,9 @@ where 先于 having 执行，having 属于二次过滤，故能先 where 过滤�
 >
 > 答：一般两者的比较可以限定在联表查询的前提下
 >
-> 		1. join 先于 where 执行
-> 		1. join 可认为是生成临时的表用于查询，而 where 更类似于在紧邻的 from 后的表上做过滤
-> 		1. …
+>     	1. join 先于 where 执行
+>     	1. join 可认为是生成临时的表用于查询，而 where 更类似于在紧邻的 from 后的表上做过滤
+>     	1. …
 
 ## 子查询与连接查询
 
@@ -109,4 +113,3 @@ select * from user_profile where a = "a"
 union all
 select * from user_profile where b = "b"
 ```
-

@@ -1,5 +1,5 @@
 ---
-icon: b fa-simplybuilt
+icon: simplybuilt
 category: 天天笔记
 date: 2021-10-14
 
@@ -25,7 +25,7 @@ tag:
 
 3、充分运用 pandas、numpy、scipy 等库及其数据结构
 
-4、对于计算问题，*动态编译*
+4、对于计算问题，_动态编译_
 
 ```python
 from numba import jit
@@ -34,4 +34,3 @@ from numba import jit
 def function():
     pass
 ```
-

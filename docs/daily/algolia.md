@@ -1,5 +1,10 @@
-icon: b fa-simplybuilt
+---
+date: 2023-03-07
+---
+
+icon: simplybuilt
 category: 天天笔记
+
 ---
 
 # algolia 搜索

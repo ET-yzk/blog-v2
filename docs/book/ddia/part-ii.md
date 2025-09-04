@@ -1,6 +1,8 @@
 ---
+date: 2022-01-20
 article: false
 author: Martin Kleppmann 原著 && 冯若航 译著
+icon: "mdi:number-two-circle"
 ---
 
 # 第二部分：分布式数据
@@ -8,23 +10,22 @@ author: Martin Kleppmann 原著 && 冯若航 译著
 > 一个成功的技术，现实的优先级必须高于公关，你可以糊弄别人，但糊弄不了自然规律。
 >
 > ——罗杰斯委员会报告（1986）
->
 
--------
+---
 
 在本书的[第一部分](part-i.md)中，我们讨论了数据系统的各个方面，但仅限于数据存储在单台机器上的情况。现在我们到了[第二部分](part-ii.md)，进入更高的层次，并提出一个问题：如果**多台机器**参与数据的存储和检索，会发生什么？
 
 你可能会出于各种各样的原因，希望将数据库分布到多台机器上：
 
-***可伸缩性***
+**_可伸缩性_**
 
 如果你的数据量、读取负载、写入负载超出单台机器的处理能力，可以将负载分散到多台计算机上。
 
-***容错/高可用性***
+**_容错/高可用性_**
 
 如果你的应用需要在单台机器（或多台机器，网络或整个数据中心）出现故障的情况下仍然能继续工作，则可使用多台机器，以提供冗余。一台故障时，另一台可以接管。
 
-***延迟***
+**_延迟_**
 
 如果在世界各地都有用户，你也许会考虑在全球范围部署多个服务器，从而每个用户可以从地理上最近的数据中心获取服务，避免了等待网络数据包穿越半个世界。
 
@@ -56,13 +57,13 @@ author: Martin Kleppmann 原著 && 冯若航 译著
 
 数据分布在多个节点上有两种常见的方式：
 
-***复制（Replication）***
+**_复制（Replication）_**
 
-​	在几个不同的节点上保存数据的相同副本，可能放在不同的位置。 复制提供了冗余：如果一些节点不可用，剩余的节点仍然可以提供数据服务。 复制也有助于改善性能。 [第五章](ch5.md)将讨论复制。
+​ 在几个不同的节点上保存数据的相同副本，可能放在不同的位置。 复制提供了冗余：如果一些节点不可用，剩余的节点仍然可以提供数据服务。 复制也有助于改善性能。 [第五章](ch5.md)将讨论复制。
 
-***分区 (Partitioning)***
+**_分区 (Partitioning)_**
 
-​	将一个大型数据库拆分成较小的子集（称为**分区（partitions）**），从而不同的分区可以指派给不同的**节点（node）**（亦称**分片（shard）**）。 [第六章](ch6.md)将讨论分区。
+​ 将一个大型数据库拆分成较小的子集（称为**分区（partitions）**），从而不同的分区可以指派给不同的**节点（node）**（亦称**分片（shard）**）。 [第六章](ch6.md)将讨论分区。
 
 复制和分区是不同的机制，但它们经常同时使用。如[图II-1](./img/figii-1.png)所示。
 
@@ -74,31 +75,24 @@ author: Martin Kleppmann 原著 && 冯若航 译著
 
 在本书的[第三部分](part-iii.md)中，将讨论如何将多个（可能是分布式的）数据存储集成为一个更大的系统，以满足复杂的应用需求。 但首先，我们来聊聊分布式的数据。
 
-
-
 ## 索引
 
 5. [复制](ch5.md)
-6. [分片](ch6.md) 
-7. [事务](ch7.md) 
-8. [分布式系统的麻烦](ch8.md) 
-9. [一致性与共识](ch9.md) 
-
-
-
-
+6. [分片](ch6.md)
+7. [事务](ch7.md)
+8. [分布式系统的麻烦](ch8.md)
+9. [一致性与共识](ch9.md)
 
 ## 参考文献
 
 1.  Ulrich Drepper: “[What Every Programmer Should Know About Memory](https://people.freebsd.org/~lstewart/articles/cpumemory.pdf),” akka‐dia.org, November 21, 2007.
 
-2. Ben Stopford: “[Shared Nothing vs. Shared Disk Architectures: An Independent View](http://www.benstopford.com/2009/11/24/understanding-the-shared-nothing-architecture/),” benstopford.com, November 24, 2009.
+2.  Ben Stopford: “[Shared Nothing vs. Shared Disk Architectures: An Independent View](http://www.benstopford.com/2009/11/24/understanding-the-shared-nothing-architecture/),” benstopford.com, November 24, 2009.
 
+3.  Michael Stonebraker: “[The Case for Shared Nothing](http://db.cs.berkeley.edu/papers/hpts85-nothing.pdf),” IEEE Database EngineeringBulletin, volume 9, number 1, pages 4–9, March 1986.
+4.  Frank McSherry, Michael Isard, and Derek G. Murray: “[Scalability! But at What COST?](http://www.frankmcsherry.org/assets/COST.pdf),” at 15th USENIX Workshop on Hot Topics in Operating Systems (HotOS),May 2015.
 
-3. Michael Stonebraker: “[The Case for Shared Nothing](http://db.cs.berkeley.edu/papers/hpts85-nothing.pdf),” IEEE Database EngineeringBulletin, volume 9, number 1, pages 4–9, March 1986.
-4. Frank McSherry, Michael Isard, and Derek G. Murray: “[Scalability! But at What COST?](http://www.frankmcsherry.org/assets/COST.pdf),” at 15th USENIX Workshop on Hot Topics in Operating Systems (HotOS),May 2015.
-
-------
+---
 
 | 上一章                       | 目录                                 | 下一章                 |
 | ---------------------------- | ------------------------------------ | ---------------------- |

@@ -1,6 +1,7 @@
 ---
+date: 2023-03-07
 title: Markdown 示例
-icon: b fa-markdown
+icon: "solar:pen-new-square-bold"
 order: 2
 category: 使用指南
 tag:

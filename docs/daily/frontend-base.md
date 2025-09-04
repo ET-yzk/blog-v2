@@ -1,5 +1,5 @@
 ---
-icon: b fa-simplybuilt
+icon: simplybuilt
 category: 天天笔记
 date: 2021-11-29
 
@@ -22,7 +22,7 @@ tag:
 
 5. get和post区别
 
-   1. 
+   1.
 
 6. use strict
 
@@ -58,7 +58,7 @@ tag:
 
 21. Vue的生命周期，created和mounted区别
 
-    1. 
+    1.
 
 22. v-mode的原理
 
@@ -84,7 +84,7 @@ tag:
        方便修改，模拟分离，像一些信息管理系统会用到。
        但现在基本不推荐使用。除非特殊需要，一般不推荐使用。
     2. 缺点
-       iframe的创作比一般的DOM元素慢了1-2个数量级 
+       iframe的创作比一般的DOM元素慢了1-2个数量级
        iframe标签会在页面上的加载，如果页面的onload事件无法及时触发，导致用户觉得网页加载很慢，用户体验不好，在Safari和Chrome中可以通过js动态设置iframe的src属性来避免重复。
        iframe对于SEO不友好，替代方案一般就是动态语言的Incude机制和aj​​ax动态填充内容等。
 
@@ -118,15 +118,15 @@ tag:
        ```js
        CACHE MANIFEST
        #v0.11
-       
+
        CACHE:
-       
+
        js/app.js
        css/style.css
-       
+
        NETWORK:
        resourse/logo.png
-       
+
        FALLBACK:
        / /offline.html
        ```
@@ -165,7 +165,7 @@ tag:
 
     当网页被加载时，浏览器会创建页面的文档对象模型（*D*ocument *O*bject *M*odel）。
 
-    *HTML DOM* 模型被结构化为*对象树*：
+    _HTML DOM_ 模型被结构化为*对象树*：
 
     `对象的 HTML DOM 树`
 

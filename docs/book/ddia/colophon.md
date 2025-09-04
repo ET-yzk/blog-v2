@@ -1,6 +1,8 @@
 ---
+date: 2022-01-20
 article: false
 author: Martin Kleppmann 原著 && 冯若航 译著
+icon: "fa6-solid:file-pen"
 ---
 
 # 后记
@@ -13,8 +15,6 @@ Martin是一位常规会议演讲者，博主和开源贡献者。他认为，�
 
 ![](http://martin.kleppmann.com/2017/03/ddia-poster.jpg)
 
-
-
 ## 关于译者
 
 [冯若航](https://vonng.com/about)
@@ -22,8 +22,6 @@ Martin是一位常规会议演讲者，博主和开源贡献者。他认为，�
 PostgreSQL DBA @ TanTan
 
 Alibaba+-Finplus 架构师/全栈工程师 (2015 ~ 2017)
-
-
 
 ## 后记
 

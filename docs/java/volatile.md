@@ -1,3 +1,7 @@
+---
+date: 2025-02-03
+---
+
 # volatile 关键字
 
 > [面试鸭-Java中volatile关键字的作用是什么？](https://www.mianshiya.com/question/1780933295115104258)保证变量可见性和部分有序性。

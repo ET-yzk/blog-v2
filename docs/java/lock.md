@@ -1,3 +1,7 @@
+---
+date: 2025-02-01
+---
+
 # Lock
 
 [死锁面试题（什么是死锁，产生死锁的原因及必要条件）_AddoilDan的博客-CSDN博客_死锁](https://blog.csdn.net/hd12370/article/details/82814348)

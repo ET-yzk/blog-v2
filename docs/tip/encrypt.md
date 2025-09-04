@@ -1,5 +1,6 @@
 ---
-icon: s fa-lock
+date: 2022-01-20
+icon: "material-symbols:encrypted"
 # password: ""  v2须直接在 config.js 配置
 category: 使用指南
 tag:

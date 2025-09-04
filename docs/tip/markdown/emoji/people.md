@@ -1,6 +1,7 @@
 ---
+date: 2023-03-07
 title: 人物 Emoji
-icon: s fa-person
+icon: "twemoji:astronaut-light-skin-tone"
 category: 使用指南
 tag:
   - Markdown

@@ -1,5 +1,5 @@
 ---
-icon: b fa-simplybuilt
+icon: simplybuilt
 category: 转载整理
 date: 2021-10-08
 
@@ -20,68 +20,56 @@ Vue 是一套用于构建用户界面的渐进式的 JavaScript 框架。具有�
 举个例子：
 
 ```html
-var list = [
-    {
-        id: 1,
-        name: 'test1',
-    },
-    {
-        id: 2,
-        name: 'test2',
-    },
-    {
-        id: 3,
-        name: 'test3',
-    },
-]
+var list = [ { id: 1, name: 'test1', }, { id: 2, name: 'test2', }, { id: 3,
+name: 'test3', }, ]
 
-<div v-for="(item, index) in list" :key="index" >{{item.name}}</div>
+<div v-for="(item, index) in list" :key="index">{{item.name}}</div>
 ```
 
 在最后一条数据后再加一条数据：
 
 ```js
 var list = [
-    {
-        id: 1,
-        name: 'test1',
-    },
-    {
-        id: 2,
-        name: 'test2',
-    },
-    {
-        id: 3,
-        name: 'test3',
-    },
-    {
-        id: 4,
-        name: '我是在最后添加的一条数据',
-    },
-]
+  {
+    id: 1,
+    name: "test1",
+  },
+  {
+    id: 2,
+    name: "test2",
+  },
+  {
+    id: 3,
+    name: "test3",
+  },
+  {
+    id: 4,
+    name: "我是在最后添加的一条数据",
+  },
+];
 ```
 
 此时前三条数据直接复用之前的，新渲染最后一条数据，此时用 index 作为 key，没有任何问题，在中间插入一条数据：
 
 ```js
 var list = [
-    {
-        id: 1,
-        name: 'test1',
-    },
-    {
-        id: 4,
-        name: '我是插队的那条数据',
-    },
-    {
-        id: 2,
-        name: 'test2',
-    },
-    {
-        id: 3,
-        name: 'test3',
-    },
-]
+  {
+    id: 1,
+    name: "test1",
+  },
+  {
+    id: 4,
+    name: "我是插队的那条数据",
+  },
+  {
+    id: 2,
+    name: "test2",
+  },
+  {
+    id: 3,
+    name: "test3",
+  },
+];
 ```
 
 此时更新渲染数据,通过 index 定义的 key 去进行前后数据的对比，发现：
@@ -127,13 +115,13 @@ Vue 会通过 Object.defineProperty 对数据进行劫持，来实现视图响�
 ```js
 export default {
   data: () => ({
-    users: {}
+    users: {},
   }),
 
   async created() {
     const users = await axios.get("/api/users");
     this.users = Object.freeze(users);
-  }
+  },
 };
 ```
 
@@ -145,7 +133,7 @@ export default {
     // data是一个函数,data: function() {}的简写
     return {
       // 页面要初始化的数据
-      name: 'barton',
+      name: "barton",
     };
   },
 };
@@ -157,7 +145,7 @@ export default {
 export default {
   data: {
     // data是一个对象
-    name: 'barton',
+    name: "barton",
   },
 };
 ```
@@ -203,20 +191,21 @@ vue 实例中需要有这个定时器的实例，感觉有点多余。创建的�
 使用 监听beforeDestory生命周期可以避免该问题，并且因为只需要监听一次，所以使用 $once 进行注册监听。
 
 ```js
-export default{
-  methods:{
-    fn(){
-      const timer = setInterval(()=>{
-        console.log('1');
-      },1000);
+export default {
+  methods: {
+    fn() {
+      const timer = setInterval(() => {
+        console.log("1");
+      }, 1000);
 
-      this.$once('hook:beforeDestory',()=>{ // 监听一次即可
+      this.$once("hook:beforeDestory", () => {
+        // 监听一次即可
         clearInterval(timer);
         timer = null;
-      })
-    }
-  }
-}
+      });
+    },
+  },
+};
 ```
 
 ### 5. 组件懒加载
@@ -237,24 +226,24 @@ npm install @xunlei/vue-lazy-component
 在组件中实现局部注册组件：
 
 ```js
-import { component as VueLazyComponent } from '@xunlei/vue-lazy-component'
+import { component as VueLazyComponent } from "@xunlei/vue-lazy-component";
 
 export default {
   components: {
-    'vue-lazy-component': VueLazyComponent
-  }
-}
+    "vue-lazy-component": VueLazyComponent,
+  },
+};
 ```
 
 需要懒加载的组件将其包裹在 vue-lazy-component 中，slot 值为 skeleton 指的是在懒加载过程中显示的加载状态组件：
 
 ```html
 <vue-lazy-component :timeout="5000" tagName="div">
-      <child1 slot="skeleton" />
-      <child2 />
-      <child3 />
-      <child4 />
-      <child5 />
+  <child1 slot="skeleton" />
+  <child2 />
+  <child3 />
+  <child4 />
+  <child5 />
 </vue-lazy-component>
 ```
 
@@ -305,12 +294,9 @@ data 中的数据都会增加 getter 和 setter，又会收集 watcher，这样�
 
 ```html
 <div>
-      <span
-        v-for="(item,index) of 100000"
-        :key="index"
-        @click="handleClick">
-        {{item}}
-      </span>
+  <span v-for="(item,index) of 100000" :key="index" @click="handleClick">
+    {{item}}
+  </span>
 </div>
 ```
 
@@ -318,24 +304,17 @@ data 中的数据都会增加 getter 和 setter，又会收集 watcher，这样�
 
 ```html
 <div>
-      <span
-        v-for="(item,index) of 100000"
-        :key="index"
-        @click="function () {}">
-        {{item}}
-      </span>
- </div>
+  <span v-for="(item,index) of 100000" :key="index" @click="function () {}">
+    {{item}}
+  </span>
+</div>
 ```
 
 3、使用事件代理
 
 ```html
-<div  @click="handleClick">
-      <span
-        v-for="(item,index) of 100000"
-        :key="index">
-        {{item}}
-      </span>
+<div @click="handleClick">
+  <span v-for="(item,index) of 100000" :key="index"> {{item}} </span>
 </div>
 ```
 
@@ -347,16 +326,11 @@ data 中的数据都会增加 getter 和 setter，又会收集 watcher，这样�
 
 ```html
 <ul @click="meths">
-      <li v-for="(item,key) in 10" :key="key" :data-index="key">{{item}}</li>
+  <li v-for="(item,key) in 10" :key="key" :data-index="key">{{item}}</li>
 </ul>
 
-meths(e) {
-      if (e.target.nodeName.toLowerCase() === 'li') {
-        console.log(e.target.innerHTML)
-        console.log(e.target.dataset)
-      }
-
-}
+meths(e) { if (e.target.nodeName.toLowerCase() === 'li') {
+console.log(e.target.innerHTML) console.log(e.target.dataset) } }
 ```
 
 ### 9. 函数式组件
@@ -427,8 +401,6 @@ data(){
      console.log(this.keyName) // 改变后的名字-李四
 }
 ```
-
-
 
 最近其他文章
 

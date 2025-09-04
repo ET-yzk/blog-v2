@@ -1,11 +1,12 @@
 ---
-icon: b fa-simplybuilt
+icon: simplybuilt
 category: 天天笔记
 date: 2021-10-25
 
 tag:
   - Lang
 ---
+
 # 函数回调
 
 > 整理自 [码农的荒岛求生](https://www.zhihu.com/people/mac-82-59)
@@ -91,18 +92,14 @@ make_youtiao(10000, sell);
 
 现在你应该看出来了吧，虽然sell函数是你定义的，但是这个函数却是被其它模块调用执行的，就像这样：
 
-
-
 ![4](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202110251912197.jpg)
-
-
 
 make_youtiao这个函数是怎么实现的呢，很简单：
 
 ```c
 void make_youtiao(int num, func call_back) {
     // 制作油条
-    call_back(); //执行回调 
+    call_back(); //执行回调
 }
 ```
 
@@ -115,7 +112,7 @@ void make_youtiao(int num, func call_back) {
 ```c
 void make_youtiao(int num) {
     real_make_youtiao(num);
-    sell(); //执行回调 
+    sell(); //执行回调
 }
 ```
 

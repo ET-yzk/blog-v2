@@ -1,14 +1,21 @@
-# 单机多服务部署下JSESSIONID冲突解决方案
+---
+date: 2025-03-01
+---
+
+# 单机多服务部署下 JSESSIONID 冲突解决方案
 
 ## 一、问题现象
+
 本地部署多个服务时出现以下现象：
-- 不同服务间共享同一JSESSIONID
+
+- 不同服务间共享同一 JSESSIONID
 - 登录状态异常（如A服务登录后，B服务也显示已登录，假如 A 和 B 服务不共享登录权限的话，显然不合理）
-- Cookie作用域冲突导致会话混乱
+- Cookie 作用域冲突导致会话混乱
 
 ## 二、根本原因
 
 1. **域名共享机制**
+
 ```yaml
 # 默认配置示例
 server:
@@ -18,6 +25,7 @@ server:
 浏览器对`localhost`域名下的所有服务共享Cookie
 
 2. **路径覆盖问题**
+
 ```yaml
 # 典型配置
 server:
@@ -53,8 +61,8 @@ Set-Cookie: JSESSIONID=xxx; Path=/api/serviceA
 Set-Cookie: JSESSIONID=yyy; Path=/api/serviceB
 ```
 
-
 ### 方案二：子域名隔离（推荐测试/生产环境）
+
 ```yaml
 # 服务A配置
 spring:
@@ -118,7 +126,9 @@ spring:
 
 > [!TIP]
 >
-> 其实 方案四 和 方案一 本质上相同，个人感觉方案一更推荐，因为 spring.session.cookie.path 默认等于 server.servlet.context-path，而如果使用方案四，在实际后端接口实现时，每个接口必须单独添加上 /servicex 的路径前缀，不如直接在 server.servlet.context-path 统一配置，也就是方案一了
+> 其实 方案四 和 方案一 本质上相同，个人感觉方案一更推荐，因为 spring.session.cookie.path 默认等于
+> server.servlet.context-path，而如果使用方案四，在实际后端接口实现时，每个接口必须单独添加上 /servicex 的路径前缀，不如直接在
+> server.servlet.context-path 统一配置，也就是方案一了
 
 ## 四、验证方法
 
@@ -141,12 +151,13 @@ curl -v http://localhost:8081/api/serviceB/test
 1. 打开开发者工具（F12）
 2. 转到 Application 标签
 3. 在 Storage -> Cookies 中检查：
-   - Cookie路径是否唯一
-   - 域名是否符合预期
+    - Cookie路径是否唯一
+    - 域名是否符合预期
 
 ## 五、最佳实践
 
 ### 1. 微服务架构方案
+
 ```yaml
 # 网关统一配置
 spring:
@@ -158,8 +169,8 @@ spring:
             allowed-origins: "http://servicea.localhost", "http://serviceb.localhost"
 ```
 
-
 ### 2. 本地开发优化配置
+
 ```yaml
 # application.yml
 spring:
@@ -186,6 +197,7 @@ spring:
 
 1. 跨域请求需要配置CORS策略
 2. 使用Redis集群时需配置不同namespace：
+
 ```yaml
 spring:
   session:
@@ -194,6 +206,7 @@ spring:
 ```
 
 3. 服务注册时建议使用元数据区分：
+
 ```yaml
 spring:
   cloud:
@@ -202,6 +215,5 @@ spring:
         metadata:
           session-path: /api/${spring.application.name}
 ```
-
 
 通过以上配置方案，可有效解决多服务部署下的会话隔离问题，建议开发环境优先采用方案一，测试/生产环境采用方案二或三。

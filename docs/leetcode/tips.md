@@ -1,15 +1,18 @@
 ---
-icon: b fa-simplybuilt
-category: 算法
+date: 2023-03-07
+icon: simplybuilt
+category: 力扣刷题
 
 tag:
   - Algorithm
 ---
+
 # 总结
 
 ## 思路
 
 1. 对于 `int` 数据处理可考虑：
+
    - 排序
    - 位运算，如异或
    - 数学规律
@@ -29,7 +32,7 @@ tag:
 
    - 奇偶判断：&1 -> 与运算
 
-   - 2倍运算：利用 >>n -> /2^n，n<< ->*2^n
+   - 2 倍运算：利用 >>n -> /2^n，n<< ->*2^n
 
 8. 由于python的特性，或许在一开始就申请完空间会比采用append更高效
 

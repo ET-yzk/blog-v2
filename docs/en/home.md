@@ -1,6 +1,7 @@
 ---
+date: 2022-01-20
 home: true
-icon: s fa-at
+icon: at
 title: Project home
 heroImage: /logo.png
 heroText: Project name

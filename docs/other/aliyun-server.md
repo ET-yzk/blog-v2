@@ -1,5 +1,5 @@
 ---
-icon: b fa-simplybuilt
+icon: simplybuilt
 category: 未知分类
 date: 2021-10-04
 
@@ -23,4 +23,3 @@ sudo service mysql stop
 ```
 
 关闭以上服务后，服务器80端口将被空出，可用于个人服务。
-

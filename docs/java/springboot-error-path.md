@@ -1,3 +1,7 @@
+---
+date: 2025-02-01
+---
+
 # SpringBoot 中关于 /error 到处理
 
 在 Spring Boot 应用中，当某些错误或特定情况发生时，请求会被转发或重定向到 `/error` 路径，然后由注册到该路径的 `ErrorController` (例如Spring Boot默认的 `BasicErrorController` 或自定义的 `MateMatchErrorController`) 来处理。

@@ -1,6 +1,7 @@
 ---
+date: 2023-03-07
 title: 符号 Emoji
-icon: s fa-circle-right
+icon: "twemoji:recycling-symbol"
 category: 使用指南
 tag:
   - Markdown

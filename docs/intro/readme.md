@@ -1,17 +1,23 @@
 ---
+date: 2022-01-20
 home: true
-icon: s fa-user-astronaut
-title: zkye
+portfolio: true
+icon: "mdi:user-tag"
+title: 档案主页
+welcome: 👋 你好，我是
+name: kfkfka
+avatar: /logo-darkmode.png
 index: false
+
 tagline:
   - Hello World
   - 🍻
+
+titles:
+  - 这个人很懒，什么都没有写……
+  - 不如看看他的《假装是日记》吧~
 ---
 
-<center>
-    <i class="fab fa-simplybuilt"></i>
-</center>
+## 介绍
 
-> 这个人很懒，什么都没有写……
->
-> 不如看看他的[《假装是日记》](../roast/)吧
+> [《假装是日记》](../roast/) :)

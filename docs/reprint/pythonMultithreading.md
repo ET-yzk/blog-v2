@@ -1,5 +1,5 @@
 ---
-icon: b fa-simplybuilt
+icon: simplybuilt
 category: 转载整理
 date: 2021-12-10
 
@@ -118,8 +118,6 @@ public class TestThread {
     }
 }
 ```
-
-
 
 ![img](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202111302220346.jpeg)
 

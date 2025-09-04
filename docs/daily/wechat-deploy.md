@@ -1,5 +1,5 @@
 ---
-icon: b fa-simplybuilt
+icon: simplybuilt
 category: 天天笔记
 date: 2021-10-14
 
@@ -21,15 +21,8 @@ tag:
 
 ### 云开发
 
-
-
 ### 云托管
-
-
 
 ### 个人服务器
 
-
-
 ## 小程序登陆3端逻辑
-

@@ -1,6 +1,7 @@
 ---
+date: 2022-01-20
 home: true
-icon: s fa-at
+icon: at
 title: Coming soon...
 heroImage: /logo.png
 heroText: 项目名称
@@ -71,7 +72,7 @@ footer: MIT Licensed | Copyright © 2019-present
 index: false
 ---
 
-<i class="fas fa-meteor"></i> 这是普通主页的案例。你可以在这里放置你的主体内容。
+<i class="fameteor"></i> 这是普通主页的案例。你可以在这里放置你的主体内容。
 
 想要使用此布局，你需要在页面 front matter 中设置 `home: true`。
 

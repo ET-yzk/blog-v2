@@ -1,5 +1,6 @@
 ---
-icon: b fa-markdown
+date: 2022-01-20
+icon: "teenyicons:markdown-solid"
 title: Markdown 介绍
 dir:
   order: 2
@@ -273,11 +274,11 @@ export default {
 
 **输出**
 
-``` js
+```js
 export default {
-  name: 'MyComponent',
+  name: "MyComponent",
   // ...
-}
+};
 ```
 
 **输入**
@@ -297,19 +298,13 @@ export default {
 
 **输出**
 
-``` html
+```html
 <ul>
-  <li
-    v-for="todo in todos"
-    :key="todo.id"
-  >
-    {{ todo.text }}
-  </li>
+  <li v-for="todo in todos" :key="todo.id">{{ todo.text }}</li>
 </ul>
 ```
 
 在 Prism 的网站上查看 [合法的语言列表](https://prismjs.com/#languages-list)。
-
 
 ## 代码块中的行高亮
 
@@ -329,7 +324,7 @@ export default {
 
 **输出**
 
-``` js{4}
+```js{4}
 export default {
   data () {
     return {
@@ -365,7 +360,7 @@ export default { // Highlighted
 
 **输出**
 
-``` js{1,4,6-8}
+```js{1,4,6-8}
 export default { // Highlighted
   data () {
     return {
@@ -427,12 +422,18 @@ $$
 
 ### 代码案例
 
-::: demo 一个普通 Demo
+::: normal-demo 一个普通 Demo
 
 ```html
 <h1>Hello World</h1>
 <p><span id="very">Hi</span> there</p>
-<div class="container">  <img src="https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />  <h1>GLASSMORPHISM</h1>  <div class="glass" /></div>
+<div class="container">
+  <img
+    src="https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+  />
+  <h1>GLASSMORPHISM</h1>
+  <div class="glass" />
+</div>
 ```
 
 ```js
@@ -447,34 +448,34 @@ span {
 }
 
 .container {
-    width: 50vw;
-    height: 50vh;
-    display: grid;
-    place-items: center;
-    position: relative;
+  width: 50vw;
+  height: 50vh;
+  display: grid;
+  place-items: center;
+  position: relative;
 }
 
 .container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
 }
 
 .container h1 {
-    font-size: 4vw;
-    color: white;
-    position: absolute;
+  font-size: 4vw;
+  color: white;
+  position: absolute;
 }
 
 .glass {
-    position: absolute;
-    width: 50%;
-    height: 50%;
-    /* 核心代码 */
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(2px);
-    border-radius: 4px;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  /* 核心代码 */
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(2px);
+  border-radius: 4px;
 }
 ```
 
@@ -483,12 +484,18 @@ span {
 :::: details 代码
 
 ````md
-::: demo 一个普通 Demo
+::: normal-demo 一个普通 Demo
 
 ```html
 <h1>Hello World</h1>
 <p><span id="very">Hi</span> there</p>
-<div class="container">  <img src="https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />  <h1>GLASSMORPHISM</h1>  <div class="glass" /></div>
+<div class="container">
+  <img
+    src="https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+  />
+  <h1>GLASSMORPHISM</h1>
+  <div class="glass" />
+</div>
 ```
 
 ```js
@@ -503,34 +510,34 @@ span {
 }
 
 .container {
-    width: 50vw;
-    height: 50vh;
-    display: grid;
-    place-items: center;
-    position: relative;
+  width: 50vw;
+  height: 50vh;
+  display: grid;
+  place-items: center;
+  position: relative;
 }
 
 .container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
 }
 
 .container h1 {
-    font-size: 4vw;
-    color: white;
-    position: absolute;
+  font-size: 4vw;
+  color: white;
+  position: absolute;
 }
 
 .glass {
-    position: absolute;
-    width: 50%;
-    height: 50%;
-    /* 核心代码 */
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(2px);
-    border-radius: 4px;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  /* 核心代码 */
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(2px);
+  border-radius: 4px;
 }
 ```
 
@@ -539,7 +546,7 @@ span {
 
 ::::
 
-::: demo [react] 一个 React Demo
+::: react-demo [react] 一个 React Demo
 
 ```js
 export default class App extends React.Component {
@@ -568,7 +575,7 @@ export default class App extends React.Component {
 :::: details 代码
 
 ````md
-::: demo [react] 一个 React Demo
+::: react-demo [react] 一个 React Demo
 
 ```js
 export default class App extends React.Component {
@@ -597,7 +604,7 @@ export default class App extends React.Component {
 
 ::::
 
-::: demo [vue] 一个 Vue Demo
+::: vue-demo [vue] 一个 Vue Demo
 
 ```vue
 <template>
@@ -622,7 +629,7 @@ export default {
 :::: details 代码
 
 ````md
-::: demo [vue] 一个 Vue Demo
+::: vue-demo [vue] 一个 Vue Demo
 
 ```vue
 <template>
@@ -647,7 +654,7 @@ export default {
 
 ::::
 
-::: demo 一个普通 Demo
+::: normal-demo 一个普通 Demo
 
 ```md
 # 标题
@@ -676,7 +683,7 @@ h1 {
 :::: details 代码
 
 ````md
-::: demo 一个普通 Demo
+::: normal-demo 一个普通 Demo
 
 ```md
 # 标题
@@ -806,7 +813,7 @@ $$
 
 假设你现在在 `foo/one.md` 中：
 
-``` md
+```md
 [Home](/) <!-- 跳转到根部的 README.md -->
 [foo](/foo/) <!-- 跳转到 foo 文件夹的 index.html -->
 [foo heading](./#heading) <!-- 跳转到 foo/index.html 的特定标题位置 -->
@@ -824,13 +831,12 @@ VuePress 支持重定向到干净链接。如果一个链接 `/foo` 找不到，
 
 ### 外部链接
 
-外部的链接将会被自动地设置为  `target="_blank" rel="noopener noreferrer"`:
+外部的链接将会被自动地设置为 `target="_blank" rel="noopener noreferrer"`:
 
 - [vuejs.org](https://vuejs.org)
 - [VuePress on GitHub](https://github.com/vuejs/vuepress)
 
-你可以自定义通过配置 config.markdown.externalLinks  来自定义外部链接的特性。
-
+你可以自定义通过配置 config.markdown.externalLinks 来自定义外部链接的特性。
 
 ## 图片点击放大
 
@@ -845,7 +851,6 @@ VuePress 支持重定向到干净链接。如果一个链接 `/foo` 找不到，
   <source srcset="/assets/images/bg2.png" media="(max-width: 719px)">
   <img class="line-numbers-mobile-snap" alt="Image">
 </picture>
-
 
 <style>
   @media screen and (min-width:  719px) {
@@ -879,21 +884,21 @@ VuePress 支持重定向到干净链接。如果一个链接 `/foo` 找不到，
 </picture>
 
 <style>
-  @media screen and (min-width:  719px) {
-    .line-numbers-mobile-snap {
-       display: none;
-    }
+@media screen and (min-width: 719px) {
+  .line-numbers-mobile-snap {
+    display: none;
   }
-  @media screen and (max-width:  719px) {
-    .line-numbers-desktop-snap {
-       display: none;
-    }
-    .line-numbers-mobile-snap {
-      max-width: none!important;
-      margin: 0 -1.5rem;
-      width: 100vw;
-    }
+}
+@media screen and (max-width: 719px) {
+  .line-numbers-desktop-snap {
+    display: none;
   }
+  .line-numbers-mobile-snap {
+    max-width: none !important;
+    margin: 0 -1.5rem;
+    width: 100vw;
+  }
+}
 </style>
 ```
 
@@ -907,13 +912,13 @@ VuePress 支持重定向到干净链接。如果一个链接 `/foo` 找不到，
 
 你可以通过下述的语法导入已经存在的文件中的代码段：
 
-``` md
+```md
 <<< @/filepath
 ```
 
 它也支持 [行高亮](#代码块中的行高亮)：
 
-``` md
+```md
 <<< @/filepath{highlightLines}
 ```
 
@@ -923,37 +928,35 @@ VuePress 支持重定向到干净链接。如果一个链接 `/foo` 找不到，
 <<< @/../@vuepress/markdown/__tests__/fragments/snippet.js{2}
 ```
 
-
 ::: tip 注意
 由于代码段的导入将在 webpack 编译之前执行，因此你无法使用 webpack 中的路径别名，此处的 `@` 默认值是 `process.cwd()`。
 :::
-
 
 为了只导入对应部分的代码，你也可运用 [VS Code region](https://code.visualstudio.com/docs/editor/codebasics#_folding)。你可以在文件路径后方的 `#` 紧接着提供一个自定义的区域名称（预设为 `snippet` ）
 
 **输入**
 
-``` md
-<<< @/../@vuepress/markdown/__tests__/fragments/snippet-with-region.js#snippet{1}
+```md
+<<< @/../@vuepress/markdown/**tests**/fragments/snippet-with-region.js#snippet{1}
 ```
 
 ## 进阶配置
 
 VuePress 使用 [markdown-it](https://github.com/markdown-it/markdown-it) 来渲染 Markdown，上述大多数的拓展也都是通过自定义的插件实现的。想要进一步的话，你可以通过 `.vuepress/config.js` 的 `markdown` 选项，来对当前的 `markdown-it` 实例做一些自定义的配置：
 
-``` js
+```js
 module.exports = {
   markdown: {
     // markdown-it-anchor 的选项
     anchor: { permalink: false },
     // markdown-it-toc 的选项
     toc: { includeLevel: [1, 2] },
-    extendMarkdown: md => {
+    extendMarkdown: (md) => {
       // 使用更多的 markdown-it 插件!
-      md.use(require('markdown-it-xxx'))
-    }
-  }
-}
+      md.use(require("markdown-it-xxx"));
+    },
+  },
+};
 ```
 
 ## 其他语法

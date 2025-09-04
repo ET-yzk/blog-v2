@@ -1,6 +1,7 @@
 ---
+date: 2023-03-07
 title: 自然 Emoji
-icon: s fa-tree
+icon: "twemoji:deciduous-tree"
 category: 使用指南
 tag:
   - Markdown

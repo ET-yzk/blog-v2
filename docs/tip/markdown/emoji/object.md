@@ -1,6 +1,7 @@
 ---
+date: 2023-03-07
 title: 对象 Emoji
-icon: s fa-object-group
+icon: "twemoji:ewe"
 category: 使用指南
 tag:
   - Markdown

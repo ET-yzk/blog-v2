@@ -1,3 +1,7 @@
+---
+date: 2025-03-11
+---
+
 <img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" class="logo" width="120"/>
 
 # Current Research Status of LLMs in Processing Tabular Files and the Role of Agent Systems

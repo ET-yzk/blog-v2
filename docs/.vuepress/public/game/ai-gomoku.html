@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Gomoku Game with Smart AI</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        #game-container { margin: 0 auto; width: 600px; }
+        canvas { border: 1px solid #000; background: #f0d9b5; cursor: pointer; }
+        #controls { margin-top: 10px; }
+        #message { margin-top: 10px; font-size: 1.2em; }
+        #history { margin-top: 20px; max-height: 200px; overflow-y: auto; }
+        button { padding: 8px 16px; font-size: 1em; margin: 5px; }
+        ul { list-style-type: none; padding: 0; margin: 0; }
+        li { padding: 4px 8px; background: #f8f8f8; margin: 2px 0; border-radius: 4px; }
+    </style>
+</head>
+<body>
+<div id="game-container">
+    <canvas id="board" width="600" height="600"></canvas>
+    <div id="message">Your Turn (Black)</div>
+    <div id="controls">
+        <button id="restart">重新开始</button>
+    </div>
+    <div id="history">
+        <h3>历史记录</h3>
+        <ul id="history-list"></ul>
+    </div>
+</div>
+<script>
+    const canvas = document.getElementById('board');
+    const ctx = canvas.getContext('2d');
+    const size = 15;
+    const cellSize = canvas.width / size;
+    let board = Array(size).fill().map(() => Array(size).fill(null));
+    let currentPlayer = 'black';
+    let gameOver = false;
+    let history = [];
+    const historyList = document.getElementById('history-list');
+    const messageDiv = document.getElementById('message');
+
+    // 棋型权重表
+    const patternWeights = {
+        FIVE: 1000000,
+        OPEN_FOUR: 100000,
+        FOUR: 10000,
+        OPEN_THREE: 5000,
+        THREE: 500,
+        OPEN_TWO: 100,
+        TWO: 50,
+        CENTER: 30
+    };
+
+    function drawBoard() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // Draw grid lines
+        ctx.strokeStyle = '#000';
+        for (let i = 0; i < size; i++) {
+            ctx.beginPath();
+            ctx.moveTo(cellSize/2, cellSize*i + cellSize/2);
+            ctx.lineTo(cellSize*(size-1) + cellSize/2, cellSize*i + cellSize/2);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(cellSize*i + cellSize/2, cellSize/2);
+            ctx.lineTo(cellSize*i + cellSize/2, cellSize*(size-1) + cellSize/2);
+            ctx.stroke();
+        }
+
+        // Draw stones
+        for (let y = 0; y < size; y++) {
+            for (let x = 0; x < size; x++) {
+                if (board[y][x]) {
+                    ctx.beginPath();
+                    ctx.arc(cellSize*x + cellSize/2, cellSize*y + cellSize/2, cellSize*0.4, 0, Math.PI*2);
+                    ctx.fillStyle = board[y][x];
+                    ctx.fill();
+                }
+            }
+        }
+    }
+
+    function checkWin(x, y) {
+        const directions = [
+            [[0, 1], [0, -1]],   // horizontal
+            [[1, 0], [-1, 0]],   // vertical
+            [[1, 1], [-1, -1]],  // diagonal \
+            [[1, -1], [-1, 1]]   // diagonal /
+        ];
+
+        return directions.some(dir => {
+            let count = 1;
+            for (const [dx, dy] of dir) {
+                let nx = x + dx, ny = y + dy;
+                while (nx >= 0 && ny >= 0 && nx < size && ny < size && board[ny][nx] === currentPlayer) {
+                    count++;
+                    nx += dx;
+                    ny += dy;
+                }
+            }
+            return count >= 5;
+        });
+    }
+
+    function isDraw() {
+        return board.every(row => row.every(cell => cell !== null));
+    }
+
+    function updateHistoryDisplay() {
+        historyList.innerHTML = '';
+        history.forEach((record, index) => {
+            const li = document.createElement('li');
+            li.textContent = `第${index + 1}局: ${record}`;
+            historyList.appendChild(li);
+        });
+    }
+
+    function endGame(result) {
+        gameOver = true;
+        messageDiv.textContent = result;
+        history.push(result);
+        updateHistoryDisplay();
+    }
+
+    function resetGame() {
+        board = Array(size).fill().map(() => Array(size).fill(null));
+        currentPlayer = 'black';
+        gameOver = false;
+        drawBoard();
+        messageDiv.textContent = 'Your Turn (Black)';
+    }
+
+    function getBestMoveForAI() {
+        // 优先检查胜利条件
+        for (let y = 0; y < size; y++) {
+            for (let x = 0; x < size; x++) {
+                if (board[y][x] === null) {
+                    board[y][x] = 'white';
+                    if (checkWin(x, y)) {
+                        board[y][x] = null;
+                        return {x, y};
+                    }
+                    board[y][x] = null;
+                }
+            }
+        }
+
+        // 阻止玩家胜利
+        for (let y = 0; y < size; y++) {
+            for (let x = 0; x < size; x++) {
+                if (board[y][x] === null) {
+                    board[y][x] = 'black';
+                    if (checkWin(x, y)) {
+                        board[y][x] = null;
+                        return {x, y};
+                    }
+                    board[y][x] = null;
+                }
+            }
+        }
+
+        // 使用高级评估函数
+        let bestScore = -Infinity;
+        let bestMoves = [];
+
+        for (let y = 0; y < size; y++) {
+            for (let x = 0; x < size; x++) {
+                if (board[y][x] === null) {
+                    let score = evaluatePosition(x, y, 'white');
+
+                    // 考虑对手可能的回应
+                    board[y][x] = 'white';
+                    for (let j = 0; j < size; j++) {
+                        for (let k = 0; k < size; k++) {
+                            if (board[j][k] === null) {
+                                board[j][k] = 'black';
+                                if (checkWin(j, k)) score -= 500;
+                                board[j][k] = null;
+                            }
+                        }
+                    }
+
+                    if (score > bestScore) {
+                        bestScore = score;
+                        bestMoves = [{x, y}];
+                    } else if (score === bestScore) {
+                        bestMoves.push({x, y});
+                    }
+                    board[y][x] = null;
+                }
+            }
+        }
+
+        // 如果有多个最佳选项，随机选择一个
+        return bestMoves[Math.floor(Math.random() * bestMoves.length)] || {x: Math.floor(size/2), y: Math.floor(size/2)};
+    }
+
+    function evaluatePosition(x, y, player) {
+        let score = 0;
+        const opponent = player === 'black' ? 'white' : 'black';
+
+        // 定义四个方向：水平、垂直、正斜杠、反斜杠
+        const directions = [
+            [[-1, 0], [1, 0]],    // 水平
+            [[0, -1], [0, 1]],    // 垂直
+            [[-1, -1], [1, 1]],   // 正斜杠 \
+            [[-1, 1], [1, -1]]    // 反斜杠 /
+        ];
+
+        // 分析每个方向
+        for (const dir of directions) {
+            let pattern = analyzePattern(x, y, dir, player, opponent);
+            score += patternWeights[pattern.type] * pattern.length;
+        }
+
+        // 中心控制奖励
+        const centerX = size / 2;
+        const distance = Math.sqrt((x - centerX)**2 + (y - centerX)**2);
+        score += patternWeights.CENTER * (size - distance);
+
+        return score;
+    }
+
+    function analyzePattern(x, y, direction, player, opponent) {
+        let [dir1, dir2] = direction;
+        let totalLength = 1;
+        let openEnds = 0;
+        let blockedEnds = 0;
+
+        // 检查第一个方向
+        let [dx, dy] = dir1;
+        let nx = x + dx;
+        let ny = y + dy;
+        while (nx >= 0 && ny >= 0 && nx < size && ny < size) {
+            if (board[ny][nx] === player) {
+                totalLength++;
+            } else if (board[ny][nx] === opponent) {
+                blockedEnds++;
+                break;
+            } else {
+                openEnds++;
+                break;
+            }
+            nx += dx;
+            ny += dy;
+        }
+
+        // 检查第二个方向
+        [dx, dy] = dir2;
+        nx = x + dx;
+        ny = y + dy;
+        while (nx >= 0 && ny >= 0 && nx < size && ny < size) {
+            if (board[ny][nx] === player) {
+                totalLength++;
+            } else if (board[ny][nx] === opponent) {
+                blockedEnds++;
+                break;
+            } else {
+                openEnds++;
+                break;
+            }
+            nx += dx;
+            ny += dy;
+        }
+
+        // 判断棋型
+        if (totalLength >= 5) return {type: "FIVE"};
+        if (openEnds === 2 && totalLength === 4) return {type: "OPEN_FOUR", length: totalLength};
+        if (openEnds === 1 && totalLength === 4) return {type: "FOUR", length: totalLength};
+        if (openEnds === 2 && totalLength === 3) return {type: "OPEN_THREE", length: totalLength};
+        if (openEnds === 1 && totalLength === 3) return {type: "THREE", length: totalLength};
+        if (openEnds === 2 && totalLength === 2) return {type: "OPEN_TWO", length: totalLength};
+        if (openEnds === 1 && totalLength === 2) return {type: "TWO", length: totalLength};
+
+        return {type: "CENTER", length: 1};
+    }
+
+    canvas.addEventListener('click', (e) => {
+        if (gameOver || currentPlayer !== 'black') return;
+        const rect = canvas.getBoundingClientRect();
+        const x = Math.floor((e.clientX - rect.left) / cellSize);
+        const y = Math.floor((e.clientY - rect.top) / cellSize);
+
+        if (x >= 0 && x < size && y >= 0 && y < size && !board[y][x]) {
+            board[y][x] = currentPlayer;
+            drawBoard();
+
+            if (checkWin(x, y)) {
+                endGame('You Win!');
+                return;
+            }
+
+            if (isDraw()) {
+                endGame('Draw!');
+                return;
+            }
+
+            currentPlayer = 'white';
+            messageDiv.textContent = 'AI Thinking...';
+
+            // Let AI make a move after short delay to allow UI update
+            setTimeout(() => {
+                if (!gameOver) {
+                    const bestMove = getBestMoveForAI();
+                    if (bestMove) {
+                        const {x, y} = bestMove;
+                        board[y][x] = 'white';
+                        drawBoard();
+
+                        if (checkWin(x, y)) {
+                            endGame('AI Wins!');
+                            return;
+                        }
+
+                        if (isDraw()) {
+                            endGame('Draw!');
+                            return;
+                        }
+
+                        currentPlayer = 'black';
+                        messageDiv.textContent = 'Your Turn (Black)';
+                    }
+                }
+            }, 200);
+        }
+    });
+
+    document.getElementById('restart').addEventListener('click', () => {
+        resetGame();
+        history = [];
+        updateHistoryDisplay();
+    });
+
+    drawBoard();
+    updateHistoryDisplay();
+</script>
+</body>
+</html>

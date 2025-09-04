@@ -1,8 +1,11 @@
 ---
-icon: s fa-book-atlas
+date: 2023-03-07
+icon: "material-symbols:computer-rounded"
 ---
 
-# 阿里云开发社区的电子书《阿里工程师的自我修养》总结
+# 《阿里工程师的自我修养》
+
+> 阿里云开发社区的电子书《阿里工程师的自我修养》总结
 
 ## 一、结构化思维
 
@@ -17,7 +20,6 @@ icon: s fa-book-atlas
 举例来说，如何打造极客文化。这个问题的中心很明确，接下来可以按照空间顺序进行分解。
 
 ![img](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202201221145045.jpeg)
-
 
 确定完要做的事情，还可以按照时间顺序对如何落地进行分解。
 

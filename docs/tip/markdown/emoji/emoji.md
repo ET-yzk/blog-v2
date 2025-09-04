@@ -1,5 +1,6 @@
 ---
-icon: s fa-laugh
+date: 2022-01-20
+icon: "twemoji:full-moon-face"
 title: Markdown Emoji v1 汇总
 category: 使用指南
 tag:
@@ -1499,7 +1500,7 @@ tag:
 - "registered": "®️",
 - "tm": "™️",
 - "hash": "#️⃣",
-- "asterisk": "*️⃣",
+- "asterisk": "\*️⃣",
 - "zero": "0️⃣",
 - "one": "1️⃣",
 - "two": "2️⃣",

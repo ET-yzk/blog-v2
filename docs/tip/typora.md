@@ -1,5 +1,5 @@
 ---
-icon: b fa-simplybuilt
+icon: "fluent:scan-type-24-filled"
 category: 使用指南
 date: 2022-02-15
 
@@ -25,7 +25,7 @@ tag:
 | :------------------- | :----------------------- | ------------------- |
 | ==新建==             | Ctrl + N                 | Command + N         |
 | 新窗口               | Ctrl + Shift + N         | Command + Shift + N |
-| 新建Option卡         | *（不支持）*             | Command + T         |
+| 新建Option卡         | _（不支持）_             | Command + T         |
 | 打开                 | Ctrl + O                 | Command + O         |
 | ==快速打开==         | Ctrl + P                 | Command + Shift + O |
 | 重新打开已关闭的文件 | Ctrl + Shift + T         | Command + Shift + T |
@@ -78,16 +78,16 @@ tag:
 
 ### 格式
 
-| 功能          | Hotkey （Windows/Linux） | 热键 （macOS）        |
-| :------------ | :----------------------- | --------------------- |
-| **粗体**      | Ctrl + B                 | Command + B           |
-| *斜体*        | Ctrl + I                 | Command + I           |
-| <u>下划线</u> | Ctrl + U                 | Command + U           |
-| `容器块`      | Ctrl + Shift + '         | Command + Shift + '   |
-| ~~删除线~~    | Alt + Shift + 5          | Control + Shift + '   |
-| [超链接]()    | Ctrl + K                 | Command + K           |
-| !\[图像\](xxx)   | Ctrl + Shift + I         | Command + Control + I |
-| 清除格式      | Ctrl + \                 | Command + \           |
+| 功能           | Hotkey （Windows/Linux） | 热键 （macOS）        |
+| :------------- | :----------------------- | --------------------- |
+| **粗体**       | Ctrl + B                 | Command + B           |
+| _斜体_         | Ctrl + I                 | Command + I           |
+| <u>下划线</u>  | Ctrl + U                 | Command + U           |
+| `容器块`       | Ctrl + Shift + '         | Command + Shift + '   |
+| ~~删除线~~     | Alt + Shift + 5          | Control + Shift + '   |
+| [超链接]()     | Ctrl + K                 | Command + K           |
+| !\[图像\](xxx) | Ctrl + Shift + I         | Command + Control + I |
+| 清除格式       | Ctrl + \                 | Command + \           |
 
 ### 视图
 
@@ -101,8 +101,8 @@ tag:
 | ==聚焦模式==         | F8                       | F8                    |
 | 打字机模式           | F9                       | F9                    |
 | 切换全屏             | F11                      | Command + Option + F  |
-| 实际大小             | Ctrl + Shift + 0         | *（不支持）*          |
-| 放大                 | Ctrl + Shift + =         | *（不支持）*          |
-| 缩小                 | Ctrl + Shift + -         | *（不支持）*          |
+| 实际大小             | Ctrl + Shift + 0         | _（不支持）_          |
+| 放大                 | Ctrl + Shift + =         | _（不支持）_          |
+| 缩小                 | Ctrl + Shift + -         | _（不支持）_          |
 | 在打开的文档之间切换 | Ctrl + Tab               | Command + '           |
 | 切换开发工具         | Ctrl + Shift + I         | -                     |

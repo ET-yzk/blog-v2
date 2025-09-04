@@ -1,3 +1,7 @@
+---
+date: 2025-02-01
+---
+
 # Prompt
 
 | method | prompt | reference |

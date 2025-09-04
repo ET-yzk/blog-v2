@@ -1,5 +1,9 @@
 ---
-author: kamacoder
+date: 2020-01-01
+author:
+    name: kamacoder
+    url: https://www.programmercarl.com
+index: false
 ---
 
 # 卡码网设计模式精讲

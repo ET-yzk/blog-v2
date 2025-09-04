@@ -1,5 +1,5 @@
 ---
-icon: b fa-simplybuilt
+icon: simplybuilt
 category: 踩坑指南
 date: 2021-10-11
 
@@ -12,7 +12,7 @@ tag:
 
 **PS：**`在Microsoft拼音卡到无法使用后，使用了一段时间的搜狗输入法，还是怀念Microsoft拼音的设计，于是决定解决其卡顿问题。以下解决方案来自 知乎用户`
 
-------
+---
 
 ### 会导致个人输入习惯丢失，不介意推荐使用该方法
 
@@ -23,7 +23,6 @@ tag:
 ```bash
 C:\Users\用户名\AppData\Roaming\Microsoft\InputMethod\Chs;
 ```
-
 
 将整个Chs文件夹删除重启即可。如果遇到文件占用等问题可以使用专门的工具或者用U盘启动到WinPE下删除。
 
@@ -42,8 +41,6 @@ C:\Users\用户名\AppData\Roaming\Microsoft\InputMethod\Chs;
 3. **多核调度**；输入法进程频繁在不同CPU之间切换，导致进程响应慢
 
 4. **进程优先级低**；这一点其实也可以归纳在3中。
-
-   
 
 下面介绍解决方案，按照下图设置后就基本不会出现卡顿的情况了
 

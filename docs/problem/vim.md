@@ -1,5 +1,5 @@
 ---
-icon: b fa-simplybuilt
+icon: simplybuilt
 category: 踩坑指南
 date: 2021-10-30
 
@@ -19,14 +19,14 @@ tag:
 
 ### 解决 1
 
-1. 找到安装目录下的 _vimrc ( Linux 为 ~/.vimrc )，在文件末尾插入:
+1. 找到安装目录下的 \_vimrc ( Linux 为 ~/.vimrc )，在文件末尾插入:
 
-    ```bash
-    " 关闭保存文件再次打开的undo功能（.filename.un~文件将不会生成）"
-    set noundofile
-    " 关闭保存文件后的自动备份功能（.filename~文件将不会生成）"
-    set nobackup
-    ```
+   ```bash
+   " 关闭保存文件再次打开的undo功能（.filename.un~文件将不会生成）"
+   set noundofile
+   " 关闭保存文件后的自动备份功能（.filename~文件将不会生成）"
+   set nobackup
+   ```
 
 ---
 
@@ -42,17 +42,17 @@ tag:
 
 ### 解决 2
 
-1. 找到安装目录下的 _vimrc ( Linux 为 ~/.vimrc )，在文件末尾插入:
+1. 找到安装目录下的 \_vimrc ( Linux 为 ~/.vimrc )，在文件末尾插入:
 
-    ```bash
-    " 设置默认编码格式，文件编码格式，终端编码格式"
-    set encoding=utf-8
-    set fileencoding=utf-8
-    set termencoding=utf-8
-    ```
+   ```bash
+   " 设置默认编码格式，文件编码格式，终端编码格式"
+   set encoding=utf-8
+   set fileencoding=utf-8
+   set termencoding=utf-8
+   ```
+
 2. 然后打开文件，将内容拷贝到新文件后重新保存即可。
 
-    > 或者使用 Sublime Text 等工具将旧文件重新编码为 utf-8 格式
-    >
-    > <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/202110301650337.png" alt="image-20211030165034250" style="zoom: 25%;" />
-
+   > 或者使用 Sublime Text 等工具将旧文件重新编码为 utf-8 格式
+   >
+   > <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/202110301650337.png" alt="image-20211030165034250" style="zoom: 25%;" />

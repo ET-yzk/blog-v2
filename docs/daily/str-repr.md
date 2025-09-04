@@ -1,5 +1,5 @@
 ---
-icon: b fa-simplybuilt
+icon: simplybuilt
 category: 天天笔记
 date: 2021-11-01
 
@@ -20,7 +20,7 @@ tag:
 <__main__.Example object at 0x10a514f98>
 >>> print(repr(Example()))
 <__main__.Example object at 0x1088eb438>
->>> 
+>>>
 >>> str(Example)
 "<class '__main__.Example'>"
 >>> repr(Example())
@@ -78,7 +78,7 @@ False
 '2020-04-04 20:47:46.525245'
 >>> repr(d)
 'datetime.datetime(2020, 4, 4, 20, 47, 46, 525245)'
->>> 
+>>>
 ```
 
 可以看出`repr()`更能显示出对象的类型、值等信息，对象描述清晰的。

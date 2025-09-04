@@ -1,8 +1,14 @@
+---
+date: 2023-07-05
+---
+
 # 智能五子棋
+
+<iframe src="/game/ai-gomoku.html" width="100%" style="aspect-ratio: 1/1;"></iframe>
 
 ````html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Gomoku Game with Smart AI</title>
     <style>
@@ -338,4 +344,3 @@ updateHistoryDisplay();
 </body>
 </html>
 ````
-

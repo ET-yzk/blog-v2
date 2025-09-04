@@ -1,5 +1,6 @@
 ---
-icon: b fa-simplybuilt
+date: 2022-03-15
+icon: simplybuilt
 ---
 
 # 操作系统练习
@@ -104,7 +105,7 @@ icon: b fa-simplybuilt
    #include <stdio.h>
    #include <unistd.h>
    #include <cstdlib>
-   
+
    int value = 5;
    int main() {
    	pid_t pid;
@@ -125,22 +126,19 @@ icon: b fa-simplybuilt
    }
    ```
 
-   
-   
    行A将输出什么？
-   
+
    - parent test
-   
+
      CHILD: value = 20
-   
+
      PARENT: value = 5
-   
+
    - 或者【父进程wait(NULL)前的命令与子进程运行快慢顺序不定】
-   
    - CHILD: value = 20
-   
+
      parent test
-   
+
      PARENT: value = 5
 
 ## TEST 1
@@ -150,12 +148,12 @@ icon: b fa-simplybuilt
 1. 操作系统的主要目的是管理计算机系统资源和管理用户。
    - 错误
    - 【管理电脑硬件与软件资源的程序】
-2. 下面的选项中，____________通常不认为是操作系统必须要解决的问题。
+2. 下面的选项中，****\_\_\_\_****通常不认为是操作系统必须要解决的问题。
    - 管理目录和文件
    - 提供应用程序接口
    - 提供保护和安全机制
    - ==提供C语言编译器==
-3. 下面的选项中，____________通常不认为是操作系统必须要解决的问题。
+3. 下面的选项中，****\_\_\_\_****通常不认为是操作系统必须要解决的问题。
    - 管理目录和文件
    - 提供应用程序接口
    - 提供保护和安全机制
@@ -170,12 +168,12 @@ icon: b fa-simplybuilt
    - 编译程序
    - 命令解释程序
    - ==缺页处理程序==
-6. 多道程序设计并不是指________。
+6. 多道程序设计并不是指**\_\_\_\_**。
    - 把多个程序同时加载到内存，并使他们同时处于运行状态
    - 同时把多个程序放入内存并允许它们交替执行和共享系统中的各类资源
    - ==一个处理机中，在同一时刻运行多个程序==
    - 一个处理机中，并发运行多个程序
-7. 分时操作系统中，若时间片固定，那么__________，则响应时间越长。
+7. 分时操作系统中，若时间片固定，那么****\_\_****，则响应时间越长。
    - ==用户数越多==
    - 内存越多
    - 用户数越少
@@ -212,7 +210,7 @@ icon: b fa-simplybuilt
     - 从存储操作系统代码区中取指令
     - ==切换到内核模式==
     - ==将数据写到操作系统的数据区==
-15. 若用户程序将读取某硬盘文件的第24号逻辑块，则该请求将使用操作系统提供的__________接口。
+15. 若用户程序将读取某硬盘文件的第24号逻辑块，则该请求将使用操作系统提供的****\_\_****接口。
     - ==系统调用==
     - 图形用户接口
     - 进程
@@ -237,15 +235,15 @@ icon: b fa-simplybuilt
    #include <stdio.h>
    #include <unistd.h>
    #include <sys/wait.h>
-   
+
    int value = 0;
    void* runner(void* param);  // the thread
-   
+
    int main(int argc, char* argv[]) {
    	int pid;
    	pthread_t tid;
    	pthread_attr_t attr;
-   
+
    	pid = fork();
    	if (pid == 0) {    // child process
    		pthread_attr_init(&attr);
@@ -258,7 +256,7 @@ icon: b fa-simplybuilt
    		printf("PARENT: value = %d", value); // 行 P
    	}
    }
-   
+
    void* runner(void* param) {
    	value = 5;
    	pthread_exit(0);
@@ -270,7 +268,7 @@ icon: b fa-simplybuilt
 
    - 5,0
 
-1. Linux提供了传统的进程复制的系统调用fork()，还提供了创建线程的系统调用clone()，但Linux并未严格区分进程和线程，而是以任务来统一代替进程和线程。调用clone()时，传送给他一组标志，以决定父任务与子任务之间有多少共享，从而实现类似线程的概念。而有些操作系统，例如windows XP和Solaris，对进程和线程都是有区分的。典型地，这些系统采用标记法，为进程定义一个数据结构来记录指向属于该进程的多个不同的线程的指针。对比这两类系统核心中对进程与线程的支持方法，在如Linux这类将进程与线程同等看待的系统中，下列哪些叙述是正确的？
+3. Linux提供了传统的进程复制的系统调用fork()，还提供了创建线程的系统调用clone()，但Linux并未严格区分进程和线程，而是以任务来统一代替进程和线程。调用clone()时，传送给他一组标志，以决定父任务与子任务之间有多少共享，从而实现类似线程的概念。而有些操作系统，例如windows XP和Solaris，对进程和线程都是有区分的。典型地，这些系统采用标记法，为进程定义一个数据结构来记录指向属于该进程的多个不同的线程的指针。对比这两类系统核心中对进程与线程的支持方法，在如Linux这类将进程与线程同等看待的系统中，下列哪些叙述是正确的？
    - 操作系统的某些代码可以简化。例如，一个调度器可以同等地对待进程和线程，在调度时不需要特别的代码来区分进程与线程。
    - 在资源管理时，为区分哪些线程属于哪个进程，并实现相关的记帐任务，会增加系统的复杂性。
    - 这种进程与线程的一致性会使进程资源的管理变得困难。
@@ -282,7 +280,7 @@ icon: b fa-simplybuilt
    ```c
    #include <stdio.h>
    #include <unistd.h>
-   
+
    int main() {
      if (fork()==0){
      	fork();
@@ -303,9 +301,9 @@ icon: b fa-simplybuilt
    #include <stdio.h>
    #include <unistd.h>
    #include <sys/wait.h>
-   
+
    // 执行 gcc Exercise4.cpp -o Exercise4 -lpthread
-   
+
    int val = 0;
    void *runner(void *param);
    void *runner1(void *param);
@@ -318,11 +316,11 @@ icon: b fa-simplybuilt
        pthread_attr_init(&attr);
        pthread_create(&tid, &attr, runner, NULL);
        printf("This is the child. The value is %d ", val);    //输出结果为：This is the child. The value is 0
-   
+
        pthread_attr_init(&attr1);
        pthread_create(&tid1, &attr1, runner1, NULL);
        printf("This is the other thread in child. the value is %d ", val);     //输出结果为：This is the other thread in child. the value is 5
-   
+
        pthread_join(tid, NULL);
        pthread_join(tid1, NULL);
        }
@@ -334,10 +332,10 @@ icon: b fa-simplybuilt
    void *runner(void *param) {
    val += 5;
    printf("value in runner before sleep: %d ", val);    //输出结果为：value in runner before sleep: 5
-   
+
    sleep(1);
    printf("value in runner after sleep: %d ", val);    //输出结果为：value in runner after sleep: 9
-   
+
    pthread_exit(0);
    }
    void *runner1(void *param) {
@@ -348,7 +346,7 @@ icon: b fa-simplybuilt
 
    - 答案如上注释
 
-3. 在操作系统的概念中，程序与进程的重要区别之一是_____________。
+3. 在操作系统的概念中，程序与进程的重要区别之一是******\_******。
 
    - 程序有运行时的状态而进程没有
    - 程序可占有资源而进程不能
@@ -357,12 +355,12 @@ icon: b fa-simplybuilt
 
    Question 1: NA out of 10 in 0 attempt(s)
 
-   采用时间片轮转调度策略时，当处于运行状态的进程用完一个时间片后，它的状态是__________ 。
+   采用时间片轮转调度策略时，当处于运行状态的进程用完一个时间片后，它的状态是****\_\_**** 。
 
-   -  消亡
-   -  运行
-   -  ==阻塞==
-   -  就绪
+   - 消亡
+   - 运行
+   - ==阻塞==
+   - 就绪
 
    Question 2: NA out of 10 in 0 attempt(s)
 
@@ -406,13 +404,13 @@ icon: b fa-simplybuilt
    val += 5;
    if ((pid=fork())<0) {val += 5; exit(1);}
    if (pid==0) {
-     val += 5;
-     printf("%d ", val);  //输出结果为：。
-     }
+   val += 5;
+   printf("%d ", val); //输出结果为：。
+   }
    else {
-     printf("%d ", val);  //输出结果为：。
-     exit(0);
-     }
+   printf("%d ", val); //输出结果为：。
+   exit(0);
+   }
    }
 
    Question 8: NA out of 10 in 0 attempt(s)
@@ -429,6 +427,7 @@ icon: b fa-simplybuilt
 ## Exercise 5
 
 1. ==？==CPU利用率和响应时间这两个调度准则在某些场景下会有冲突。请判断下列陈述中哪些是正确的？
+
    - 降低上下文切换的频率会降低CPU利用率。
    - ==如果上下文切换的开销减少，则CPU利用率会增加。==
    - ==提高CPU的利用率可能会增加进程的响应时间。==
@@ -436,6 +435,7 @@ icon: b fa-simplybuilt
    - ==降低上下文切换的频率会增加进程的响应时间。==
 
 2. 平均周转时间和最大等待时间这两个调度准则在某些场景下会有冲突。请判断下列陈述中哪些是正确的？
+
    - 最短作业优先的调度策略可能会将运行时间较长的作业饿死，但它们的等待时间可能会缩短。
    - ==最短作业优先的调度策略将获得最小的平均周转时间。==
    - ==最短作业优先的调度策略可能会将运行时间较长的作业饿死，从而增加它们的等待时间。==
@@ -451,10 +451,11 @@ icon: b fa-simplybuilt
    ![img](http://www.imathas.com/cgi-bin/mimetex.cgi?%7B%5Cleft%5B%5Cmatrix%7B%7BP%7D%7Br%7D%7Bo%7D%7Bc%7D%7Be%7D%7Bs%7D%7Bs%7D%26%7BB%7D%7Bu%7D%7Br%7D%7Bs%7D%7Bt%7D%7BT%7D%7Bi%7D%7Bm%7D%7Be%7D%26%7BP%7D%7Br%7D%7Bi%7D%7B%5Cquad%5Ctext%7Bor%7D%5Cquad%7D%7Bi%7D%7BN%7D%7Bu%7D%7Bm%7D%7Bb%7D%7Be%7D%7Br%7D%5C%5C%7BP%7D%7B1%7D%26%7B10%7D%26%7B3%7D%5C%5C%7BP%7D%7B2%7D%26%7B1%7D%26%7B1%7D%5C%5C%7BP%7D%7B3%7D%26%7B2%7D%26%7B3%7D%5C%5C%7BP%7D%7B4%7D%26%7B1%7D%26%7B4%7D%5C%5C%7BP%7D%7B5%7D%26%7B5%7D%26%7B2%7D%7D%5Cright%5D%7D)
    假设进程在时刻0以P1，P2，P3，P4，P5的顺序到达。
    则对下列调度策略，每个进程的周转时间分别为多少：FCFS, RR (时间片长=1), SJF, 以及非抢占式的优先级调度（小优先数表示高优先级)？
-   
+
    - ![[(P1),(P2),(P3),(P4),(P5)]](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202204021542980.gif) = <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/202204021545581.png" alt="image-20220402154511484" style="zoom:60%;" />
-   
+
 5. 同上，则对下列调度策略，每个进程的等待时间分别为多少：FCFS, RR (时间片长=1), SJF, 以及非抢占式的优先级调度（小优先数表示高优先级）？
+
    - ![(P1),(P2),(P3),(P4),(P5)](https://raw.githubusercontent.com/ET-yzk/picgo/blog/202204021542980.gif) = <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/202204021551219.png" alt="image-20220402155130132" style="zoom:60%;" />
 
 6. 下列哪些调度策略可能会引起饿死?
@@ -483,18 +484,14 @@ icon: b fa-simplybuilt
    叙述：
 
    a. 平等对待所有作业（给各作业分配相等的时间片），因此短作业可比较快地处理完成而离开系统。
-   
+
    b. 该调度算法虽然没有给短作业明显的照顾，但长作业的优先组长会逐步被降低，从而相对而言提高了短作业获得CPU的机会。
-   
+
    c. 该调度算法未照顾短作业，若短作业在长作业后到达，该短作业会有较长的等待时间。
 
 ## TEST 6
 
-
-
 ### Exercise 6
-
-
 
 ### Exercise 7
 
@@ -517,7 +514,7 @@ icon: b fa-simplybuilt
      ==这种变化会对系统产生影响，它会使系统产生死锁，因为系统需要有一定数量的可用资源==
 
    - 增加进程的 Max数（增加进程的资源需求数）
-     
+
      ==这种变化会对系统产生影响，并且引发产生死锁的可能==
 
    - 减少进程的 Max数（减少进程的资源需求数）
@@ -534,32 +531,32 @@ icon: b fa-simplybuilt
 
 4. 考虑下面的系统快照：
 
-      |      | Allocation |   Max   | Available |
-      | :--: | :--------: | :-----: | :-------: |
-      |      |  A B C D   | A B C D |  A B C D  |
-      |  P0  |  0 0 1 2   | 0 0 1 2 |  1 5 2 0  |
-      |  P1  |  1 0 0 0   | 1 7 5 0 |           |
-      |  P2  |  1 3 5 4   | 2 3 5 6 |           |
-      |  P3  |  0 6 3 2   | 0 6 5 2 |           |
-      |  P4  |  0 0 1 4   | 0 6 5 6 |           |
+   |     | Allocation |   Max   | Available |
+   | :-: | :--------: | :-----: | :-------: |
+   |     |  A B C D   | A B C D |  A B C D  |
+   | P0  |  0 0 1 2   | 0 0 1 2 |  1 5 2 0  |
+   | P1  |  1 0 0 0   | 1 7 5 0 |           |
+   | P2  |  1 3 5 4   | 2 3 5 6 |           |
+   | P3  |  0 6 3 2   | 0 6 5 2 |           |
+   | P4  |  0 0 1 4   | 0 6 5 6 |           |
 
-      - 使用银行家算法填充Need矩阵。
+   - 使用银行家算法填充Need矩阵。
 
-        |      | A    | B    | C    | D    |
-        | ---- | ---- | ---- | ---- | ---- |
-        | P0   | 0    | 0    | 0    | 0    |
-        | P1   | 0    | 7    | 5    | 0    |
-        | P2   | 1    | 0    | 0    | 2    |
-        | P3   | 0    | 0    | 2    | 0    |
-        | P4   | 0    | 6    | 4    | 2    |
+     |     | A   | B   | C   | D   |
+     | --- | --- | --- | --- | --- |
+     | P0  | 0   | 0   | 0   | 0   |
+     | P1  | 0   | 7   | 5   | 0   |
+     | P2  | 1   | 0   | 0   | 2   |
+     | P3  | 0   | 0   | 2   | 0   |
+     | P4  | 0   | 6   | 4   | 2   |
 
-      - 此时的系统安全吗？
+   - 此时的系统安全吗？
 
-        ==安全==
+     ==安全==
 
-      - 进程P1提交了一个资源申请(0,4,2,0)，能立即分配给他吗？
+   - 进程P1提交了一个资源申请(0,4,2,0)，能立即分配给他吗？
 
-        ==能==
+     ==能==
 
 ## TEST 4
 
@@ -568,7 +565,7 @@ icon: b fa-simplybuilt
    - ==错误==
    - 正确 `指进程中用于实现共享资源的那段代码`
 
-2. ==？==用信号量的wait、signal操作可以解决__________互斥问题。
+2. ==？==用信号量的wait、signal操作可以解决****\_\_****互斥问题。
 
    - 某些
    - 所有
@@ -584,7 +581,7 @@ icon: b fa-simplybuilt
    - ==临界区内有一个进程，且另一个进程也未申请进入临界区==
    - 临界区内有二个进程
 
-4. 在15个生产者、11个消费者共享容量为10的缓冲器的生产者-消费者问题中，互斥使用缓冲器的信号量mutex的初始值为__________。
+4. 在15个生产者、11个消费者共享容量为10的缓冲器的生产者-消费者问题中，互斥使用缓冲器的信号量mutex的初始值为****\_\_****。
 
    > 当前只运行一个进程运行
 
@@ -627,7 +624,6 @@ icon: b fa-simplybuilt
    }
    ```
 
-
    则并发执行进程p0和p1时产生的情况是：
 
    - 不能保证进程互斥进入临界区
@@ -650,46 +646,45 @@ icon: b fa-simplybuilt
    - 可能为0、2、3
    - 可能为1、2、3
 
-8.  数组buff[0..n-1] 中的每个元素都是一个缓冲区。现用信号量机制来实现向缓冲区放一个数据data的算法put(data)和从缓冲区取一个数据data的算法get(data)。设一个缓冲区正好放一个数据，先放入的数据要先取出，且put和get可并发运行。
+8. 数组buff[0..n-1] 中的每个元素都是一个缓冲区。现用信号量机制来实现向缓冲区放一个数据data的算法put(data)和从缓冲区取一个数据data的算法get(data)。设一个缓冲区正好放一个数据，先放入的数据要先取出，且put和get可并发运行。
    请完成下列算法流程的填充：
 
-   ```c
-   int front=rear=0;  // 相当于in/out，指针
-   semaphore mutex_put=mutex_get=1; //信号量[内核对象]
-   semaphore empty=n; full=0;
-   put(data) {
-       // 空1;
-       wait(mutex_put);
-       put data to buff[rear];
-       rear=mod(rear+1, n);
-       // 空2;
-       signal(full);
-   }
-   get(data) {
-       // 空3;
-       // 空4;
-       get data from buff[front];
-       front=mod(front+1, n);
-       signal(mutext_get);
-       signal(empty);
-   }
-   ```
+```c
+int front=rear=0;  // 相当于in/out，指针
+semaphore mutex_put=mutex_get=1; //信号量[内核对象]
+semaphore empty=n; full=0;
+put(data) {
+    // 空1;
+    wait(mutex_put);
+    put data to buff[rear];
+    rear=mod(rear+1, n);
+    // 空2;
+    signal(full);
+}
+get(data) {
+    // 空3;
+    // 空4;
+    get data from buff[front];
+    front=mod(front+1, n);
+    signal(mutext_get);
+    signal(empty);
+}
+```
 
-   > 1.互斥的wait(mutex)和signal(mutex)必须成对地出现；
-   >
-   > 2.对资源信号量empty和full的wait和signal操作，同样需要成对地出现，但它们分别处于不同的程序中。
-   >
-   > 3.每个程序中的多个wait操作顺序不能颠倒。应先执行对资源信号量的wait操作，然后再执行对互斥信号量的wait操作，否则可能引起进程死锁。
+> 1.互斥的wait(mutex)和signal(mutex)必须成对地出现；
+>
+> 2.对资源信号量empty和full的wait和signal操作，同样需要成对地出现，但它们分别处于不同的程序中。
+>
+> 3.每个程序中的多个wait操作顺序不能颠倒。应先执行对资源信号量的wait操作，然后再执行对互斥信号量的wait操作，否则可能引起进程死锁。
 
-   > - 空缓冲区不为满，生产者才能将生产的数据放入缓冲区中。
-   >
-   > - 满缓冲区不为空，消费者才能从缓冲区中取数据。
-   > - 为了保证进程同步，生产者与消费者不可以同时访问缓冲区。
+> - 空缓冲区不为满，生产者才能将生产的数据放入缓冲区中。
+> - 满缓冲区不为空，消费者才能从缓冲区中取数据。
+> - 为了保证进程同步，生产者与消费者不可以同时访问缓冲区。
 
-   - ==wait(empty)==
-   - ==signal(mutex_put)==
-   - ==wait(full)==
-   - ==wait(mutex_get)==
+- ==wait(empty)==
+- ==signal(mutex_put)==
+- ==wait(full)==
+- ==wait(mutex_get)==
 
 9. 某理发馆有2个理发师和6个供顾客等待的座位。顾客到达理发馆时，若有空座位，则到取号机上领取一个唯一号，等待叫号。取号机每次仅允许一位顾客使用，get_ticket()返回顾客取到的号，put_ticket()返回理发师待服务的号。当理发师空闲时，通过叫号选取一位顾客，并为其理发。请为顾客和理发师的活动过程描述算法填充合适的语句：
 
@@ -746,11 +741,11 @@ icon: b fa-simplybuilt
    - ==6==
    - ==1==
    - ==0==
-   - ==wait(seats)==  // 等待座位减少 1
-   - ==signal(customer)==  // 顾客加 1
-   - ==signal(seats)==  // 等待座位加 1
-   - ==wait(customer)==  // 顾客减少 1
-   - ==wait(mutex)==  // 等待取号
+   - ==wait(seats)== // 等待座位减少 1
+   - ==signal(customer)== // 顾客加 1
+   - ==signal(seats)== // 等待座位加 1
+   - ==wait(customer)== // 顾客减少 1
+   - ==wait(mutex)== // 等待取号
 
 ## Online
 
@@ -759,9 +754,9 @@ icon: b fa-simplybuilt
 [2018操作系统期末试题](https://blog.csdn.net/MarshaZheng/article/details/84639441?spm=1001.2014.3001.5502)
 
 有一个文件描述符为fd的已打开的文件，其内容是字节序列：49, 3, 4, 4, 4, 53, 57, 66, 4, 4, 4, 4, 49, 69, 101, 54, 49, 50, 51, 52。char buffer[10]初始化为全0，则依次全部执行完下面的系统调用：
-  1）lseek(fd, 4, SEEK_SET);    2）read(fd, buffer, 4);
-  3）lseek(fd, 3, SEEK_CUR);    4）read(fd, buffer+6, 3);
-  5）lseek(fd, -6, SEEK_END);    6）read(fd, buffer+4, 1);
+1）lseek(fd, 4, SEEK_SET); 2）read(fd, buffer, 4);
+3）lseek(fd, 3, SEEK_CUR); 4）read(fd, buffer+6, 3);
+5）lseek(fd, -6, SEEK_END); 6）read(fd, buffer+4, 1);
 后，buffer中的值是：4、53、57、66、69、0、66、4、4、0。
 其中系统调用lseek()中SEEK_SET为从文件头开始、SEEK_CUR为从当前位置开始、SEEK_END为从文件尾开始。
 
@@ -775,6 +770,6 @@ SEEK_END 将读写位置指向文件尾后再增加offset个位移量。
 
 **read参数**：int handle 为要读取的文件
 
-​     void *buf 为要将读取的内容保存的缓冲区
+​ void \*buf 为要将读取的内容保存的缓冲区
 
-​     int len  读取文件的长度
+​ int len 读取文件的长度

@@ -1,5 +1,5 @@
 ---
-icon: b fa-simplybuilt
+icon: simplybuilt
 category: 天天笔记
 date: 2021-10-24
 
@@ -7,6 +7,7 @@ tag:
   - OS
   - Kotlin
 ---
+
 # 协程
 
 > **协程，英文Coroutines，是一种比线程更加轻量级的存在。**正如一个进程可以拥有多个线程一样，一个线程也可以拥有多个协程。
@@ -75,7 +76,7 @@ class Producer extends Thread {
 
 	private static final int MAX_QUEUE_SIZE = 5;
 	private final Queue sharedQueue;
-    
+
 	public Producer(Queue sharedQueue) {
 		super();
 		this.sharedQueue = sharedQueue;
@@ -94,7 +95,7 @@ class Producer extends Thread {
 						e.printStackTrace();
 					}
 				}
-                
+
 				sharedQueue.add(i);
 				System.out.println("进行生产 : " + i);
 				sharedQueue.notify();
@@ -205,7 +206,7 @@ Kotlin 的协程，核心在于其内部新定义实现的*单例* 子类 `Conti
 
 大致步骤如下：
 
-1. 对各挂起函数 ( `suspend` 修饰 ) 进行 `CPS转换` ( `Continuation-Passing-Style Transformation` ) 
+1. 对各挂起函数 ( `suspend` 修饰 ) 进行 `CPS转换` ( `Continuation-Passing-Style Transformation` )
 
 2. 为 continuation 参数赋值，如果该值为 `ContinuationImpl` 类型，则延用该类，否则调用定义的子类 `ContinuationImpl` 进行包装 ( 一般只要在初次赋值包装 )。
 3. 进入 `whe(continuation.label){ x -> {}}` 状态机判断，更新状态标记 `label` 并调用**IO线程**执行挂起函数体，其中挂起函数 `withContext(Dispatchers.IO){ x }` 的调用将直接返回 **挂起状态码**，状态机状态机检测到该值后，将响应挂起函数的回调。

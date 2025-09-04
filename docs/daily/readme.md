@@ -1,4 +1,5 @@
 ---
+date: 2022-01-20
 title: 天天笔记
 icon: 📔
 category: 天天笔记
@@ -6,9 +7,10 @@ star: true
 index: false
 ---
 
-<AutoCatalog />
+<Catalog />
 
 ::: details deprecated
+
 ## 目录
 
 ### [Ubuntu](Ubuntu.md)
@@ -119,7 +121,7 @@ index: false
 
 ### [Runtime](runtime.md)
 
->2022.01.22
+> 2022.01.22
 
 ### [Docker - Docker Desktop(WSL2) 修改镜像等文件存储位置](docker-desktop-wsl2-change-dir.md)
 
@@ -135,5 +137,4 @@ index: false
 
 ### [algolia 搜索](algolia.md)
 
-> 2022.
-:::
+> 2022. :::

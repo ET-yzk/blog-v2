@@ -1,4 +1,5 @@
 ---
+date: 2022-01-20
 title: 未知分类
 icon: 👻
 category: 未知分类
@@ -6,9 +7,10 @@ star: true
 index: false
 ---
 
-<AutoCatalog />
+<Catalog />
 
 ::: details deprecated
+
 ## 目录
 
 ### [GithubPage Init](github-page.md)
@@ -22,4 +24,4 @@ index: false
 ### [otherAPI](otherAPI.md)
 
 > 2022.01.13
-:::
+> :::

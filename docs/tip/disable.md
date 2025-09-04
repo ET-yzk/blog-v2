@@ -1,6 +1,7 @@
 ---
+date: 2022-01-20
 title: 组件禁用
-icon: s fa-tools
+icon: "material-symbols:disabled-by-default-rounded"
 category: 使用指南
 
 navbar: false

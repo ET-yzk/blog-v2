@@ -1,7 +1,7 @@
 ---
-icon: b fa-simplybuilt
+date: 2023-03-07
+icon: simplybuilt
 category: 天天笔记
-
 ---
 
 # 如何理解 Python 装饰器
@@ -24,7 +24,7 @@ def log(func):
 @log
 def test(p):
     print(test.__name__ + " param: " + p)
-    
+
 test("I'm a param")
 
 # ========================等价于==================================

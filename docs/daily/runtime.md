@@ -1,5 +1,5 @@
 ---
-icon: b fa-simplybuilt
+icon: simplybuilt
 category: 天天笔记
 date: 2022-01-22
 
@@ -17,9 +17,9 @@ tag:
 
 实际上编程语境中的 runtime 至少有三个含义，而目前的回答都只侧重讲了其中的某一个，所以看起来很令人困惑。这几个含义分别可以这样概括：
 
-1. 指「[程序运行的时候](https://en.wikipedia.org/wiki/Runtime_(program_lifecycle_phase))」，**即程序生命周期中的一个阶段**。例句：「*Rust 比 C 更容易将错误发现在编译时而非运行时。*」
-2. 指「[运行时库](https://en.wikipedia.org/wiki/Runtime_library)」，**即 glibc 这类原生语言的标准库**。例句：「*C 程序的 malloc 函数实现需要由运行时提供。*」
-3. 指「[运行时系统](https://en.wikipedia.org/wiki/Runtime_system)」，**即某门语言的宿主环境**。例句：「*Node.js 是一个 JavaScript 的运行时。*」
+1. 指「[程序运行的时候](<https://en.wikipedia.org/wiki/Runtime_(program_lifecycle_phase)>)」，**即程序生命周期中的一个阶段**。例句：「_Rust 比 C 更容易将错误发现在编译时而非运行时。_」
+2. 指「[运行时库](https://en.wikipedia.org/wiki/Runtime_library)」，**即 glibc 这类原生语言的标准库**。例句：「_C 程序的 malloc 函数实现需要由运行时提供。_」
+3. 指「[运行时系统](https://en.wikipedia.org/wiki/Runtime_system)」，**即某门语言的宿主环境**。例句：「_Node.js 是一个 JavaScript 的运行时。_」
 
 下面简单介绍一下个人的理解。
 
@@ -60,27 +60,17 @@ int main(void) { // 2
 
 - 负责内存分配的
 
-   
-
   ```
   stdlib.h
   ```
 
   ：直接通过
 
-   
-
   mmap
-
-   
 
   这类 OS 系统调用来分配内存是过于底层的，一般也需要有人帮你封装。分配内存的 malloc 虽然只是一个接受单个参数的函数，它的实现可远没有表面上的 API 那么简单，建议翻一翻
 
-   
-
   [@郭忠明](https://www.zhihu.com/people/bb0d908a66935400e75154587ae4a3fb)
-
-   
 
   老师的回答。
 

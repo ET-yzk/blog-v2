@@ -1,6 +1,10 @@
+---
+date: 2023-09-05
+---
+
 # 智能贪吃蛇
 
-::: normal-demo
+<iframe src="/game/ai-snake.html" width="140%" style="aspect-ratio: 17/12;"></iframe>
 
 ```html
 <!DOCTYPE html>
@@ -1758,5 +1762,3 @@
 </body>
 </html>
 ```
-
-:::

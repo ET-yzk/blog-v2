@@ -1,5 +1,5 @@
 ---
-icon: b fa-simplybuilt
+icon: simplybuilt
 category: 天天笔记
 date: 2022-03-13
 
@@ -30,4 +30,3 @@ def dfs(root):
     res = root.val
     dfs(root.)
 ```
-

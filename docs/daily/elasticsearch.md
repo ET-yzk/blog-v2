@@ -1,7 +1,7 @@
 ---
-icon: b fa-simplybuilt
+icon: simplybuilt
 category: 天天笔记
-date: 2025-04-18
+date: 2025-04-16
 ---
 
 # Docker 安装 elasticsearch

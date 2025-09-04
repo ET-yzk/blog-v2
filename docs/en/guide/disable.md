@@ -1,4 +1,5 @@
 ---
+date: 2022-01-20
 title: Component disabled
 icon: config
 category: Guide

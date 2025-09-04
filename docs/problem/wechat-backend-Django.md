@@ -1,5 +1,5 @@
 ---
-icon: b fa-simplybuilt
+icon: simplybuilt
 category: 踩坑指南
 date: 2021-10-20
 
@@ -22,7 +22,7 @@ pip install virtualenv
 virtualenv [虚拟环境名称-也是目录名称]
 
 # 3.启动环境
-source [创建的目录]/bin/activate 
+source [创建的目录]/bin/activate
 
 # 4.退出
 deactivate
@@ -39,8 +39,6 @@ virtualenv --no-site-packages [虚拟环境名称]
 ```bash
 virtualenv [虚拟环境名称] --python=/usr/local/python3/bin/python3.7
 ```
-
-
 
 如果没有启动虚拟环境，系统也安装了pip工具，那么套件将被安装在系统环境中，为了避免发生此事，可以在~/.bashrc文件中加上：
 
@@ -69,7 +67,7 @@ Virtaulenvwrapper是virtualenv的扩展包，用于更方便管理虚拟环境�
 1、运行
 
 ```bash
-pip install virtualenvwrapper  
+pip install virtualenvwrapper
 ```
 
 2、创建目录用来存放虚拟环境
@@ -110,6 +108,5 @@ source ~/.bashrc
 
 ```bash
 # 修复pip
-curl https://bootstrap.pypa.io/get-pip.py | python 
+curl https://bootstrap.pypa.io/get-pip.py | python
 ```
-

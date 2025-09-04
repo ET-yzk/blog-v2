@@ -1,11 +1,12 @@
 ---
-icon: b fa-simplybuilt
+icon: simplybuilt
 category: 课程复习
 date: 2022-02-22
 
 tag:
   - 数据库
 ---
+
 # 数据库复习
 
 ## 事务特性（ACID）

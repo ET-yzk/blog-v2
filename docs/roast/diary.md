@@ -3,7 +3,8 @@ title: 《真的是日记》
 icon: 🌸
 category: 小吐槽
 index: false
-sidebar: false
+watermark:
+  movable: true
 ---
 
 ### `一些特别的符号` 🔎 🔍
@@ -12,13 +13,23 @@ sidebar: false
 
 ---
 
+### `2024.09.09 杭州 🌤️` 😁
+
+天哪，我的研究生生活已经过去了一年了，没想到再次在此记录已是现在。。。
+
+这两天在重新更新这个小破站，起因是 YY🐷 在学习的过程中检索到了一位[大佬的网站 :globe_with_meridians:](https://www.jingege.wang/)，里面记录了作者学习的点点滴滴，以及他和女友的各种狗粮哈哈哈，YY🐷 表示她也好想自己拥有一个，一瞬间让我重拾起了冲动，回到了这里。
+
+（哈哈，和 YY🐷 的故事开始于 2024.01.28❤️，下回再好好说说~）
+
+---
+
 ### `2023.09.17 杭州 🌞` 🤔
 
 还是不得不感叹呐，时间真的过得好块。从开完第一次的组会起，就正式成为研究生了，碌碌无为了几个月，也算是去了一些地方，心心念念的海边也算是见到了，该说的话也都说了，对于过往已是没有太多遗憾，可是未来啊，还在等着我去争取。我说，研究生发的补助省省够我一个人的生活费了；你说，这已经该是大人啦。一瞬间的恍惚，五味杂陈，嘴上总是在说大学毕业了，就该真正独立了，得自己养活自己了，可当你发现你真的好像暂时具备了这个可能的时候，迎来的却没有轻松。
 
-
-
 我相信，明天，将会是崭新的一天。
+
+---
 
 ### `2023.04.29 杭州 🌦️` 🫥
 
@@ -171,7 +182,7 @@ at async file:///pathto/node_modules/@vuepress/utils/dist/index.js:106:20`
 
 通过 **npx vp-update** 更新，这是迁移后的终端版本更新提示：
 
-::: details 更新ti'shi
+::: details 更新提示
 ```bash
 vuepress-theme-hope:  ⚠ comment is deprecated in themeConfig, please use "plugins.comment" instead.
 vuepress-theme-hope:  ⚠ git is deprecated in themeConfig, please use "plugins.git" instead.
@@ -209,4 +220,3 @@ vuepress-plugin-md-enhance:  ✖ "enableAll" is removed and no longer supported
 另外，博客上的东西是有点乱糟糟的，得 ⚠️ 借鉴一下大佬们的改一改……
 
 还有，博客上的 ✅ 搜索功能还是空有 UI，没有功能的来着……
-

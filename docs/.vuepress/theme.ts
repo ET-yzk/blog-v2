@@ -8,17 +8,19 @@ export default hopeTheme({
   logoDark: "/logo-darkmode.png",
 
   author: {
-    name: "kfkfka zkye",
-    url: "https://blog.yzketx.online/"
+    name: "kfkfka🍀zkye",
+    url: "https://blog.yzketx.online/",
   },
+
+  favicon: "/favicon.ico",
 
   hostname: "https://blog.yzketx.online/",
 
-  docsDir: "docs",  // 文档目录
-  docsBranch: "v2",
+  docsDir: "docs", // 文档目录
+  docsBranch: "master",
 
-  repo: "https://github.com/ET-yzk/ET-yzk.github.io",
-  repoDisplay: false,
+  repo: "https://github.com/ET-yzk/blog-v2",
+  repoDisplay: true,
 
   themeColor: false,
   darkmode: "switch",
@@ -30,7 +32,7 @@ export default hopeTheme({
       sidebar: zhSidebarConfig,
 
       footer: "At four o'clock in the morning, I saw Begonia flowers awake. ❀",
-      copyright: 'Copyright © 2021-PRESENT zkye | <a href="/LICENSE">MIT License</a>',
+      copyright: 'Copyright © 2021-至今 kfkfka | <a href="/LICENSE">MIT License</a> 🌻',
 
       blog: {
         intro: "/intro/",
@@ -51,30 +53,27 @@ export default hopeTheme({
       navbar: enNavbarConfig,
       sidebar: enSidebarConfig,
 
-      footer:
-        'Theme by <a href="https://theme-hope.vuejs.press">vuepress-theme-hope</a>',
-      copyright: 'Copyright © 2021-PRESRENT kfkfka | <a href="/LICENSE">MIT License</a>',
+        footer:
+          'Theme by <a href="https://theme-hope.vuejs.press">vuepress-theme-hope</a> ❀',
+        copyright:
+          'Copyright © 2021-PRESRENT kfkfka | <a href="/LICENSE">MIT License</a> 🌻',
 
       blog: {
-        intro: "/en/intro/",
-        description: "π",
-        medias: {
-          // Zhihu: "https://zhihu.com",
-          // Baidu: "https://baidu.com",
-          // Email: "mailto:yzket@foxmail.com",
-          Github: "https://github.com/ET-yzk",
-          Gmail: "mailto:yzketx@gmail.com",
-        },
-        // articlePerPage: 6,
+          intro: "/en/intro/",
+          description: "π",
+          medias: {
+              // Zhihu: "https://zhihu.com",
+              // Baidu: "https://baidu.com",
+              // Email: "mailto:yzket@foxmail.com",
+              Github: "https://github.com/ET-yzk",
+              Gmail: "mailto:yzketx@gmail.com",
+          },
+          // articlePerPage: 6,
       },
     },
   },
 
-  // iconPrefix: "fa", // 已弃用，移动到 plugins.icon.prefix
-  // editLinks: false,  // 是否显示编辑此页面
-
   displayFooter: true,
-
   copyright: 'Copyright © 2021-present zkye | <a href="https://blog.yzketx.online/LICENSE">MIT License</a>',
 
   markdown: {
@@ -83,6 +82,7 @@ export default hopeTheme({
     codeTabs: true,
     footnote: true,
     figure: true,
+    imgLazyload: true,
     imgMark: true,
     imgSize: true,
     math: true,
@@ -98,12 +98,15 @@ export default hopeTheme({
     preview: true,
     flowchart: true,
     demo: true,
+    highlighter: { // https://theme-hope.vuejs.press/zh/guide/markdown/code/fence.html
+      type: "shiki", // or "prismjs"
+
+      // shiki 或 prismjs 选项
+      // ...
+    },
   },
 
   plugins: {
-    icon: {
-      prefix: "fa",
-    },
 
     blog: {
       excerptLength: 24,
@@ -111,6 +114,14 @@ export default hopeTheme({
 
     // 搜索 https://theme-hope.vuejs.press/zh/guide/feature/search.html#使用-vuepress-plugin-slimsearch
     slimsearch: true,
+
+    // https://theme-hope.vuejs.press/zh/guide/feature/watermark.html
+    watermark: {
+      enabled: false,
+      watermarkOptions: {
+        movable: true,
+      },
+    },
 
     comment: {
       // 基于三方服务及服务器，普通用户友好
@@ -123,7 +134,7 @@ export default hopeTheme({
         '//unpkg.com/@waline/emojis@1.2.0/alus',
         '//unpkg.com/@waline/emojis@1.2.0/bilibili',
         '//unpkg.com/@waline/emojis@1.2.0/tw-emoji'
-      ]
+      ],
 
       // 基于 Github Discussion，须 Github 账号
       // provider: "Giscus",
@@ -155,6 +166,8 @@ export default hopeTheme({
 
     copyright: true,
   },
+  // 在开发模式下启用热重载，加载 git 的编辑记录
+  hotReload: true,
 
   encrypt: {
     admin: "yzkext",
@@ -162,17 +175,17 @@ export default hopeTheme({
       "/interview/me": "yzkyzk",
       "/en/guide/encrypt": "yzken",
       "/tip/encrypt": "yzktip",
-      "/course/操作系统练习": "czxtlx",
+      "/course/Operating-System-Practice": "czxtlx",
       "/paprikayi/": "paprika",
       "/roast/diary": "yzkroast",
       "/roast/todo-list": "yzktodo",
-    }
-  }
+    },
+  },
 },
 {
   check: true,
-  compact:true,
-  custom :false,
-  debug: false
+  compact: true,
+  custom: false,
+  debug: false,
 }
 );

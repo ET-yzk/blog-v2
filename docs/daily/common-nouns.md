@@ -1,5 +1,6 @@
 ---
-icon: b fa-simplybuilt
+date: 2023-03-07
+icon: simplybuilt
 category: 天天笔记
 
 tag:
@@ -16,6 +17,4 @@ tag:
 
 4. `iterator` **['it reit ]** 迭代器
 
-4. 
-
-   
+5.

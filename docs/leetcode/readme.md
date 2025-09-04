@@ -1,17 +1,12 @@
 ---
-title: 算法
-icon: ✨
-category: 算法
+date: 2022-01-20
+title: 力扣刷题
+icon: "simple-icons:leetcode"
+category: 力扣刷题
 star: true
 index: false
 ---
 
-<AutoCatalog />
+<Catalog />
 
-::: details deprecated
-## 目录
-
-Coming soon…
-
-leetcode 160
-:::
+TODO 写开篇

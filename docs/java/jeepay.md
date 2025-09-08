@@ -93,7 +93,7 @@ date: 2025-04-18
 
 7. 最终效果：
 
-    <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905011936340.png" alt="jeepay服务占用" style="zoom: 33%;" />
+    <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905011936340.png" alt="jeepay 服务占用" style="zoom: 33%;"/>
 
     ~~可以说在爆炸边缘疯狂试探~~
 
@@ -101,41 +101,41 @@ date: 2025-04-18
 
 1. 预填订单列表页（管理员）
 
-   <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905013645256.png" alt="预填订单列表页" />
+   ![预填订单列表页](https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905013645256.png)
 
 2. 预填订单详情页（管理员）
 
-   <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905013701251.png" alt="预填订单详情页" />
+   ![预填订单详情页](https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905013701251.png)
 
 3. 预填订单新建页（管理员）
 
-   <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905013743470.png" alt="预填订单新建页" />
+   ![预填订单新建页](https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905013743470.png)
 
 4. 预填订单功能项（管理员）
 
-   <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905013848679.png" alt="预填订单功能项" />
+   ![预填订单功能项](https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905013848679.png)
 
    生成交易二维码
 
-   <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905013908029.png" alt="生成交易二维码" />
+   ![生成交易二维码](https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905013908029.png)
 
    根据预填订单直接跳转对应的订单管理
 
-   <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905013924235.png" alt="跳转订单管理" />
+   ![跳转订单管理](https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905013924235.png)
 
 5. 预填订单公开页（公开）
 
-   <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905014115970.png" alt="预填订单公开页" />
+   ![预填订单公开页](https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905014115970.png)
 
 6. 预填订单下单页（公开）
 
-   <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905014145515.png" alt="订单详情" />
+   ![订单详情](https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905014145515.png)
 
-   <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905014156053.png" alt="订单备注" />
+   ![订单备注](https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905014156053.png)
 
-   <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905014228787.png" alt="选择支付方式" />
+   ![选择支付方式](https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905014228787.png)
 
-   <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905014239157.png" alt="进行支付" />
+   ![进行支付](https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905014239157.png)
 
 ## 有意思的点
 

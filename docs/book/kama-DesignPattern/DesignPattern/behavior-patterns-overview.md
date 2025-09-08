@@ -1,9 +1,10 @@
 ---
+date: 2020-01-01
 icon: lucide:section
 title: 概述
 author:
   name: yupi
-  url: https://github.com/yupi
+  url: https://github.com/liyupi
 ---
 
 # 行为型模式概述

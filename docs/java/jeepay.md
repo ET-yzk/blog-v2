@@ -6,10 +6,12 @@ date: 2025-04-18
 
 # Jeepay 聚合支付项目二次开发
 
-> 记一次耗时 7
-> 天的独立完成的聚合支付项目需求分析、调研、全栈开发、调试及部署过程，原项目详见[Jeepay](https://github.com/jeequan/jeepay)
+> 记一次耗时 7 天的独立完成的聚合支付项目需求分析、调研、全栈开发、调试及部署过程，原项目详见[Jeepay](https://github.com/jeequan/jeepay)
+> 
 > 二次开发项目见：[ET-yzk / jeepay](https://github.com/ET-yzk/jeepay)
+> 
 > 部署项目见：[https://merchant.yzketx.online](https://merchant.yzketx.online)
+> 
 > 主要修改点：[https://merchant.yzketx.online/prefilledOrder/publicPay](https://merchant.yzketx.online/prefilledOrder/publicPay)
 
 ## 需求背景
@@ -99,41 +101,41 @@ date: 2025-04-18
 
 1. 预填订单列表页（管理员）
 
-   ![image-20250905013645256](https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905013645256.png)
+   <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905013645256.png" alt="预填订单列表页" />
 
 2. 预填订单详情页（管理员）
 
-   ![image-20250905013701251](https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905013701251.png)
+   <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905013701251.png" alt="预填订单详情页" />
 
 3. 预填订单新建页（管理员）
 
-   ![image-20250905013743470](https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905013743470.png)
+   <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905013743470.png" alt="预填订单新建页" />
 
 4. 预填订单功能项（管理员）
 
-   ![image-20250905013848679](https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905013848679.png)
+   <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905013848679.png" alt="预填订单功能项" />
 
    生成交易二维码
 
-   ![image-20250905013908029](https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905013908029.png)
+   <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905013908029.png" alt="生成交易二维码" />
 
    根据预填订单直接跳转对应的订单管理
 
-   ![image-20250905013924235](https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905013924235.png)
+   <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905013924235.png" alt="跳转订单管理" />
 
 5. 预填订单公开页（公开）
 
-   ![image-20250905014115970](https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905014115970.png)
+   <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905014115970.png" alt="预填订单公开页" />
 
 6. 预填订单下单页（公开）
 
-   ![image-20250905014145515](https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905014145515.png)
+   <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905014145515.png" alt="订单详情" />
 
-   ![image-20250905014156053](https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905014156053.png)
+   <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905014156053.png" alt="订单备注" />
 
-   ![image-20250905014228787](https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905014228787.png)
+   <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905014228787.png" alt="选择支付方式" />
 
-   ![image-20250905014239157](https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905014239157.png)
+   <img src="https://raw.githubusercontent.com/ET-yzk/picgo/blog/image-20250905014239157.png" alt="进行支付" />
 
 ## 有意思的点
 

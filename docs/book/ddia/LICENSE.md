@@ -1,6 +1,9 @@
 ---
 date: 2022-01-20
 title: 开源协议
+author:
+  - name: Martin Kleppmann(著)
+  - name: 冯若航(译)
 icon: "clarity:license-solid"
 ---
 

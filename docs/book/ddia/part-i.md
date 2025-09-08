@@ -1,7 +1,9 @@
 ---
 date: 2022-01-20
 article: false
-author: Martin Kleppmann 原著 && 冯若航 译著
+author:
+  - name: Martin Kleppmann(著)
+  - name: 冯若航(译)
 icon: "mdi:number-one-circle"
 ---
 

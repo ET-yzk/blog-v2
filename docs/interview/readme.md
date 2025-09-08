@@ -8,12 +8,3 @@ index: false
 ---
 
 <Catalog />
-
-::: details deprecated
-
-## 目录
-
-### [A&Q](aq.md)
-
-> 2022.01.13
-> :::

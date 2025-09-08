@@ -15,8 +15,13 @@ export const zhNavbarConfig = navbar([
         icon: "clarity:data-cluster-solid-alerted",
       },
       {
+        text: "《设计模式-卡码网》",
+        link: "kama-DesignPattern/",
+        icon: "ic:baseline-design-services",
+      },
+      {
         text: "《阿里工程师的自我修养》",
-        link: "cxydzwxy",
+        link: "The_Self-Cultivation_of_an_Alibaba_Engineer",
         icon: "material-symbols:computer-rounded",
       },
     ],
